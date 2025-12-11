@@ -5,10 +5,6 @@ import { useState } from "react";
 import { motion } from "framer-motion"
 
 const Navbar = () => {
-  const [hovered, setHovered] = useState<boolean>(false);
-  const defaultColor: string = 'black';
-  const hoverColor: string = '#120374';
-
   return (
     <nav className="w-screen h-16 flex justify-between pl-6 pr-8 items-center">
       <Image

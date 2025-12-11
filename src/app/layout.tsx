@@ -15,16 +15,20 @@ const crimsonPro = Crimson_Pro({
   variable: '--font-crimson',
 })
 
+export const metadata = {
+  title: 'Alpha Kappa Psi',
+  description: 'Professional business fraternity at the University of Florida',
+  icons: {
+    icon: '/akp_emblem.png',
+  },
+}
+
 const Layout = ({children}: Readonly<{children: React.ReactNode}>) => {
   return (
     <html className={`${libreBaskerville.variable} ${crimsonPro.variable}`} lang='en'>
-      <head>
-        <title>Alpha Kappa Psi</title>
-        <link rel='icon' type="image/x-icon" href='akp_emblem.png'/>
-      </head>
       <body className="bg-cream w-screen h-screen">
         <Navbar/>
-        {children}
+        <main>{children}</main>
       </body>
     </html>
   )
