@@ -1,7 +1,7 @@
 import React from "react";
 import { Libre_Baskerville, Crimson_Pro } from 'next/font/google'
 import "./globals.css"
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
