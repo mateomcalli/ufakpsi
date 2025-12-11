@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+.red {
+  @apply border-1 border-red-500
+}
+
+.green {
+  @apply border-1 border-green-500
+}
+
+.blue {
+  @apply border-1 border-blue-500
+}
+
+@theme {
+  --font-libre: 'Libre Baskerville', sans-serif;
+  --font-crimson: 'Crimson Pro', sans-serif;
+  --color-cream: #FCF6EA;
+  --color-dblue: #120374;
+  --color-lblue: #5674A1;
+}
