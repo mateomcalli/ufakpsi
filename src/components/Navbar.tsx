@@ -1,31 +1,47 @@
 "use client"
 
-import Image from "next/image"
-import { useState } from "react";
-import { motion } from "framer-motion"
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
+  const variants = {
+    not_active: { width: '0%' },
+    active: { width: '100%' }
+  }
+
+  // could use polish; underline appears w/o being clickable
+  const AnimatedNavLink = (props: { buttonName: string; }) => {
+    return (
+      <motion.div 
+        initial='not_active'
+        whileHover='active'
+        className="w-fit"
+      >
+        <Link className='text-xl font-crimson' href={`/${props.buttonName.toLowerCase().replace(/ /g, "_")}`}>{props.buttonName}</Link>
+        <motion.div 
+          className='bg-black h-0.5'
+          variants={variants}
+          transition={{ duration: 0.3 }}
+        />
+      </motion.div>
+    )
+  }
+
   return (
-    <nav className="w-screen h-16 flex justify-between pl-6 pr-8 items-center">
-      <Image
-        className=""
-        alt='AKPsi logo'
-        src='akp_nobg.svg'
-        width={100}
-        height={100}
-      />
-      <p className='text-xl font-crimson'>
-        Recruitment
-      </p>
-      <p className='text-xl font-crimson'>
-        Brotherhood
-      </p>
-      <p className='text-xl font-crimson'>
-        Philanthropy
-      </p>
-      <p className='text-xl font-crimson'>
-        All Brothers
-      </p>
+    <nav className="bg-cream w-screen top-0 h-16 flex justify-between pl-[30px] pr-8 items-center sticky">
+      <Link href='/'>
+        <Image
+          alt='AKPsi logo'
+          src='akp_nobg.svg'
+          width={100}
+          height={100}
+        />
+      </Link>
+      <AnimatedNavLink buttonName='Recruitment'/>
+      <AnimatedNavLink buttonName='Brotherhood'/>
+      <AnimatedNavLink buttonName='Service'/>
+      <AnimatedNavLink buttonName='All Brothers'/>
     </nav>
   );
 };

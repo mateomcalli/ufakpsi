@@ -12,6 +12,10 @@
   @apply border-1 border-blue-500
 }
 
+.h-screen-minus-nav {
+  height: calc(100vh - 4rem)
+}
+
 @theme {
   --font-libre: 'Libre Baskerville', sans-serif;
   --font-crimson: 'Crimson Pro', sans-serif;
