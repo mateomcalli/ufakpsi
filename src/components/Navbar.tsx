@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const Navbar = () => {
-  const variants = {
+  const variants : Variants = {
     not_active: { width: '0%' },
     active: { width: '100%' }
-  }
+  };
 
   // could use polish; underline appears w/o being clickable
   const AnimatedNavLink = (props: { buttonName: string; }) => {
@@ -26,14 +26,14 @@ const Navbar = () => {
         />
       </motion.div>
     )
-  }
+  };
 
   return (
-    <nav className="bg-cream w-screen top-0 h-16 flex justify-between pl-[30px] pr-8 items-center sticky">
+    <nav className="fixed z-10 bg-cream w-screen top-0 h-16 flex justify-between pl-[30px] pr-8 items-center">
       <Link href='/'>
         <Image
           alt='AKPsi logo'
-          src='akp_nobg.svg'
+          src='/akp_nobg.svg'
           width={100}
           height={100}
         />

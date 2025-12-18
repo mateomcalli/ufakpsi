@@ -11,6 +11,6 @@ const Brotherhood = () => {
     <>
     </>
   )
-}
+};
 
 export default Brotherhood
