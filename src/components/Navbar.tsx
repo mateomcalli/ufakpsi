@@ -2,9 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, Variants } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { motion, Variants, useScroll } from 'framer-motion';
 
 const Navbar = () => {
+  const { scrollYProgress } = useScroll();
+  const [showBorder, setShowBorder] = useState<boolean>(false);
+
+  useEffect(() => {
+    scrollYProgress.on('change', (latest) => {
+      // console.log(scrollYProgress)
+      setShowBorder(latest > 0.92)
+    })
+  }, [scrollYProgress])
+
   const variants : Variants = {
     not_active: { width: '0%' },
     active: { width: '100%' }
@@ -29,11 +40,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed z-10 bg-cream w-screen top-0 h-16 flex justify-between pl-[30px] pr-8 items-center">
+    <nav className='bg-cream shadow-xl fixed z-20 w-screen top-0 h-[62px] flex justify-between pl-[30px] pr-8 items-center'>
       <Link href='/'>
         <Image
           alt='AKPsi logo'
-          src='/akp_nobg.svg'
+          src='/akp_letters.svg'
           width={100}
           height={100}
         />

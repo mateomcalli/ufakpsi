@@ -26,7 +26,7 @@ export const metadata = {
 const Layout = ({children}: Readonly<{children: React.ReactNode}>) => {
   return (
     <html className={`${libreBaskerville.variable} ${crimsonPro.variable}`} lang='en'>
-      <body className="bg-cream w-screen h-screen">
+      <body className="bg-cream w-screen h-screen relative">
         <Navbar/>
         <main>{children}</main>
       </body>
