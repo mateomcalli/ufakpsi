@@ -23,48 +23,67 @@ const Landing = () => {
   ]
 
   const subtitles : Array<string> = [
-    'professional development',
-    'brotherhood',
-    'service',
-    'more than a business fraternity'
+    'professional development,',
+    'brotherhood,',
+    'service,',
+    'more than a business fraternity.'
   ]
 
   return (
     <section className='sticky top-16 flex flex-col gap-4 px-8 w-screen h-screen'>
 
-      <div className='relative w-full shrink-0 h-140 rounded-2xl'>
+      <div className='relative w-full shrink-0 h-140'>
         <AnimatePresence>
           <motion.div 
             key={imageState}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
           >
             <Image
-              className="object-cover rounded-b-2xl"
+              className="rounded-b-2xl object-cover"
               alt='Executive Board'
               src={images[imageState]}
               fill
             />
           </motion.div>
         </AnimatePresence>
-        <div className="absolute top-0 w-full h-1 bg-dblue"/>
       </div>
       
-      <div className='px-6 flex gap-16'>
-        <h1 className='font-crimson text-5xl'>
-          Alpha Kappa Psi is:
+      <div className='relative px-6 flex gap-2'>
+        <h1 className='font-crimson text-2xl md:text-3xl lg:text-4xl'>
+          Alpha Kappa Psi is
         </h1>
-        <div className='font-crimson italic text-dblue text-3xl self-end'>
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 2 }}
-          >
-            {subtitles[imageState]}
-          </motion.h2>
+        <div className='relative font-crimson italic text-dblue text-2xl md:text-3xl lg:text-4xl self-end'>
+          <AnimatePresence mode="wait">
+            <motion.h2
+              key={imageState}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className=""
+            >
+              {subtitles[imageState]}
+            </motion.h2>
+          </AnimatePresence>
         </div>
+        <svg className="self-end ms-auto w-8 h-8 -rotate-90" viewBox="0 0 100 100">
+          <motion.circle
+            key={imageState}
+            cx="50"
+            cy="50"
+            r="30"
+            fill="none"
+            stroke="#120374"
+            strokeWidth="8"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 3, ease: "linear" }}
+          />
+        </svg>
       </div>
 
     </section>

@@ -2,6 +2,7 @@ import React from "react";
 import { Libre_Baskerville, Crimson_Pro } from 'next/font/google'
 import "./globals.css"
 import Navbar from "../components/Navbar";
+import BreakpointIndicator from '../components/dev/BreakpointIndicator'
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ const Layout = ({children}: Readonly<{children: React.ReactNode}>) => {
   return (
     <html className={`${libreBaskerville.variable} ${crimsonPro.variable}`} lang='en'>
       <body className="bg-cream w-screen h-screen relative">
+        <BreakpointIndicator/>
         <Navbar/>
         <main>{children}</main>
       </body>
