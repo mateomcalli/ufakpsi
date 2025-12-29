@@ -32,7 +32,7 @@ const Landing = () => {
   return (
     <section className='sticky top-16 flex flex-col gap-4 px-8 w-screen h-screen'>
 
-      <div className='relative w-full shrink-0 h-140'>
+      <div className='relative w-full shrink-0 h-[75vh]'>
         <AnimatePresence>
           <motion.div 
             key={imageState}
@@ -63,7 +63,6 @@ const Landing = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className=""
             >
               {subtitles[imageState]}
             </motion.h2>
@@ -85,7 +84,6 @@ const Landing = () => {
           />
         </svg>
       </div>
-
     </section>
   )
 

@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className='bg-cream shadow-xl fixed z-20 w-screen top-0 h-[62px] flex justify-between px-8 items-center'>
+    <nav className='red bg-cream shadow-xl fixed z-20 w-screen top-0 h-[62px] flex justify-between pl-[30px] pr-8 items-center'>
       <Link href='/'>
         <Image
           alt='AKPsi logo'
