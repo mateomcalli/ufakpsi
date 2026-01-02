@@ -1,7 +1,6 @@
-import React from "react";
-import { Libre_Baskerville, Crimson_Pro } from 'next/font/google'
 import "./globals.css"
-import Navbar from "../components/Navbar";
+import { Libre_Baskerville, Crimson_Pro } from 'next/font/google'
+import Navbar from "../components/homepage/navbar/Navbar";
 import BreakpointIndicator from '../components/dev/BreakpointIndicator'
 
 const libreBaskerville = Libre_Baskerville({
@@ -16,15 +15,8 @@ const crimsonPro = Crimson_Pro({
   variable: '--font-crimson',
 })
 
-export const metadata = {
-  title: 'Alpha Kappa Psi',
-  description: 'Professional business fraternity at the University of Florida',
-  icons: {
-    icon: '/akp_emblem.png',
-  },
-}
-
 const Layout = ({children}: Readonly<{children: React.ReactNode}>) => {
+
   return (
     <html className={`${libreBaskerville.variable} ${crimsonPro.variable}`} lang='en'>
       <body className="bg-cream w-screen h-screen relative">

@@ -52,7 +52,7 @@ const Landing = () => {
       </div>
       
       <div className='relative px-6 flex gap-2'>
-        <h1 className='font-crimson text-2xl md:text-3xl lg:text-4xl'>
+        <h1 className='font-crimson text-nowrap text-2xl md:text-3xl lg:text-4xl'>
           Alpha Kappa Psi is
         </h1>
         <div className='relative font-crimson italic text-dblue text-2xl md:text-3xl lg:text-4xl self-end'>
@@ -68,7 +68,7 @@ const Landing = () => {
             </motion.h2>
           </AnimatePresence>
         </div>
-        <svg className="self-end ms-auto w-8 h-8 -rotate-90" viewBox="0 0 100 100">
+        <svg className="shrink-0 ms-auto w-8 h-8 -rotate-90" viewBox="0 0 100 100">
           <motion.circle
             key={imageState}
             cx="50"
