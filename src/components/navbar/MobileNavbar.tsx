@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion, Variants } from 'framer-motion'
 import { useState } from "react"
 import AnimatedBurger from "./AnimatedBurger"
+import AnimatedNavLink from "./AnimatedNavLink"
 
 const MobileNavbar = () => {
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false)
@@ -32,7 +33,7 @@ const MobileNavbar = () => {
         >
           <AnimatedBurger isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen}/>
           <motion.div 
-            className="hover:cursor-auto absolute z-10 h-screen-minus-nav top-16 -right-12 border-l border-l-black bg-cream w-1/2"
+            className="pl-4 pt-2 flex flex-col gap-4 hover:cursor-auto absolute z-10 h-screen top-16 -right-12 border-l border-l-black bg-cream w-1/2"
             variants={variants}
             transition={{
               type: "spring",
@@ -40,6 +41,10 @@ const MobileNavbar = () => {
               mass: 0.1
             }}
           >
+            <AnimatedNavLink buttonName='Recruitment'/>
+            <AnimatedNavLink buttonName='Brotherhood'/>
+            <AnimatedNavLink buttonName='Service'/>
+            <AnimatedNavLink buttonName='All Brothers'/>
           </motion.div>
         </motion.div>
       </nav>
