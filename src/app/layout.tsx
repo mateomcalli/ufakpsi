@@ -1,7 +1,7 @@
 import "./globals.css"
 import { Libre_Baskerville, Crimson_Pro } from 'next/font/google'
 import Navbar from "../components/navbar/Navbar";
-import BreakpointIndicator from '../components/dev/BreakpointIndicator'
+import BreakpointIndicator from "../components/dev/BreakpointIndicator";
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
@@ -19,7 +19,7 @@ const Layout = ({children}: Readonly<{children: React.ReactNode}>) => {
 
   return (
     <html className={`${libreBaskerville.variable} ${crimsonPro.variable}`} lang='en'>
-      <body className="bg-cream w-screen h-screen relative">
+      <body className="bg-cream overflow-x-hidden">
         <BreakpointIndicator/>
         <Navbar/>
         <main>{children}</main>
