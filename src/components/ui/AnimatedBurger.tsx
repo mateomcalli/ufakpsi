@@ -2,12 +2,10 @@
 
 import { motion, Variants } from 'framer-motion'
 
-interface AnimatedBurgerProps {
-  isMenuOpen: boolean;
-  setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
-}
+// this component creates a hamburger menu icon 
+// that when clicked toggles the passed in state.
 
-const AnimatedBurger = ({ isMenuOpen, setMenuOpen } : AnimatedBurgerProps) => {
+const AnimatedBurger = (props: { isMenuOpen: boolean; setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>; }) => {
   const line1Variants : Variants = {
     open: {rotate: 45, translateY: 5},
     closed: {rotate: 0, translateX: 0}
@@ -19,11 +17,11 @@ const AnimatedBurger = ({ isMenuOpen, setMenuOpen } : AnimatedBurgerProps) => {
   }
 
   return (
-    <div onClick={() => setMenuOpen(!isMenuOpen)}>
+    <div onClick={() => props.setMenuOpen(!props.isMenuOpen)}>
       <svg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'>
         <motion.path
           variants={line1Variants}
-          animate={isMenuOpen ? 'open' : 'closed'}
+          animate={props.isMenuOpen ? 'open' : 'closed'}
           transition={{
             type: 'spring',
             bounce: 0,
@@ -37,7 +35,7 @@ const AnimatedBurger = ({ isMenuOpen, setMenuOpen } : AnimatedBurgerProps) => {
         />
         <motion.path
           variants={line2Variants}
-          animate={isMenuOpen ? 'open' : 'closed'}
+          animate={props.isMenuOpen ? 'open' : 'closed'}
           transition={{
             type: 'spring',
             bounce: 0,

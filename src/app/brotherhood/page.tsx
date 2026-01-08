@@ -1,3 +1,5 @@
+import BrotherhoodContent from './BrotherhoodContent'
+
 export const metadata = {
   title: 'Brotherhood',
   description: 'Our brotherhood, from social events to networking opportunities.',
@@ -7,10 +9,7 @@ export const metadata = {
 }
 
 const Brotherhood = () => {
-  return (
-    <>
-    </>
-  )
-};
+  return <BrotherhoodContent />
+}
 
 export default Brotherhood

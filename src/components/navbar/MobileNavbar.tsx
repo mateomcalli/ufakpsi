@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion, Variants } from 'framer-motion'
 import { useState } from "react"
-import AnimatedBurger from "./AnimatedBurger"
+import AnimatedBurger from "../ui/AnimatedBurger"
 import AnimatedNavLink from "./AnimatedNavLink"
 
 const MobileNavbar = () => {

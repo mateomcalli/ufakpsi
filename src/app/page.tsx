@@ -12,17 +12,17 @@ export const metadata = {
 const Home = () => {
 
   return (
-    <div className="pt-16 h-fit">
+    <div className="relative top-16 h-fit">
       <Landing/>
 
       <section className='relative bg-cream border-t rounded-t-[60px] border-t-gray-500 w-screen h-[200vh] z-10 shadow-[-5px_-20px_30px_-10px_rgba(0,0,0,0.3)]'>   
-        <div className='red p-8 flex flex-col gap-12 sm:gap-10'>
+        <div className='p-8 flex flex-col gap-12 sm:gap-10'>
           <h1 className="font-crimson self-center text-2xl">Who we are:</h1>
           <h2 className="font-crimson self-center text-center text-3xl sm:text-4xl"><i>"Shaping people, shaping business."</i></h2>
 
           <div className="flex flex-col md:flex-row justify-center w-full h-fit md:gap-16">
             <div className="md:w-160 items-center flex my-4">
-              <h3 className='text-center md:text-left font-crimson text-xl'>Founded in 1904, Alpha Kappa Psi has risen to become the number one professional <b>co-ed</b> business fraternity in the nation. With over 298,000 members at 219 different universities, our mission is clear: to develop our members into principled business leaders. With an extensive alumni network and professional resources all around the Heavener Business School and beyond, we foster growth, professional development, and lasting connections for members of <b>any major</b>.</h3>
+              <h3 className='text-center md:text-left font-crimson text-xl'>Founded in 1904, Alpha Kappa Psi has risen to become the number one professional <b>co-ed</b> business fraternity in the nation. With over 298,000 members at 219 different universities, our mission is clear: to develop our members into principled business leaders. With an extensive alumni network and resources all around the Heavener School of Business and beyond, we foster growth, professional development, and lasting connections for members of <b>any major</b>.</h3>
             </div>
 
             <div className="flex flex-col my-4 items-center">
@@ -34,6 +34,7 @@ const Home = () => {
               <h3 className="font-crimson text-xl">alumni</h3>
             </div>
           </div>
+          
           <CoreValues/>
         </div>
 
