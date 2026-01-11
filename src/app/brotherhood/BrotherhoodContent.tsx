@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import ExpandArrow from "@/src/components/ui/ExpandArrow";
-import TeamContent from "@/src/components/brotherhood/TeamContent";
+import TeamContent from "@/src/components/brotherhood/TeamCardContent";
 
 const BrotherhoodContent = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
@@ -38,6 +38,8 @@ const BrotherhoodContent = () => {
           caption="The President's Team is the..."
           imageString="/good3316.jpg" 
           border={true}
+          execName="Elizabeth Myers"
+          execTitle="Chapter President"
         />
 
         <TeamContent
@@ -45,6 +47,8 @@ const BrotherhoodContent = () => {
           caption="The EVP's Team is the..."
           imageString="/good3316.jpg"
           border={true}
+          execName="Justin Hall"
+          execTitle="Executive Vice President"
         />
 
         <TeamContent 
@@ -52,6 +56,8 @@ const BrotherhoodContent = () => {
           caption="The Finance Team is the..."
           imageString="/good3316.jpg"
           border={false}
+          execName="Brother Wadhwani"
+          execTitle="Vice President of Finance"
         />
         </motion.div>
       </div>

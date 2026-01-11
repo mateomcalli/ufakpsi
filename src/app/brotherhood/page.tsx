@@ -9,7 +9,7 @@ export const metadata = {
 }
 
 const Brotherhood = () => {
-  return <BrotherhoodContent />
+  return <BrotherhoodContent/>
 }
 
 export default Brotherhood
