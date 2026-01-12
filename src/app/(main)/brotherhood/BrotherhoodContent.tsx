@@ -13,7 +13,7 @@ const BrotherhoodContent = () => {
     <section className="flex flex-col gap-4 pt-8 px-8 top-16 h-fit relative">
       <div>
         <h1 className="font-crimson text-4xl px-8">Brotherhood at Alpha Kappa Psi</h1>
-        <h2 className="font-crimson text-2xl text-lblue px-8">leadership, growth, and community.</h2>
+        <h2 className="font-crimson text-2xl text-lblue px-8 italic">leadership, growth, and community.</h2>
       </div>
 
       <div className="relative w-full shrink-0 h-80">
