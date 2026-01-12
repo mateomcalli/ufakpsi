@@ -1,5 +1,5 @@
-import Landing from "../components/homepage/Landing"
-import CoreValues from "../components/homepage/CoreValues";
+import Landing from "../../components/homepage/Landing"
+import CoreValues from "../../components/homepage/CoreValues";
 
 export const metadata = {
   title: 'Alpha Kappa Psi',

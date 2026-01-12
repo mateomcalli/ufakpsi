@@ -1,7 +1,7 @@
-import "./globals.css"
+import "../globals.css"
 import { Libre_Baskerville, Crimson_Pro } from 'next/font/google'
-import Navbar from "../components/navbar/Navbar";
-import BreakpointIndicator from "../components/dev/BreakpointIndicator";
+import Navbar from "../../components/navbar/Navbar";
+import BreakpointIndicator from "../../components/dev/BreakpointIndicator";
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
