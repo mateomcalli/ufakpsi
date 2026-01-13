@@ -31,7 +31,7 @@ const Admin = async () => {
 
       </div>
       <div className="m-auto w-7xl h-160 bg-white border border-gray-300 rounded-xl">
-        <div className="red w-full h-full px-4 py-2">
+        <div className="w-full h-full px-4 py-2">
           {data!.map((brother, i)=> (
             <BrotherLi
               key={i}

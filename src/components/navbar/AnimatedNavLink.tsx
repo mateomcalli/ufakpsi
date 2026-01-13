@@ -16,7 +16,12 @@
       whileHover='active'
       className="w-fit"
     >
-      <Link className='text-xl font-crimson' href={`/${props.buttonName.toLowerCase().replace(/ /g, "_")}`}>{props.buttonName}</Link>
+      <Link 
+        className='text-xl font-crimson' 
+        href={`${props.buttonName === "Recruitment" ? "https://recruitment.ufakpsi.com" : '/' + props.buttonName.toLowerCase().replace(/ /g, "_")}`}
+      >
+        {props.buttonName}
+      </Link>
       <motion.div
         className='bg-black h-0.5'
         variants={variants}
