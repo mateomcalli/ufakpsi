@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import ExpandArrow from "@/src/components/ui/ExpandArrow";
-import TeamCardContent from "@/src/components/brotherhood/TeamCardContent";
+import TeamCardContent from "@/src/components/cards/TeamCardContent";
 
 const BrotherhoodContent = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);

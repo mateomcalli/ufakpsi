@@ -17,7 +17,7 @@ const Admin = async () => {
     college: string;
   }) => {
     return (
-      <div className="flex items-center h-10 w-full px-4 font-crimson text-xl hover:bg-gray-100 transition duration-300 ease-in-out rounded-xl gap-80">
+      <div className="flex justify-between text-nowrap items-center h-10 w-full px-4 font-crimson text-xl hover:bg-gray-100 transition duration-300 ease-in-out rounded-xl">
         <p>{props.first_name} {props.last_name}</p>
         <p>{props.major}</p>
         <p>{props.college}</p>
@@ -27,10 +27,17 @@ const Admin = async () => {
 
   return (
     <div className="red relative flex flex-col gap-16 pt-8 top-16">
-      <div className="m-auto w-7xl h-40 bg-white border border-gray-300 rounded-xl">
+      <div className="flex p-4 flex-col m-auto w-6xl h-40 bg-white border border-gray-300 rounded-xl">
+        <div className="flex gap-4">
+          <div className="flex items-center w-3/4 h-12 border border-gray-300 rounded-lg">
+            <p className="text-gray-500 font-crimson text-xl pl-4">Search for a brother...</p>
+          </div>
+          <div className="bg-[#248837] w-1/4 h-12 rounded-lg">
 
+          </div>
+        </div>
       </div>
-      <div className="m-auto w-7xl h-160 bg-white border border-gray-300 rounded-xl">
+      <div className="m-auto w-6xl h-160 bg-white border border-gray-300 rounded-xl">
         <div className="w-full h-full px-4 py-2">
           {data!.map((brother, i)=> (
             <BrotherLi
