@@ -17,6 +17,7 @@ const DesktopNavbar = () => {
       </Link>
       <AnimatedNavLink buttonName='Recruitment'/>
       <AnimatedNavLink buttonName='Brotherhood'/>
+      <AnimatedNavLink buttonName='Events'/>
       <AnimatedNavLink buttonName='Service'/>
       <AnimatedNavLink buttonName='All Brothers'/>
     </nav>

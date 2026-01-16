@@ -1,7 +1,7 @@
 import BrotherhoodContent from './BrotherhoodContent'
 
 export const metadata = {
-  title: 'Brotherhood',
+  title: 'Alpha Kappa Psi',
   description: 'Our brotherhood, from social events to networking opportunities.',
   icons: {
     icon: '/akp_emblem.png',

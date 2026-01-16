@@ -43,6 +43,7 @@ const MobileNavbar = () => {
           >
             <AnimatedNavLink buttonName='Recruitment'/>
             <AnimatedNavLink buttonName='Brotherhood'/>
+            <AnimatedNavLink buttonName='Events'/>
             <AnimatedNavLink buttonName='Service'/>
             <AnimatedNavLink buttonName='All Brothers'/>
           </motion.div>

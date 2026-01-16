@@ -17,6 +17,7 @@ const BrotherCard = (props: {
     }
     return pString;
   }
+  
   return (
     <a className="hover:cursor-pointer" href={props.linkedin} target="_blank">
       <div className="m-8 flex flex-col gap-1 p-3 w-72 h-100 border border-gray-400 rounded-lg hover:bg-dblue/20 transition-colors duration-300 ease-in-out">
