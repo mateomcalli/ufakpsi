@@ -1,14 +1,15 @@
 import createClient from "@/lib/supabase/server"
+import { redirect } from 'next/navigation'
 
 const Admin = async () => {
   const supabase = await createClient()
+
+  const { data: { session } } = await supabase.auth.getSession()
+  if (!session) redirect("/login")
+
   const { data, error } = await supabase.from('brothers').select()
 
   if (error != null) console.error(error);
-
-  data!.map(brother => (
-    console.log(brother)
-  ))
 
   const BrotherLi = (props: {
     first_name: string;
@@ -26,14 +27,14 @@ const Admin = async () => {
   }
 
   return (
-    <div className="red relative flex flex-col gap-16 pt-8 top-16">
+    <div className="relative flex flex-col gap-16 pt-8 top-16">
       <div className="flex p-4 flex-col m-auto w-6xl h-40 bg-white border border-gray-300 rounded-xl">
         <div className="flex gap-4">
           <div className="flex items-center w-3/4 h-12 border border-gray-300 rounded-lg">
             <p className="text-gray-500 font-crimson text-xl pl-4">Search for a brother...</p>
           </div>
           <div className="bg-[#248837] w-1/4 h-12 rounded-lg">
-
+            
           </div>
         </div>
       </div>

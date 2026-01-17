@@ -1,10 +1,9 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react';
-import { AnimatePresence, motion, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import Landing from "../../components/homepage/Landing"
 import CoreValues from "../../components/homepage/CoreValues";
-import NumberFlow from '@number-flow/react'
 
 const HomeContent = () => {
   const [showBody, setShowBody] = useState<boolean>(false);

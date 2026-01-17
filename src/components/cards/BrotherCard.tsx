@@ -10,17 +10,20 @@ const BrotherCard = (props: {
   linkedin : string;
 }) => {
   const positionsString = () => {
-    let pString : string = "";
-    for (let i : number = 0; i < props.positions.length; i++) {
-      pString += props.positions[i];
-      if (i + 1 != props.positions.length) pString += ", ";
+    if (props.positions != null) {
+      let pString : string = "";
+      for (let i : number = 0; i < props.positions.length; i++) {
+        pString += props.positions[i];
+        if (i + 1 != props.positions.length) pString += ", ";
+      }
+      return pString;
     }
-    return pString;
+    return 'NPH';
   }
   
   return (
-    <a className="hover:cursor-pointer" href={props.linkedin} target="_blank">
-      <div className="m-8 flex flex-col gap-1 p-3 w-72 h-100 border border-gray-400 rounded-lg hover:bg-dblue/20 transition-colors duration-300 ease-in-out">
+    <a className="hover:cursor-pointer w-fit h-fit block rounded-lg" href={props.linkedin} target="_blank">
+      <div className="flex flex-col gap-1 p-3 w-72 h-100 border border-gray-400 rounded-lg hover:bg-dblue/20 transition-colors duration-300 ease-in-out">
         <div className="relative shrink-0 rounded-lg w-full h-48">
           <Image
             alt="Executive Board Member Headshot"

@@ -20,7 +20,7 @@ const AllBrothers = async () => {
   ))
 
   return (
-    <section className="relative top-16">
+    <section className="relative top-16 flex">
       {data!.map((b, i) => (
         <BrotherCard
           key={i}
