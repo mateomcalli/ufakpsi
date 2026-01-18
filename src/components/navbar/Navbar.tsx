@@ -14,7 +14,7 @@ const Navbar = () => {
     setMounted(true)
   }, [])
 
-  if (!mounted) { return <MobileNavbar/> }
+  if (!mounted) { return <DesktopNavbar/> }
 
   return (
     <>{smOrSmaller ? <MobileNavbar/> : <DesktopNavbar/>}</>

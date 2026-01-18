@@ -10,4 +10,11 @@ attribute.
 
 - Investigate S3 as a potential CDN / look for CDNs in general
 
-- ...
+TODO:
+
+- set up form in admin panel to add brothers
+  - figure out ui/ux for that
+
+- do events page
+
+- 

@@ -1,0 +1,24 @@
+import Image from "next/image";
+
+const DBCard = (props: {
+  DBName : string;
+  DBImage : string;
+}) => {
+  return (
+    <a href={'/admin/' + props.DBName.toLowerCase().replace(/ /g, "_")} className="w-full h-full rounded-xl block">
+      <div className="flex flex-col gap-3 w-full h-full justify-between bg-white border border-gray-400 rounded-xl p-3">
+        <div className="relative rounded-xl h-full">
+          <Image
+            src={props.DBImage}
+            alt='Database image'
+            fill
+            className="object-cover rounded-xl"
+          />
+        </div>
+        <p className="text-center font-crimson text-3xl h-fit">{props.DBName}</p>
+      </div>
+    </a>
+  )
+}
+
+export default DBCard
