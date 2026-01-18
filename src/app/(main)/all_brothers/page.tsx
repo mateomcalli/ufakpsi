@@ -27,6 +27,7 @@ const AllBrothers = async () => {
           first_name={b.first_name}
           last_name={b.last_name}
           major={b.major}
+          headshot={b.headshot}
           college={b.college}
           grad_year={b.grad_year}
           positions={b.positions}

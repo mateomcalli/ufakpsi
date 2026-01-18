@@ -4,6 +4,7 @@ const BrotherCard = (props: {
   first_name : string; 
   last_name: string; 
   major : string; 
+  headshot : string;
   college : string; 
   grad_year : number; 
   positions : string[];
@@ -27,7 +28,7 @@ const BrotherCard = (props: {
         <div className="relative shrink-0 rounded-lg w-full h-48">
           <Image
             alt="Executive Board Member Headshot"
-            src="/good3316.jpg"
+            src={props.headshot}
             fill
             className="rounded-lg object-cover"
             />
