@@ -48,7 +48,7 @@ const Login = () => {
           </div>
           <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col w-full gap-2">
             <input onChange={handleChange} className='border border-gray-400 rounded-md h-8 pl-2 focus:outline-none' placeholder="Password" type="password"></input>
-            <button type='submit' className="w-full h-8 rounded-md  bg-[#2e9a40] border border-[#108a24] hover:cursor-pointer">Submit</button>
+            <button type='submit' className="w-full h-8 rounded-md  bg-[#2e9a40] hover:bg-[#60d87a] transition-colors duration-200 border border-[#108a24] hover:cursor-pointer">Submit</button>
           </form>
         </div>
         <p className="font-crimson w-90 text-center">If there are any issues with this login, please <a className='underline' href='mailto:mateo.mcallister@ufl.edu'>send me an email</a> or text me.</p>

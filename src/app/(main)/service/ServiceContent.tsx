@@ -12,7 +12,7 @@ const ServiceContent = () => {
     '/recruitment-photo.jpg',
   ]
 
-    const xlOrLarger = useMediaQuery('(min-width: 1280px')
+  const xlOrLarger = useMediaQuery('(min-width: 1280px')
 
   return (
     <>
