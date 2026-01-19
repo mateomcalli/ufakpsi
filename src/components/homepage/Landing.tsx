@@ -16,10 +16,10 @@ const Landing = () => {
   }, [])
 
   const images : Array<string> = [
-    '/good3316.jpg',
+    '/good3316.JPG',
     '/guac.jpg',
     '/bros.jpg',
-    '/pcfall25.jpg'
+    '/pcfall25.JPG'
   ]
 
   const subtitles : Array<string> = [
