@@ -36,7 +36,7 @@ const BrotherhoodContent = () => {
         <TeamCardContent 
           teamName="President's Team"
           caption="The President's Team is the..."
-          imageString="/good3316.jpg" 
+          imageString="/good3316.JPG" 
           border={true}
           execName="Elizabeth Myers"
           execTitle="Chapter President"
@@ -45,7 +45,7 @@ const BrotherhoodContent = () => {
         <TeamCardContent
           teamName="Executive Vice President's Team"
           caption="The EVP's Team is the..."
-          imageString="/good3316.jpg"
+          imageString="/good3316.JPG"
           border={true}
           execName="Justin Hall"
           execTitle="Executive Vice President"
@@ -54,7 +54,7 @@ const BrotherhoodContent = () => {
         <TeamCardContent
           teamName="Finance Team"
           caption="The Finance Team is the..."
-          imageString="/good3316.jpg"
+          imageString="/good3316.JPG"
           border={false}
           execName="Brother Wadhwani"
           execTitle="Vice President of Finance"
