@@ -34,7 +34,7 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       {
-        source: "/admin/:path*",
+        source: "/admin/teams",
         destination: "https://recruitment.ufakpsi.com",
         permanent: false,
       },
@@ -43,11 +43,6 @@ const nextConfig: NextConfig = {
         destination: "https://recruitment.ufakpsi.com",
         permanent: false,
       },
-      {
-        source: "/hikelly",
-        destination: "https://ufakpsi.com/admin",
-        permanent: false,
-      }
     ];
   },
 };
