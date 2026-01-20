@@ -43,6 +43,11 @@ const nextConfig: NextConfig = {
         destination: "https://recruitment.ufakpsi.com",
         permanent: false,
       },
+      {
+        source: "/hikelly",
+        destination: "https://ufakpsi.com/admin",
+        permanent: false,
+      }
     ];
   },
 };

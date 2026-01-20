@@ -5,7 +5,10 @@ import { motion, Variants } from 'framer-motion'
 // this component creates a hamburger menu icon 
 // that when clicked toggles the passed in state.
 
-const AnimatedBurger = (props: { isMenuOpen: boolean; setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>; }) => {
+const AnimatedBurger = (props: { 
+  isMenuOpen: boolean;
+  setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const line1Variants : Variants = {
     open: {rotate: 45, translateY: 5},
     closed: {rotate: 0, translateX: 0}
