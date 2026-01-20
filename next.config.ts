@@ -18,32 +18,29 @@ const nextConfig: NextConfig = {
     }
 
     return [
-      // Root
       {
         source: "/",
         destination: "https://recruitment.ufakpsi.com",
         permanent: false,
       },
-
-      // Sections + all subpaths
       {
-        source: "/service/:path*",
-        destination: "https://recruitment.ufakpsi.com/service/:path*",
+        source: "/service",
+        destination: "https://recruitment.ufakpsi.com",
         permanent: false,
       },
       {
-        source: "/brotherhood/:path*",
-        destination: "https://recruitment.ufakpsi.com/brotherhood/:path*",
+        source: "/brotherhood",
+        destination: "https://recruitment.ufakpsi.com",
         permanent: false,
       },
       {
         source: "/admin/:path*",
-        destination: "https://recruitment.ufakpsi.com/admin/:path*",
+        destination: "https://recruitment.ufakpsi.com",
         permanent: false,
       },
       {
-        source: "/events/:path*",
-        destination: "https://recruitment.ufakpsi.com/events/:path*",
+        source: "/events",
+        destination: "https://recruitment.ufakpsi.com",
         permanent: false,
       },
     ];
