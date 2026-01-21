@@ -2,7 +2,7 @@
 
 import { createClient } from "@/lib/supabase/client"
 import AddMenu from "@/src/components/admin/AddMenu"
-import { BsThreeDots } from "react-icons/bs"
+import EditMenu from "@/src/components/admin/EditMenu"
 import { redirect } from 'next/navigation'
 import { useState, useEffect } from "react"
 
@@ -71,9 +71,7 @@ const Admin = () => {
                 <td className="p-2 font-crimson text-lg">{brother.major}</td>
                 <td className="p-2 font-crimson text-lg">{brother.college}</td>
                 <td>
-                  <button onClick={() => console.log(brother)} className="hover:cursor-pointer w-fit p-1.5 rounded-lg transition duration-300 hover:bg-gray-400">
-                    <BsThreeDots size={20}/>
-                  </button>
+                  <EditMenu brother={brother}/>
                 </td>
               </tr>
             ))}

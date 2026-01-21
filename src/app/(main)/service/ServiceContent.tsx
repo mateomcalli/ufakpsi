@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import InfiniteCarousel from "@/src/components/InfiniteCarousel"
-import { useMediaQuery } from "usehooks-ts"
 
 const ServiceContent = () => {
   const images : string[] = [
@@ -11,8 +10,6 @@ const ServiceContent = () => {
     '/bros.jpg',
     '/recruitment-photo.jpg',
   ]
-
-  const xlOrLarger = useMediaQuery('(min-width: 1280px')
 
   return (
     <>
@@ -36,16 +33,14 @@ const ServiceContent = () => {
             </div>
           </div>
 
-          {xlOrLarger && 
-            <div className="relative flex-1 rounded-xl">
-              <Image 
-                className="rounded-xl"
-                src='/pickle.png'
-                alt='Brothers playing pickleball'
-                fill
-              />
-            </div>
-          }
+          <div className="relative flex-1 rounded-xl hidden xl:block">
+            <Image 
+              className="rounded-xl"
+              src='/pickle.png'
+              alt='Brothers playing pickleball'
+              fill
+            />
+          </div>
         </div>
         
       </section>

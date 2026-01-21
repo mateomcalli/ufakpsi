@@ -2,7 +2,7 @@ import BrotherCard from "@/src/components/cards/BrotherCard";
 import createClient from "@/lib/supabase/server";
 
 export const metadata = {
-  title: 'AllBrothers',
+  title: 'Alpha Kappa Psi',
   description: 'List of all brothers in the fraternity.',
   icons: {
     icon: '/akp_emblem.png',
