@@ -5,7 +5,8 @@ const TeamPage = async ({ params }: { params: Promise<{ teamId: string }> }) => 
   const teamIdInt = parseInt(teamId, 10)
 
   const supabase = await createClient()
-  const { data, error } = await supabase.from('teams').select().eq('id', teamIdInt)
+  const { data, error } = await supabase.from('brothers_teams').select('brothers(first_name, last_name, major, college)').eq('team_id', teamIdInt)
+    
   if (error) console.error(error)
     else console.log(data)
 
@@ -23,7 +24,21 @@ const TeamPage = async ({ params }: { params: Promise<{ teamId: string }> }) => 
           </tr>
         </thead>
         <tbody>
-
+          {data?.map((item, i) => {
+            const brother = item.brothers as unknown as { first_name: string; last_name: string; major: string; college: string; }
+            return (
+              <tr key={i} className="hover:bg-gray-200 transition duration-300 ease-in-out border-b border-gray-200 last:border-b-0">
+                <td className="py-2 px-3">
+                </td>
+                <td className="p-2 font-crimson text-lg">{brother.first_name} {brother.last_name}</td>
+                <td className="p-2 font-crimson text-lg">{brother.major}</td>
+                <td className="p-2 font-crimson text-lg">{brother.college}</td>
+                <td>
+                  
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </section>
