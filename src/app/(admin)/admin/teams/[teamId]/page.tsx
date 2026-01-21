@@ -5,7 +5,10 @@ const TeamPage = async ({ params }: { params: Promise<{ teamId: string }> }) => 
   const teamIdInt = parseInt(teamId, 10)
 
   const supabase = await createClient()
-  const { data, error } = await supabase.from('brothers_teams').select('brothers(first_name, last_name, major, college)').eq('team_id', teamIdInt)
+  const { data, error } = await supabase
+    .from('brothers_teams')
+    .select('brothers(first_name, last_name, major, college)')
+    .eq('team_id', teamIdInt)
     
   if (error) console.error(error)
     else console.log(data)
