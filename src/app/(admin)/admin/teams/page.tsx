@@ -1,6 +1,6 @@
 import createClient from "@/lib/supabase/server"
 import { redirect } from 'next/navigation'
-import TeamCard from "@/src/components/cards/TeamCard"
+import TeamCard from "@/src/components/cards/TeamDBCard"
 
 const Teams = async () => {
   const supabase = await createClient()

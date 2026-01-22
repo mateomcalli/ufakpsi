@@ -6,9 +6,26 @@ import EditMenu from "@/src/components/admin/EditMenu"
 import { redirect } from 'next/navigation'
 import { useState, useEffect } from "react"
 
+type Brother = {
+  id: string;
+  first_name: string;
+  last_name: string;
+  major: string;
+  minor: string;
+  college: string;
+  start_year: number;
+  grad_year: number;
+  headshot: string;
+  exec: boolean;
+  persona: boolean;
+  active: boolean;
+  linkedin: string;
+  positions: string[];
+}
+
 const Admin = () => {
   const supabase = createClient()
-  const [data, setData] = useState<any[]>([])
+  const [brothers, setBrothers] = useState<Brother[]>([])
   const [selectedUuids, setSelectedUuids] = useState<string[]>([])
 
   useEffect(() => {
@@ -16,9 +33,9 @@ const Admin = () => {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) redirect("/login")
       
-      const { data: brothers, error } = await supabase.from('brothers').select()
+      const { data: brothersData, error } = await supabase.from('brothers').select()
       if (error) console.error(error)
-      else setData(brothers)
+      else setBrothers(brothersData)
     }
     checkAuth()
   }, [])
@@ -58,7 +75,7 @@ const Admin = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((brother, i) => (
+            {brothers.map((brother, i) => (
               <tr key={i} className="hover:bg-gray-200 transition duration-300 ease-in-out border-b border-gray-200 last:border-b-0">
                 <td className="py-2 px-3">
                   <input 
