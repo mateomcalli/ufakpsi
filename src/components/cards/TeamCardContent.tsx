@@ -18,10 +18,20 @@ type PositionWithBrother = {
 }
 
 const TeamCardContent = (props: { teamId: number; border: boolean; caption: string; isExpanded: boolean; }) => {
+  const [teamName, setTeamName] = useState<string>('')
   const [positions, setPositions] = useState<PositionWithBrother[]>([])
   const supabase = createClient()
 
   useEffect(() => {
+    const fetchTeamName = async () => {
+      const { data, error } = await supabase.from('teams').select().eq("id", String(props.teamId)).single()
+      if (error) {
+        console.error(error)
+        return
+      }
+      setTeamName(data.name)
+    }
+
     const fetchPositions = async () => {
       const { data, error } = await supabase
         .from("positions")
@@ -42,12 +52,13 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
       }
     }
 
+    fetchTeamName()
     fetchPositions()
   }, [])
 
   return (
     <div className={`flex flex-col flex-1 px-4 ${props.border ? `border-r border-gray-400` : ``}`}>
-      <p className="font-crimson text-xl font-semibold pl-2">Placeholder teamName</p>
+      <p className="font-crimson text-xl font-semibold pl-2">{teamName}</p>
       <p className="font-crimson xl:text-lg pl-2">{props.caption}</p>
 
       <AnimatePresence>
@@ -70,11 +81,19 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
                       ? [item.brothers]
                       : []
 
-                    return brothersArray.map((brother) => (
-                      <p className='-mt-1 font-bold' key={brother.id}>
-                        {brother.first_name} {brother.last_name}
-                      </p>
-                    ))
+                    return brothersArray.map((brother, i) => {
+                      if (i === (brothersArray.length - 1)) {
+                        return (
+                          <p className='-mt-1 font-bold' key={brother.id}>
+                            {brother.first_name} {brother.last_name}
+                          </p>
+                        )
+                      } else return (
+                        <p className='-mt-1 font-bold' key={brother.id}>
+                          {brother.first_name} {brother.last_name},
+                        </p>
+                      )
+                    })
                   })}
                 </div>
               ))}

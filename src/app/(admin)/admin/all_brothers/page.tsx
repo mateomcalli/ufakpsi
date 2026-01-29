@@ -87,7 +87,7 @@ const Admin = () => {
                 <td className="p-2 font-crimson text-lg">{brother.first_name} {brother.last_name}</td>
                 <td className="p-2 font-crimson text-lg">{brother.major}</td>
                 <td className="p-2 font-crimson text-lg">{brother.college}</td>
-                <td>
+                <td className="p-2">
                   <EditMenu brother={brother}/>
                 </td>
               </tr>

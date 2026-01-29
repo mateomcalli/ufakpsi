@@ -6,6 +6,12 @@ import { AnimatePresence, motion } from "framer-motion"
 import { CgClose } from "react-icons/cg";
 import { createClient } from "@/lib/supabase/client";
 
+type Position = {
+  id: string;
+  name: string;
+  team_id: string;
+}
+
 const AddMenu = () => {
   const supabase = createClient()
   const formRef = useRef<HTMLFormElement | null>(null)
@@ -22,16 +28,34 @@ const AddMenu = () => {
   const [isEBoard, setIsEBoard] = useState<boolean>(false)
   const [isPersona, setIsPersona] = useState<boolean>(false)
   const [isActive, setIsActive] = useState<boolean>(false)
-  const [positions, setPositions] = useState<string>('')
+  const [allPositions, setAllPositions] = useState<Position[]>([])
+  const [positionsIds, setPositionsIds] = useState<string[]>([])
   const [linkedin, setLinkedin] = useState<string>('')
-
+  
   useEffect(() => {
     if (headshot) setImgRecieved(true)
+    const queryPositions = async () => {
+      const { data: positionsData, error: positionsErr } = await supabase.from('positions').select()
+      if (positionsErr) {
+        console.error(positionsErr)
+        return
+      }
+      setAllPositions(positionsData)
+    }
+
+    queryPositions()
   }, [headshot])
+
+  const positionChange = (positionId: string) => {
+    setPositionsIds(prev => 
+      prev.includes(positionId) ? prev.filter(id => id !== positionId) : [...prev, positionId]
+    )
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const positionsArr = positions.split(',')
+
+    /* SETTING FILENAME FOR HEADSHOT, POST TO SUPABASE STORAGE */
 
     const fileExt = headshot!.name.split('.').pop()
     const headshotPath = `${firstName}_${lastName}.${fileExt}`
@@ -46,8 +70,19 @@ const AddMenu = () => {
 
     const { data: urlData } = supabase.storage.from('headshots').getPublicUrl(headshotPath)
     const headshotUrl = urlData.publicUrl
-    
-    const { error } = await supabase.from('brothers').insert({
+
+    /* GETTING ARRAY OF POSITION NAMES BASED ON positionsIds */
+
+    const { data: selPos, error: positionsErr } = await supabase.from('positions').select('name, team_id').in('id', positionsIds)
+    if (positionsErr) {
+      console.error(positionsErr)
+      return
+    }
+    const posNames : string[] = selPos.map(p => p.name)
+
+    /* POSTING BROTHER, SAVING ID FOR JOIN TABLE POSTS */
+
+    const { data: brotherData, error: insertError } = await supabase.from('brothers').insert({
       first_name: firstName,
       last_name: lastName,
       major: major,
@@ -56,17 +91,36 @@ const AddMenu = () => {
       college: college,
       start_year: startYear,
       grad_year: gradYear,
-      positions: positionsArr,
+      positions: posNames,
       exec: isEBoard,
       persona: isPersona,
       active: isActive,
       linkedin: linkedin
-    })
+    }).select().single()
+
+    if (insertError) {
+      console.error(insertError)
+      return
+    }
+
+    /* ADDING ENTRIES TO JOIN TABLE FOR EACH POSITION */
+
+    for (let i = 0; i < positionsIds.length; i++) {
+      const { error: joinTableError } = await supabase.from('brother_team_position').insert({
+        brother_id: brotherData.id,
+        team_id: selPos[i].team_id,
+        lead: (selPos[i].team_id < 13) ? true : false,
+        position_id: positionsIds[i]
+      })
+
+      if (joinTableError) {
+        console.error(joinTableError)
+        return
+      }
+    }
 
     formRef.current?.reset()
     setMenuOpen(!menuOpen)
-
-    if (error) console.error(error)
   }
 
   return (
@@ -89,7 +143,7 @@ const AddMenu = () => {
             transition={{ duration: 0.15 }}
           >
             <motion.div
-              className="relative flex flex-col w-19/20 sm:4/6 md:w-4/7 xl:w-1/3 2xl:w-[31%] h-148 border border-gray-500 rounded-xl bg-cream font-crimson p-4"
+              className="relative flex flex-col w-19/20 sm:4/6 md:w-4/7 xl:w-1/3 2xl:w-[31%] h-170 border border-gray-500 rounded-xl bg-cream font-crimson p-4"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
@@ -202,15 +256,16 @@ const AddMenu = () => {
                     </div>
                   </div>
 
-                  <div className="flex-col gap-0.5">
-                    <p className="text-lg">Positions (separated by commas)</p>
-                    <input 
-                      placeholder='Director of Web Development, Data Analyst' 
-                      type='text' 
-                      value={positions} 
-                      onChange={(e) => setPositions(e.target.value)} 
-                      className="bg-white focus:outline-none border border-gray-500 w-full rounded-lg h-8 pl-2"
-                    />
+                  <div className="flex flex-col w-88 max-h-36 gap-2">
+                    <p className="text-lg">Position(s)</p>
+                    <div className="flex flex-col gap-2 p-3 border rounded-lg max-h-48 overflow-y-auto">
+                      {allPositions.map(p => (
+                        <label key={p.id} className="flex items-center gap-2 cursor-pointer p-1 rounded">
+                          <input onChange={() => positionChange(p.id)} type="checkbox" value={p.id} className="w-4 h-4" />
+                          <span>{p.name}</span>
+                        </label>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="flex-col gap-0.5">
