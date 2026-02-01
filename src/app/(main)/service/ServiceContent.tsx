@@ -14,12 +14,12 @@ const ServiceContent = () => {
   return (
     <>
     <div className="flex flex-col gap-24">
-      <section className="flex flex-col pt-8 px-6 sm:px-8 top-16 h-fit relative">
+      <section className="flex flex-col pt-8 px-6 sm:px-16 top-16 h-fit relative">
         <div className="flex w-full xl:w-6xl m-auto gap-8">
           <div className="flex flex-col gap-4">
-            <div className="font-crimson">
-              <h1 className="text-3xl md:text-4xl">Service at Alpha Kappa Psi</h1>
-              <h2 className="text-2xl text-lblue italic">How we give back.</h2>
+            <div className="">
+              <h1 className="font-libre text-2xl md:text-3xl">Service at Alpha Kappa Psi</h1>
+              <h2 className="font-crimson text-2xl text-lblue italic">How we give back.</h2>
             </div>
 
             <div className="flex flex-col gap-2 font-crimson p-4 rounded-xl border border-gray-400 w-full xl:w-xl h-70">

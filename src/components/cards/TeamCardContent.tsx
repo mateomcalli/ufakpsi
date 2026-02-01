@@ -46,8 +46,8 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
   
       if (error) {
         console.error(error)
+        return
       } else {
-        console.log(data)
         setPositions(data)
       }
     }

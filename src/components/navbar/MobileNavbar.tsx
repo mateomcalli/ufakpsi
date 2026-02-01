@@ -11,13 +11,13 @@ const MobileNavbar = () => {
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false)
 
   const variants : Variants = {
-    open: { x: 0 },
-    closed: { x: 400}
+    open: { x: '20%' },
+    closed: { x: '100%' }
   }
 
   return (
     <>
-      <nav className="bg-cream shadow-xl fixed z-20 left-0 right-0 top-0 h-[62px] flex justify-between pl-5 sm:pl-[30px] pr-6 sm:pr-8 items-center">
+      <nav className="bg-cream shadow-xl fixed z-20 left-0 right-0 top-0 h-[62px] flex justify-between pl-5 sm:pl-[62px] pr-6 sm:pr-16 items-center">
         <Link href='/'>
           <Image
             alt='AKPsi logo'
@@ -33,7 +33,7 @@ const MobileNavbar = () => {
         >
           <AnimatedBurger isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen}/>
           <motion.div 
-            className="pl-4 pt-2 flex flex-col gap-4 hover:cursor-auto absolute z-10 h-screen top-16 -right-12 border-l border-l-black bg-cream w-1/2"
+            className="pl-4 pt-2 flex flex-col gap-4 hover:cursor-auto fixed z-10 h-screen top-16 right-0 border-l border-l-black bg-cream w-1/2"  // Changed: absolute -> fixed, -right-12 -> right-0
             variants={variants}
             transition={{
               type: "spring",
@@ -41,11 +41,11 @@ const MobileNavbar = () => {
               mass: 0.1
             }}
           >
-            <AnimatedNavLink buttonName='Recruitment'/>
-            <AnimatedNavLink buttonName='Brotherhood'/>
-            <AnimatedNavLink buttonName='Events'/>
-            <AnimatedNavLink buttonName='Service'/>
-            <AnimatedNavLink buttonName='All Brothers'/>
+            <AnimatedNavLink bg={false} buttonName='Recruitment'/>
+            <AnimatedNavLink bg={false} buttonName='Brotherhood'/>
+            <AnimatedNavLink bg={false} buttonName='Events'/>
+            <AnimatedNavLink bg={false} buttonName='Service'/>
+            <AnimatedNavLink bg={false} buttonName='All Brothers'/>
           </motion.div>
         </motion.div>
       </nav>

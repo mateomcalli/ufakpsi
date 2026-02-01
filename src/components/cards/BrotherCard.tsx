@@ -1,5 +1,7 @@
-import Image from "next/image"
+'use client'
 
+import { useState } from "react";
+import Image from "next/image"
 
 const BrotherCard = (props: { 
   first_name : string; 
@@ -11,8 +13,10 @@ const BrotherCard = (props: {
   positions : string[];
   linkedin : string;
 }) => {
+  const [havePositions, setHavePositions] = useState<boolean>(true)
+
   const positionsString = () => {
-    if (props.positions != null) {
+    if (props.positions.length != 0) {
       let pString : string = "";
       for (let i : number = 0; i < props.positions.length; i++) {
         pString += props.positions[i];
@@ -20,7 +24,7 @@ const BrotherCard = (props: {
       }
       return pString;
     }
-    return 'NPH';
+    setHavePositions(false)
   }
   
   return (
@@ -36,7 +40,12 @@ const BrotherCard = (props: {
         </div>
         <div className="font-crimson w-full">
           <p className="text-2xl text-center">{props.first_name} {props.last_name}</p>
-          <p className="text-lg/6"><u>Major:</u> {props.major}<br/><u>College:</u> {props.college}<br/><u>Grad Year:</u> {props.grad_year}<br/><u>Position(s):</u> {positionsString()}</p>
+          <p className="text-lg/6">
+            <u>Major:</u> {props.major}<br/>
+            <u>College:</u> {props.college}<br/>
+            <u>Grad Year:</u> {props.grad_year}<br/>
+            {havePositions ? (<><u>Position(s):</u> {positionsString()}</>) : null}
+          </p>
         </div>
       </div>
     </a>

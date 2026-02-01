@@ -33,6 +33,7 @@ const Login = () => {
       console.error(error)
       setPassword('')
       formRef.current?.reset()
+      return
     } else {
       redirect('/admin')
     }

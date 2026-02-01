@@ -109,7 +109,7 @@ const AddMenu = () => {
       const { error: joinTableError } = await supabase.from('brother_team_position').insert({
         brother_id: brotherData.id,
         team_id: selPos[i].team_id,
-        lead: (selPos[i].team_id < 13) ? true : false,
+        lead: (Number(positionsIds[i]) < 13) ? true : false,
         position_id: positionsIds[i]
       })
 

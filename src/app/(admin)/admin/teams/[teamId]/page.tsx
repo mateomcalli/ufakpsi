@@ -10,9 +10,10 @@ const TeamPage = async ({ params }: { params: Promise<{ teamId: string }> }) => 
     .select('brothers(first_name, last_name, major, college)')
     .eq('team_id', teamIdInt)
     
-  if (error) console.error(error)
-    else console.log(data)
-
+  if (error) {
+    console.error(error)
+    return
+  }
 
   return (
     <section className="relative top-24 w-6xl m-auto">

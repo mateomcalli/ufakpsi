@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [mounted, setMounted] = useState<boolean>(false)
-  const smOrSmaller = useMediaQuery('(max-width: 640px')
+  const mdOrSmaller = useMediaQuery('(max-width: 1024px')
 
   // avoid hydration errors
   useEffect(() => {
@@ -17,7 +17,7 @@ const Navbar = () => {
   if (!mounted) { return <DesktopNavbar/> }
 
   return (
-    <>{smOrSmaller ? <MobileNavbar/> : <DesktopNavbar/>}</>
+    <>{mdOrSmaller ? <MobileNavbar/> : <DesktopNavbar/>}</>
   )
 }
 

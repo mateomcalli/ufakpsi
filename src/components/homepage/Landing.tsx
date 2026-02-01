@@ -30,7 +30,7 @@ const Landing = () => {
   ]
 
   return (
-    <section className='sticky top-16 flex flex-col gap-4 px-8 w-screen h-screen'>
+    <section className='sticky top-16 flex flex-col gap-4 px-6 sm:px-8 w-screen h-screen'>
 
       <div className='relative w-full shrink-0 h-[72vh] sm:h-[75vh]'>
         <AnimatePresence>
@@ -51,11 +51,11 @@ const Landing = () => {
         </AnimatePresence>
       </div>
       
-      <div className='relative px-6 flex gap-1.5 sm:gap-2'>
-        <h1 className='font-crimson text-nowrap text-xl sm:text-2xl md:text-3xl lg:text-4xl'>
+      <div className='relative px-2 sm:px-6 flex gap-1.5 sm:gap-2'>
+        <h1 className='font-libre text-nowrap text-lg sm:text-xl md:text-2xl lg:text-3xl'>
           Alpha Kappa Psi is
         </h1>
-        <div className='relative font-crimson italic text-dblue text-xl sm:text-2xl md:text-3xl lg:text-4xl'>
+        <div className='relative font-libre italic text-dblue text-lg sm:text-xl md:text-2xl lg:text-3xl'>
           <AnimatePresence mode="wait">
             <motion.h2
               key={imageState}

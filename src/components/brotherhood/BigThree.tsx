@@ -9,7 +9,7 @@ const BigThree = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false)
 
   return (
-    <div className="relative flex border py-4 border-gray-400 rounded-2xl w-full mb-50 overflow-hidden">
+    <div className="relative flex border py-4 border-gray-400 rounded-2xl w-full overflow-hidden">
       <ExpandArrow isExpanded={isExpanded} setIsExpanded={setIsExpanded}/>
 
       <motion.div
