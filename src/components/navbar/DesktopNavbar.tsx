@@ -6,22 +6,26 @@ import AnimatedNavLink from "./AnimatedNavLink";
 
 const DesktopNavbar = () => {
   return (
-    <nav className='bg-cream shadow-xl fixed z-20 w-screen top-0 h-[62px] flex justify-between pl-[62px] pr-16 items-center'>
-      <div className="shrink-0 items-center flex gap-16">
-        <Link href='/'>
-          <Image
-            alt='AKPsi logo'
-            src='/akp_letters.svg'
-            width={100}
-            height={100}
-          />
-        </Link>
-        <AnimatedNavLink bg={false} buttonName='Recruitment'/>
-        <AnimatedNavLink bg={false} buttonName='Brotherhood'/>
-        <AnimatedNavLink bg={false} buttonName='Events'/>
-        <AnimatedNavLink bg={false} buttonName='Service'/>
+    <nav className='bg-cream shadow-xl fixed z-20 w-screen top-0 h-[62px]'>
+      <div className='w-full h-full flex justify-center'>
+        <div className='mr-3 lg:w-4xl xl:w-6xl 2xl:w-7xl flex justify-between items-center'>
+          <div className="shrink-0 items-center flex gap-12">
+            <Link href='/'>
+              <Image
+                alt='AKPsi logo'
+                src='/akp_letters.svg'
+                width={100}
+                height={100}
+              />
+            </Link>
+            <AnimatedNavLink bg={false} buttonName='Recruitment'/>
+            <AnimatedNavLink bg={false} buttonName='Brotherhood'/>
+            <AnimatedNavLink bg={false} buttonName='Events'/>
+            <AnimatedNavLink bg={false} buttonName='Service'/>
+          </div>
+          <AnimatedNavLink bg={true} buttonName='All Brothers'/>
+        </div>
       </div>
-      <AnimatedNavLink bg={true} buttonName='All Brothers'/>
     </nav>
   )
 }

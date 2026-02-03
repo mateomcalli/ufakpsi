@@ -87,7 +87,7 @@ const HomeContent = () => {
             animate={showBody ? "visible" : "hidden"}
           >
             <div className="md:w-160 items-center flex my-4">
-              <h3 className='text-center md:text-left font-crimson text-xl'>Founded in 1904, Alpha Kappa Psi has risen to become the number one professional <b>co-ed</b> business fraternity in the nation. With over 298,000 members at 219 different universities, our mission is clear: to develop our members into principled business leaders. With an extensive alumni network and resources all around the Heavener School of Business and beyond, we foster growth, professional development, and lasting connections for members of <b>any major</b>.</h3>
+              <h3 className='text-center md:text-left font-crimson text-xl'>Founded in 1904, Alpha Kappa Psi is the number one professional <b>co-ed</b> business fraternity in the nation. With over 298,000 members at 219 different universities, our mission is clear: to develop our members into principled business leaders. With an extensive alumni network and resources all around the Heavener School of Business and beyond, we foster growth, professional development, and lasting connections for members of <b>any major</b>.</h3>
             </div>
 
             <div className="flex flex-col my-4 items-center">

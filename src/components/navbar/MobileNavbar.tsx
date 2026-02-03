@@ -17,7 +17,7 @@ const MobileNavbar = () => {
 
   return (
     <>
-      <nav className="bg-cream shadow-xl fixed z-20 left-0 right-0 top-0 h-[62px] flex justify-between pl-5 sm:pl-[62px] pr-6 sm:pr-16 items-center">
+      <nav className="bg-cream shadow-xl fixed z-20 left-0 right-0 top-0 h-[62px] flex justify-between pl-5 pr-6 sm:pl-[30px] sm:pr-8 items-center">
         <Link href='/'>
           <Image
             alt='AKPsi logo'

@@ -26,7 +26,7 @@ const BigThree = () => {
 
         <TeamCardContent
           teamId={2}
-          caption="From internal communication to development with AI, the EVP's Team handles a majority of the technical necessities that keep AKPsi moving."
+          caption="From internal communication to development with AI, the EVP's Team handles the technical necessities that keep AKPsi moving."
           border={true}
           isExpanded={isExpanded}
         />

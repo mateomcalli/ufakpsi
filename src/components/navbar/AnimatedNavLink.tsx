@@ -14,7 +14,7 @@
     <motion.div 
       initial='not_active'
       whileHover={props.bg ? `not_active` : `active`}
-      className={props.bg ? `px-3 py-1 bg-dblue/5 inset-shadow-sm/15 transition-shadow duration-300 hover:cursor-pointer hover:shadow-md hover:inset-shadow-sm/0 flex items-center border border-lblue rounded-lg w-fit` : `` + `w-fit mt-0.5`}
+      className={props.bg ? `px-3 py-1.5 inset-shadow-sm/20 transition-shadow duration-300 hover:cursor-pointer hover:shadow-md hover:inset-shadow-sm/0 flex items-center border border-lblue rounded-lg w-fit` : `` + `w-fit mt-0.5`}
     >
       <Link 
         className='font-libre' 

@@ -4,20 +4,20 @@ import TeamSect from "@/src/components/brotherhood/TeamSect";
 
 const BrotherhoodContent = () => {
   return (
-    <section className="flex flex-col gap-4 py-8 px-6 sm:px-16 top-16 h-fit relative">
+    <section className="flex flex-col gap-4 py-8 px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl m-auto top-16 h-fit relative">
       <div className="px-0 sm:px-4">
         <h1 className="font-libre text-2xl md:text-3xl">Brotherhood at Alpha Kappa Psi</h1>
         <h2 className="font-crimson text-2xl text-lblue italic">Leadership, growth, and community.</h2>
       </div>
 
-      <div className="relative w-full shrink-0 h-80">
+      {/* <div className="relative w-full shrink-0 h-80">
         <Image 
           src="/eboard2526.jpg" 
           alt="Executive Board 25-26" 
           fill
           className="rounded-2xl object-cover"
         />
-      </div>
+      </div> */}
 
       <div className="flex gap-4 flex-col">
         <div className="hidden lg:block">
