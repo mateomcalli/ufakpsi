@@ -2,7 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import Landing from "../../components/homepage/Landing"
+import Image from 'next/image';
+import Polaroids from '@/src/components/Polaroids';
+import Landing from "../../components/homepage/Landing";
 import CoreValues from "../../components/homepage/CoreValues";
 
 const HomeContent = () => {
@@ -111,6 +113,31 @@ const HomeContent = () => {
             <CoreValues/>
           </motion.div>
         </div>
+
+        <motion.div
+          variants={contentVariants}
+          initial="hidden"
+          animate={showBody ? "visible" : "hidden"}
+          transition={{ delay: 0.3 }}
+          className='m-auto w-fit relative'
+        >
+          <Polaroids/>
+        </motion.div>
+
+        <motion.div
+          variants={contentVariants}
+          initial="hidden"
+          animate={showBody ? "visible" : "hidden"}
+          transition={{ delay: 0.3 }}
+          className='w-full mt-10 h-80 relative bg-black'
+        >
+          <Image 
+            src="/mem_spr_2026.JPG"
+            alt="Membership Team"
+            fill
+            className="object-cover opacity-40"
+          />
+        </motion.div>
       </section>
     </div>
   )

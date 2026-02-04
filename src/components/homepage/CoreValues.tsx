@@ -9,7 +9,7 @@ import { LuScale } from "react-icons/lu";
 
 const CoreValues = () => {
   return (
-    <fieldset className="border rounded-xl border-dblue mx-8 h-fit pt-4 pb-8">
+    <fieldset className="border m-auto rounded-xl border-dblue px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl h-fit pt-4 pb-8">
       <legend className="m-auto px-2 font-crimson text-2xl">Our core values</legend>
       <div className="flex flex-col gap-4 sm:gap-0 sm:flex-row w-full justify-around h-fit pt-1">
         <div className="flex flex-col self-center h-fit">
