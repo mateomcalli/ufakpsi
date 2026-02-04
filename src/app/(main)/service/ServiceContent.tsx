@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image"
-import InfiniteCarousel from "@/src/components/InfiniteCarousel"
+import InfiniteCarousel from "@/src/components/service/InfiniteCarousel"
 
 const ServiceContent = () => {
   const images : string[] = [

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
-import Polaroid from '@/src/components/Polaroid';
+import Polaroid from '@/src/components/events/Polaroid';
 import Landing from "../../components/homepage/Landing";
 import CoreValues from "../../components/homepage/CoreValues";
 

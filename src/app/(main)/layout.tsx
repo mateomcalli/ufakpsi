@@ -1,5 +1,5 @@
 import "../globals.css"
-import { Libre_Baskerville, Crimson_Pro } from 'next/font/google'
+import { Libre_Baskerville, Crimson_Pro, Nothing_You_Could_Do } from 'next/font/google'
 import Navbar from "../../components/navbar/Navbar";
 import BreakpointIndicator from "../../components/dev/BreakpointIndicator";
 
@@ -15,10 +15,16 @@ const crimsonPro = Crimson_Pro({
   variable: '--font-crimson',
 })
 
+const nothingYouCouldDo = Nothing_You_Could_Do({
+  subsets: ['latin'],
+  weight: ['400'], 
+  variable: '--font-hand',
+})
+
 const Layout = ({children}: Readonly<{children: React.ReactNode}>) => {
 
   return (
-    <html className={`${libreBaskerville.variable} ${crimsonPro.variable}`} lang='en'>
+    <html className={`${libreBaskerville.variable} ${crimsonPro.variable} ${nothingYouCouldDo.variable}`} lang='en'>
       <body className="bg-cream overflow-x-hidden">
         <BreakpointIndicator/>
         <Navbar/>
