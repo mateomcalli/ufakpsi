@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
-import Polaroids from '@/src/components/Polaroids';
+import Polaroid from '@/src/components/Polaroid';
 import Landing from "../../components/homepage/Landing";
 import CoreValues from "../../components/homepage/CoreValues";
 
@@ -112,6 +112,17 @@ const HomeContent = () => {
           >
             <CoreValues/>
           </motion.div>
+
+          <motion.div
+            variants={contentVariants}
+            initial="hidden"
+            animate={showBody ? "visible" : "hidden"}
+            transition={{ delay: 0.3 }}
+            className='m-auto px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl w-fit relative'
+          >
+            <Polaroid/>
+          </motion.div>
+
         </div>
 
         <motion.div
@@ -119,17 +130,7 @@ const HomeContent = () => {
           initial="hidden"
           animate={showBody ? "visible" : "hidden"}
           transition={{ delay: 0.3 }}
-          className='m-auto w-fit relative'
-        >
-          <Polaroids/>
-        </motion.div>
-
-        <motion.div
-          variants={contentVariants}
-          initial="hidden"
-          animate={showBody ? "visible" : "hidden"}
-          transition={{ delay: 0.3 }}
-          className='w-full mt-10 h-80 relative bg-black'
+          className='w-full h-80 relative bg-black'
         >
           <Image 
             src="/mem_spr_2026.JPG"
