@@ -112,17 +112,6 @@ const HomeContent = () => {
           >
             <CoreValues/>
           </motion.div>
-
-          <motion.div
-            variants={contentVariants}
-            initial="hidden"
-            animate={showBody ? "visible" : "hidden"}
-            transition={{ delay: 0.3 }}
-            className='m-auto px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl w-fit relative'
-          >
-            <Polaroid/>
-          </motion.div>
-
         </div>
 
         <motion.div
