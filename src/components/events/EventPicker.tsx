@@ -1,81 +1,148 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import { RiArrowRightWideFill } from 'react-icons/ri'
 import { RiArrowLeftWideFill } from 'react-icons/ri'
 
-const EventPicker = () => {
-  const [selectedImage, setSelectedImage] = useState<number>(0)
-  const [direction, setDirection] = useState<number>(0)
+interface Event {
+  id: number;
+  cover: string;
+  title: string;
+}
 
-  const events = [
-    {url: '/guac.jpg', id: 0},
-    {url: '/bros.jpg', id: 1},
-    {url: '/mem_spr_2026.JPG', id: 2},
-    {url: '/recruitment-photo.jpg', id: 3},
-  ]
+interface EventPickerParams {
+  events: Event[];
+  selectedEvent: number;
+  setSelectedEvent: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerParams) => {
+  const [direction, setDirection] = useState<number>(0)
 
   const handleRight = () => {
     setDirection(1)
-    selectedImage === (events.length - 1) ? setSelectedImage(selectedImage - (events.length - 1)) : setSelectedImage(selectedImage + 1)
+    setSelectedEvent((selectedEvent + 1) % events.length)
   }
 
   const handleLeft = () => {
     setDirection(-1)
-    selectedImage === 0 ? setSelectedImage(selectedImage + (events.length - 1)) : setSelectedImage(selectedImage - 1)
+    setSelectedEvent((selectedEvent - 1 + events.length) % events.length)
+  }
+
+  const getRelativePosition = (eventIndex: number) => {
+    let diff = eventIndex - selectedEvent
+    
+    if (diff > events.length / 2) {
+      diff -= events.length
+    } else if (diff < -events.length / 2) {
+      diff += events.length
+    }
+    
+    return diff
+  }
+
+  const cardVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 500 : -500,
+      opacity: 0,
+      scale: 0.8,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      zIndex: 2,
+    },
+    left: {
+      x: -420,
+      opacity: 0.8,
+      scale: 0.85,
+      zIndex: 1,
+    },
+    right: {
+      x: 420,
+      opacity: 0.8,
+      scale: 0.85,
+      zIndex: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? -500 : 500,
+      opacity: 0,
+      scale: 0.8,
+    }),
   }
 
   return (
     <>
-      <div className='m-auto items-center w-fit relative z-2'>
+      <div className='m-auto w-fit relative z-2'>
         <div className='flex items-center'>
           <motion.button
             whileTap={{
-              scale: 1.4,
+              scale: 1.2,
               transition: { duration: 0.3 }
             }}
-            className='mr-3 h-fit'
+            className='mr-3 h-fit z-1 w-fit cursor-pointer'
             onClick={() => handleLeft()}
           >
             <RiArrowLeftWideFill size='40'/>
           </motion.button>
-          {events.map(image => (
-            selectedImage === image.id &&
-              <motion.div 
-                key={image.id}
-                initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-                transition={{ type: 'spring', bounce: 0, duration: 0.5 }}
-                className='flex flex-col w-120 h-96 bg-white rounded-lg shadow-lg'
-              >
-                <img
-                  className='w-full h-80 object-cover rounded-tl-lg rounded-tr-lg bg-white pointer-events-none select-none' 
-                  src={image.url}
-                  key={image.id}
-                  alt='Club members'
-                />
-                <p className='text-center my-auto font-crimson text-2xl'>Professional Trip to NYC</p>
-              </motion.div>
-          ))}
+
+          <div className='relative w-96 h-96 flex items-center justify-center overflow-visible'>
+            <AnimatePresence initial={false} custom={direction}>
+              {events.map((event) => {
+                const relativePosition = getRelativePosition(event.id)
+                
+                if (Math.abs(relativePosition) > 1) return null
+
+                const state = relativePosition === 0 ? 'center' : relativePosition === -1 ? 'left' : 'right'
+
+                return (
+                  <motion.div
+                    key={event.id}
+                    custom={direction}
+                    variants={cardVariants}
+                    initial="enter"
+                    animate={state}
+                    exit="exit"
+                    transition={{
+                      x: { type: "spring", stiffness: 300, damping: 40 },
+                      opacity: { duration: 0.2 },
+                      scale: { duration: 0.2 }
+                    }}
+                    className={`absolute flex flex-col w-96 h-96 bg-white rounded-lg shadow-lg ${relativePosition === 0 ? 'cursor-default' : 'cursor-pointer'}`}
+                    onClick={() => {
+                      if (relativePosition === -1) handleLeft()
+                      if (relativePosition === 1) handleRight()
+                    }}
+                  >
+                    <Image
+                      src={event.cover}
+                      alt={event.title}
+                      width={2000}
+                      height={2000}
+                      priority
+                      className='w-full h-80 object-cover rounded-tl-lg rounded-tr-lg bg-white pointer-events-none select-none' 
+                    />
+                    <p className='text-center my-auto font-crimson text-2xl'>{event.title}</p>
+                  </motion.div>
+                )
+              })}
+            </AnimatePresence>
+          </div>
+
           <motion.button
             whileTap={{
-              scale: 1.4,
+              scale: 1.2,
               transition: { duration: 0.3 }
             }}
-            className='ml-3 h-fit'
+            className='ml-3 h-fit z-1 cursor-pointer'
             onClick={() => handleRight()}
           >
             <RiArrowRightWideFill size='40'/>
           </motion.button>
         </div>
-          <div className='flex gap-x-2 items-center justify-center w-full h-8'>
-            {events.map(image => (
-              <button key={image.id} onClick={() => setSelectedImage(image.id)}>
-                <div key={image.id} className={selectedImage === image.id ? 'bg-ggorange w-2 h-2 rounded-full' : 'bg-ggwhite w-2 h-2 rounded-full fade-orange cursor-pointer'}/>
-              </button>
-            ))}
-          </div>
-        </div>
+
+      </div>
     </>
   )
 }

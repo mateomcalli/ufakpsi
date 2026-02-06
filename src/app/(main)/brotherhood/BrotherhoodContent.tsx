@@ -4,7 +4,7 @@ import TeamSect from "@/src/components/brotherhood/TeamSect";
 
 const BrotherhoodContent = () => {
   return (
-    <section className="red flex flex-col gap-4 py-8 px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl m-auto top-16 h-fit relative">
+    <section className="flex flex-col gap-4 py-8 px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl m-auto top-16 h-fit relative">
       <div className="px-0 sm:px-6">
         <h1 className="font-libre text-2xl md:text-3xl">Brotherhood at Alpha Kappa Psi</h1>
         <h2 className="font-crimson text-2xl text-lblue italic">Leadership, growth, and community.</h2>
