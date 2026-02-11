@@ -32,25 +32,31 @@ const EventsContent = () => {
   }, [])
 
   return (
-    <div className="relative w-full">
-      <section className="relative flex flex-col gap-8 py-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl m-auto top-16 h-fit">
-        <div className="sm:pl-[30px] sm:pr-8 px-6 sm:px-4">
-          <h1 className="font-libre text-2xl md:text-3xl">Events at Alpha Kappa Psi</h1>
-          <h2 className="font-crimson text-2xl text-lblue italic">Here's what we've been up to</h2>
+    <div className="flex flex-col gap-24 relative">
+      <section className="flex h-fit pt-24 relative">
+        <div className="flex w-full sm:px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl m-auto gap-8">
+          <div className="flex flex-col gap-4 w-screen sm:w-full">
+            <div className="px-6 sm:pl-[30px] sm:pr-8 sm:px-4">
+              <h1 className="font-libre text-2xl md:text-3xl">Events at Alpha Kappa Psi</h1>
+              <h2 className="font-crimson text-2xl text-lblue italic">Here's what we've been up to</h2>
+            </div>
+            <EventPicker selectedEvent={selectedEvent} setSelectedEvent={setSelectedEvent} events={events}/>
+          </div>  
         </div>
-        <EventPicker selectedEvent={selectedEvent} setSelectedEvent={setSelectedEvent} events={events}/>
       </section>
-      <div className="absolute mt-24 left-0 right-0 mx-auto w-fit flex shrink-0">
-        {events[selectedEvent]?.pics?.map((pic, i) => (
-          <motion.div
-          key={`${i}-${selectedEvent}`}
-          initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
-          >
-            <Polaroid src={pic.url} text={pic.text}/>
-          </motion.div>
-        ))}
+      <div className="w-screen relative left-1/2 -translate-x-1/2">
+        <div className="flex shrink-0 justify-center">
+          {events[selectedEvent]?.pics?.map((pic, i) => (
+            <motion.div
+              key={`${i}-${selectedEvent}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+            >
+              <Polaroid src={pic.url} text={pic.text}/>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   )

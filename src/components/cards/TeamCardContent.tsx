@@ -6,9 +6,10 @@ import { createClient } from "@/lib/supabase/client";
 import { useEffect, useState } from "react";
 
 type Brother = {
-  id: string
-  first_name: string
-  last_name: string
+  id: string;
+  first_name: string;
+  last_name: string;
+  persona: boolean;
 }
 
 type PositionWithBrother = {
@@ -39,7 +40,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
           id,
           name,
           brother_team_position (
-            brothers ( id, first_name, last_name )
+            brothers ( id, first_name, last_name, persona )
           )
         `)
         .eq("team_id", props.teamId)
@@ -81,19 +82,11 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
                       ? [item.brothers]
                       : []
 
-                    return brothersArray.map((brother, i) => {
-                      if (i === (brothersArray.length - 1)) {
-                        return (
-                          <p className='-mt-1 font-bold' key={brother.id}>
-                            {brother.first_name} {brother.last_name}
-                          </p>
-                        )
-                      } else return (
-                        <p className='-mt-1 font-bold' key={brother.id}>
-                          {brother.first_name} {brother.last_name},
-                        </p>
-                      )
-                    })
+                    return brothersArray.map(brother =>
+                      <p className='-mt-1 font-bold' key={brother.id}>
+                        {brother.persona ?  "Brother" : brother.first_name} {brother.last_name}
+                      </p>
+                    )
                   })}
                 </div>
               ))}
@@ -103,7 +96,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
       </AnimatePresence>
 
       <motion.div 
-        className="bg-cream hover:bg-[#dddddd] transition-colors ease-in-out duration-100 rounded-xl flex items-center gap-4 p-2 w-fit mt-auto"
+        className="bg-cream hover:bg-[#dddddd] transition-colors ease-in-out duration-100 rounded-lg flex items-center gap-4 p-2 w-fit mt-auto"
         initial={{ x: 0, y: 0 }}
         whileHover={{ x: 10, y: -10 }}
         transition={{ duration: 0.1 }}

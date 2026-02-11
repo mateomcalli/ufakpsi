@@ -8,8 +8,8 @@ const Polaroid = (props: { src: string; text: string }) => {
   const [yPos, setYPos] = useState<number>(0)
 
 useEffect(() => {
-  setAngle(Math.random() *  30 - 15)
-  setYPos(Math.random() * 4 - 2)
+  setAngle(Math.random() *  20 - 10)
+  setYPos(Math.random() * 2 - 1)
 }, [])
 
   return (

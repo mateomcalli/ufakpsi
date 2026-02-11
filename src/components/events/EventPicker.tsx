@@ -74,14 +74,14 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
 
   return (
     <>
-      <div className='m-auto w-fit relative z-2'>
+      <div className='m-auto max-[475px]:overflow-x-hidden max-[475px]:w-screen sm:w-fit relative z-2'>
         <div className='flex items-center'>
           <motion.button
             whileTap={{
               scale: 1.2,
               transition: { duration: 0.3 }
             }}
-            className='mr-3 h-fit z-1 w-fit cursor-pointer'
+            className='h-fit z-1 w-fit cursor-pointer'
             onClick={() => handleLeft()}
           >
             <RiArrowLeftWideFill size='40'/>
@@ -109,7 +109,7 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
                       opacity: { duration: 0.2 },
                       scale: { duration: 0.2 }
                     }}
-                    className={`absolute flex flex-col w-96 h-96 bg-white rounded-lg shadow-lg ${relativePosition === 0 ? 'cursor-default' : 'cursor-pointer'}`}
+                    className={`absolute flex flex-col w-88 h-96 bg-white rounded-lg shadow-lg ${relativePosition === 0 ? 'cursor-default' : 'cursor-pointer'}`}
                     onClick={() => {
                       if (relativePosition === -1) handleLeft()
                       if (relativePosition === 1) handleRight()
@@ -135,7 +135,7 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
               scale: 1.2,
               transition: { duration: 0.3 }
             }}
-            className='ml-3 h-fit z-1 cursor-pointer'
+            className='h-fit z-1 cursor-pointer'
             onClick={() => handleRight()}
           >
             <RiArrowRightWideFill size='40'/>

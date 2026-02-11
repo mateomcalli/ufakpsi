@@ -5,14 +5,14 @@ const DBCard = (props: {
   DBImage : string;
 }) => {
   return (
-    <a href={'/admin/' + props.DBName.toLowerCase().replace(/ /g, "_")} className="w-full h-full rounded-xl block">
-      <div className="flex flex-col gap-3 w-full h-full justify-between bg-white border border-gray-400 rounded-xl p-3">
-        <div className="relative rounded-xl h-full">
+    <a href={'/admin/' + props.DBName.toLowerCase().replace(/ /g, "_")} className="w-full h-full rounded-lg block">
+      <div className="flex flex-col gap-3 w-full h-full justify-between bg-white border border-gray-400 rounded-lg p-3">
+        <div className="relative rounded-lg h-full">
           <Image
             src={props.DBImage}
             alt='Database image'
             fill
-            className="object-cover rounded-xl"
+            className="object-cover rounded-lg"
           />
         </div>
         <p className="text-center font-crimson text-3xl h-fit">{props.DBName}</p>

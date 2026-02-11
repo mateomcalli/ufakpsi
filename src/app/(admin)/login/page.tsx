@@ -42,7 +42,7 @@ const Login = () => {
   return (
     <section className="relative top-16 w-full h-screen-minus-nav flex justify-center items-center">
       <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-4 justify-between font-crimson items-center border p-4 border-gray-400 rounded-xl w-90 h-56">
+        <div className="flex flex-col gap-4 justify-between font-crimson items-center border p-4 border-gray-400 rounded-lg w-90 h-56">
           <div className="text-center flex flex-col gap-1">
             <p className="text-3xl">Login</p>
             <p>If you're not a website admin, <a className='underline' href='/'>click here</a> to return to the main site.</p>

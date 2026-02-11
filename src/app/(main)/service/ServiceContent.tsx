@@ -22,7 +22,7 @@ const ServiceContent = () => {
               <h2 className="font-crimson text-2xl text-lblue italic">How we give back.</h2>
             </div>
 
-            <div className="flex flex-col gap-2 font-crimson p-4 rounded-xl border border-gray-400 w-full xl:w-xl h-70">
+            <div className="flex flex-col gap-2 font-crimson p-4 rounded-lg border border-gray-400 w-full xl:w-xl h-70">
               <p className="text-lg/6 sm:text-xl/6">As a partner of GNV Thrives, we support community revitalization and educational incentives in Gainesville. With their support, we are empowered to help those around us and promote a brighter future for our neighbors.</p>
               <div className="mt-auto flex relative">
                 <a href="https://gainesvillethrives.org" target="_blank">
@@ -41,9 +41,9 @@ const ServiceContent = () => {
             </div>
           </div>
 
-          <div className="relative flex-1 rounded-xl hidden xl:block">
+          <div className="relative flex-1 rounded-lg hidden xl:block">
             <Image 
-              className="rounded-xl"
+              className="rounded-lg object-cover"
               src='/pickle.png'
               alt='Brothers playing pickleball'
               fill

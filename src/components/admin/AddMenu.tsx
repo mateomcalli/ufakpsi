@@ -143,7 +143,7 @@ const AddMenu = () => {
             transition={{ duration: 0.15 }}
           >
             <motion.div
-              className="relative flex flex-col w-19/20 sm:4/6 md:w-4/7 xl:w-1/3 2xl:w-[31%] h-170 border border-gray-500 rounded-xl bg-cream font-crimson p-4"
+              className="relative flex flex-col w-19/20 sm:4/6 md:w-4/7 xl:w-1/3 2xl:w-[31%] h-170 border border-gray-500 rounded-lg bg-cream font-crimson p-4"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
