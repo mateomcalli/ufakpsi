@@ -1,39 +1,35 @@
 'use client'
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import { createClient } from "@/lib/supabase/client"
 import Polaroid from "@/src/components/events/Polaroid"
 import EventPicker from "@/src/components/events/EventPicker"
 
+interface Event {
+  id : number;
+  title : string;
+  cover: string;
+  pics: { text: string; url: string; }[]
+}
+
 const EventsContent = () => {
   const [selectedEvent, setSelectedEvent] = useState<number>(0)
+  const [events, setEvents] = useState<Event[]>([])
 
-  const events = [
-    {
-      cover: '/guac.jpg', 
-      id: 0, 
-      title: 'Big Little Reveal', 
-      pics: [
-        {text: 'Guac GOAT Fam', url: '/guac.jpg'}, 
-        {text: 'Spring Mem Team :)', url: '/mem_spr_2026.JPG'}, 
-        {text: 'Scavenger hunt!', url: '/bros.jpg'}, 
-        {text: 's/o celsius', url: '/recruitment-photo.jpg'}
-      ]
-    },
-    {
-      cover: '/guac.jpg', 
-      id: 1, 
-      title: 'Big Little Reveal', 
-      pics: [
-        {text: 'Guac GOAT Fam', url: '/recruitment-photo.jpg'}, 
-        {text: 'Spring Mem Team :)', url: '/recruitment-photo.jpg'}, 
-        {text: 'Scavenger hunt!', url: '/recruitment-photo.jpg'}, 
-        {text: 's/o celsius', url: '/recruitment-photo.jpg'}
-      ]
-    },
-    // {url: '/bros.jpg', id: 1, title: 'Intramural Football'},
-    // {url: '/mem_spr_2026.JPG', id: 2, title: 'Professional Trip to NYC'},
-    // {url: '/recruitment-photo.jpg', id: 3, title: 'Spring Recruitment'},
-  ]
+  const supabase = createClient()
+
+  useEffect(() => {
+    const getEvents = async () => {
+      const { data, error } = await supabase.from("events").select()
+      if (error) {
+        console.error(error)
+        return
+      }
+      setEvents(data)
+    }
+    getEvents()
+  }, [])
 
   return (
     <div className="relative w-full">
@@ -45,8 +41,15 @@ const EventsContent = () => {
         <EventPicker selectedEvent={selectedEvent} setSelectedEvent={setSelectedEvent} events={events}/>
       </section>
       <div className="absolute mt-24 left-0 right-0 mx-auto w-fit flex shrink-0">
-        {events[selectedEvent].pics?.map((pic,i) => (
-          <Polaroid key={i} src={pic.url} text={pic.text} year="2025"/>
+        {events[selectedEvent]?.pics?.map((pic, i) => (
+          <motion.div
+          key={`${i}-${selectedEvent}`}
+          initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1, duration: 0.5 }}
+          >
+            <Polaroid src={pic.url} text={pic.text}/>
+          </motion.div>
         ))}
       </div>
     </div>
