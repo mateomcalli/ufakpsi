@@ -9,52 +9,65 @@ type Brother = {
   id: string;
   first_name: string;
   last_name: string;
+  headshot: string;
   persona: boolean;
+  exec: boolean;
+  positions: string[]
 }
 
-type PositionWithBrother = {
+type Position = {
   id: number
   name: string
-  brother_team_position: { brothers?: Brother[] }[]
+  brothers: Brother[]
 }
 
 const TeamCardContent = (props: { teamId: number; border: boolean; caption: string; isExpanded: boolean; }) => {
   const [teamName, setTeamName] = useState<string>('')
-  const [positions, setPositions] = useState<PositionWithBrother[]>([])
+  const [positions, setPositions] = useState<Position[]>([])
+  const [execBrother, setExecBrother] = useState<Brother | null>(null)
   const supabase = createClient()
 
   useEffect(() => {
-    const fetchTeamName = async () => {
-      const { data, error } = await supabase.from('teams').select().eq("id", String(props.teamId)).single()
-      if (error) {
-        console.error(error)
+    const fetchTeamData = async () => {
+      const { data: teamData, error: teamError } = await supabase.from('teams').select().eq("id", String(props.teamId)).single()
+      
+      if (teamError) {
+        console.error(teamError)
         return
       }
-      setTeamName(data.name)
-    }
+      setTeamName(teamData.name)
 
-    const fetchPositions = async () => {
-      const { data, error } = await supabase
+      const { data: positionsData, error: positionsError } = await supabase
         .from("positions")
         .select(`
           id,
           name,
           brother_team_position (
-            brothers ( id, first_name, last_name, persona )
+            brothers ( id, first_name, last_name, headshot, persona, exec, positions )
           )
         `)
         .eq("team_id", props.teamId)
   
-      if (error) {
-        console.error(error)
+      if (positionsError) {
+        console.error(positionsError)
         return
-      } else {
-        setPositions(data)
       }
+
+      const flattened: Position[] = positionsData.map(position => ({
+        id: position.id,
+        name: position.name,
+        brothers: position.brother_team_position.flatMap(item => {
+          if (!item.brothers) return []
+          return Array.isArray(item.brothers) ? item.brothers : [item.brothers]
+        })
+      }))
+      setPositions(flattened)
+
+      const exec = flattened.flatMap(pos => pos.brothers).find(bro => bro.exec) || null
+      setExecBrother(exec)
     }
 
-    fetchTeamName()
-    fetchPositions()
+    fetchTeamData()
   }, [])
 
   return (
@@ -74,20 +87,12 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
             <div className="text-center flex flex-col gap-2 py-2">
               {positions.map(position => (
                 <div className='flex flex-col' key={position.id}>
-                  <p key={position.id}>{position.name}</p>
-                  {position.brother_team_position.map((item) => {
-                    const brothersArray = Array.isArray(item.brothers) // checks if brother_team_position exists, makes empty array if not. SHOULD ALWAYS EXIST
-                      ? item.brothers
-                      : item.brothers
-                      ? [item.brothers]
-                      : []
-
-                    return brothersArray.map(brother =>
-                      <p className='-mt-1 font-bold' key={brother.id}>
-                        {brother.persona ?  "Brother" : brother.first_name} {brother.last_name}
-                      </p>
-                    )
-                  })}
+                  <p>{position.name}</p>
+                  {position.brothers.map(brother => (
+                    <p className='-mt-1 font-bold' key={brother.id}>
+                      {brother.persona ? "Brother" : brother.first_name} {brother.last_name}
+                    </p>
+                  ))}
                 </div>
               ))}
             </div>
@@ -95,25 +100,29 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
         )}
       </AnimatePresence>
 
-      <motion.div 
-        className="bg-cream hover:bg-[#dddddd] transition-colors ease-in-out duration-100 rounded-lg flex items-center gap-4 p-2 w-fit mt-auto"
-        initial={{ x: 0, y: 0 }}
-        whileHover={{ x: 10, y: -10 }}
-        transition={{ duration: 0.1 }}
-      >
-        <div className="relative shrink-0 rounded-full border border-black w-24 h-24">
-          <Image
-            alt="Executive Board Member Headshot"
-            src='/good3316.jpg'
-            fill
-            className="rounded-full object-cover"
-          />
-        </div>
-        <div className="flex flex-col h-fit">
-          <p className="font-crimson text-xl font-semibold">Exec</p>
-          <p className="font-crimson text-lg">PosTitle</p>
-        </div>
-      </motion.div>
+      {execBrother && (
+        <motion.div 
+          className="bg-cream hover:bg-[#dddddd] transition-colors ease-in-out duration-100 rounded-lg flex items-center gap-4 p-2 w-fit mt-auto"
+          initial={{ x: 0, y: 0 }}
+          whileHover={{ x: 10, y: -10 }}
+          transition={{ duration: 0.1 }}
+        >
+          <div className="relative shrink-0 rounded-full border border-black w-24 h-24">
+            <Image
+              alt="Executive Board Member Headshot"
+              src={execBrother.headshot}
+              fill
+              className="rounded-full object-cover"
+            />
+          </div>
+          <div className="flex flex-col h-fit">
+            <p className="font-crimson text-xl font-semibold">
+              {execBrother.persona ? "Brother" : execBrother.first_name} {execBrother.last_name}
+            </p>
+            <p className="font-crimson text-lg">{execBrother.positions[0]}</p>
+          </div>
+        </motion.div>
+      )}
     </div>
   )
 }

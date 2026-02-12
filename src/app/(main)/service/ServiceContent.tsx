@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import InfiniteCarousel from "@/src/components/service/InfiniteCarousel"
+import ServiceCard from "@/src/components/cards/ServiceCard"
 
 const ServiceContent = () => {
   const images : string[] = [
@@ -13,9 +14,9 @@ const ServiceContent = () => {
 
   return (
     <>
-    <div className="flex flex-col gap-24">
-      <section className="flex pt-8 top-16 h-fit relative">
-        <div className="flex xl:pr-1 w-full px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl  m-auto gap-8">
+    <div className="flex flex-col gap-12">
+      <section className="flex pt-8 mt-16 h-fit relative">
+        <div className="flex w-full px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl  m-auto gap-8">
           <div className="flex flex-col gap-4">
             <div className="px-0 sm:px-4">
               <h1 className="font-libre text-2xl md:text-3xl">Service at Alpha Kappa Psi</h1>
@@ -53,6 +54,18 @@ const ServiceContent = () => {
       </section>
       
       <InfiniteCarousel images={images} />
+
+      <div className="flex flex-col gap-6 m-auto w-full px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl">
+        <div className="px-0 sm:px-4">
+          <h1 className="font-libre text-xl md:text-2xl">Check out our latest service events:</h1>
+        </div>
+        <div className="gap-4 flex flex-col w-full md:w-auto md:grid md:grid-cols-2 md:grid-rows-2">
+          <ServiceCard title='Puppy Hill Farm Animal Rescue' pics=''/>
+          <ServiceCard title='The Giving Garden' pics=''/>
+          <ServiceCard title='Pickleball Tournament' pics=''/>
+          <ServiceCard title='Bread of the Mighty' pics=''/>
+        </div>
+      </div>
     </div>
   </>
   )
