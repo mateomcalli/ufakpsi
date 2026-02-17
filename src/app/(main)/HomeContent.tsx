@@ -53,10 +53,10 @@ const HomeContent = () => {
   }, [isTextInView])
 
   return (
-    <div className="relative top-16 h-fit">
+    <div className="relative mt-16 h-fit">
       <Landing/>
-      <section className='relative bg-cream border-t rounded-t-[60px] border-t-gray-500 w-screen h-[200vh] z-10 shadow-[-5px_-20px_30px_-10px_rgba(0,0,0,0.3)]'>   
-        <div className='p-8 flex flex-col gap-12 sm:gap-10'>
+      <section className='relative bg-cream border-t rounded-t-[60px] border-t-gray-500 w-screen z-10 shadow-[-5px_-20px_30px_-10px_rgba(0,0,0,0.3)]'>   
+        <div className='red p-8 flex flex-col gap-12 sm:gap-10'>
           <h1 className="font-crimson self-center text-2xl">Who we are:</h1>
           <motion.h2
             ref={textRef}
@@ -115,18 +115,22 @@ const HomeContent = () => {
         </div>
 
         <motion.div
+          className='w-full mt-16 h-80 relative bg-black'
           variants={contentVariants}
           initial="hidden"
           animate={showBody ? "visible" : "hidden"}
           transition={{ delay: 0.3 }}
-          className='w-full h-80 relative bg-black'
         >
           <Image 
             src="/mem_spr_2026.JPG"
             alt="Membership Team"
             fill
-            className="object-cover opacity-40"
+            className="object-cover object-[30%_42%] blur-[1px] opacity-30"
           />
+          <div className="absolute inset-0 bottom-32 flex flex-col items-center justify-center gap-4">
+            <h2 className="text-stone-200 font-crimson text-4xl">Interested in becoming a part of our brotherhood?</h2>
+            <p className="text-stone-200 font-crimson text-xl px-24 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl text-center">We're glad you want to become a part of one of the largest and most active communities on campus. To learn more about our recruitment process and how you can get involved, visit our recruitment page! We typically host events near the start of each semester.</p>
+          </div>
         </motion.div>
       </section>
     </div>

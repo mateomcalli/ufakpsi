@@ -1,7 +1,8 @@
-import "../globals.css"
+import "./globals.css"
 import { Libre_Baskerville, Crimson_Pro, Nothing_You_Could_Do } from 'next/font/google'
-import Navbar from "../../components/navbar/Navbar";
-import BreakpointIndicator from "../../components/dev/BreakpointIndicator";
+import Navbar from "../components/navbar-footer/Navbar";
+import BreakpointIndicator from "../components/dev/BreakpointIndicator";
+import Footer from "../components/navbar-footer/Footer";
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
@@ -29,6 +30,7 @@ const Layout = ({children}: Readonly<{children: React.ReactNode}>) => {
         <BreakpointIndicator/>
         <Navbar/>
         <main>{children}</main>
+        <Footer/>
       </body>
     </html>
   )

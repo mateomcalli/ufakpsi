@@ -63,7 +63,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
       }))
       setPositions(flattened)
 
-      const exec = flattened.flatMap(pos => pos.brothers).find(bro => bro.exec) || null
+      const exec = flattened.find(pos => pos.id === props.teamId)?.brothers[0] || null
       setExecBrother(exec)
     }
 
