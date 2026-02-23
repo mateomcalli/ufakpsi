@@ -18,12 +18,12 @@ const DesktopNavbar = () => {
                 height={100}
               />
             </Link>
-            <AnimatedNavLink bg={false} buttonName='Recruitment'/>
-            <AnimatedNavLink bg={false} buttonName='Brotherhood'/>
-            <AnimatedNavLink bg={false} buttonName='Events'/>
-            <AnimatedNavLink bg={false} buttonName='Service'/>
+            <AnimatedNavLink bg={false} buttonName='Recruitment' popOut={true}/>
+            <AnimatedNavLink bg={false} buttonName='Brotherhood' popOut={false}/>
+            <AnimatedNavLink bg={false} buttonName='Events' popOut={false}/>
+            <AnimatedNavLink bg={false} buttonName='Service' popOut={false}/>
           </div>
-          <AnimatedNavLink bg={true} buttonName='All Brothers'/>
+          <AnimatedNavLink bg={true} buttonName='All Brothers' popOut={false}/>
         </div>
       </div>
     </nav>

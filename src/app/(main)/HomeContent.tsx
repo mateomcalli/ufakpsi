@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
-import Polaroid from '@/src/components/events/Polaroid';
+import AnimatedNavLink from '@/src/components/navbar-footer/AnimatedNavLink';
 import Landing from "../../components/homepage/Landing";
 import CoreValues from "../../components/homepage/CoreValues";
 
@@ -56,7 +56,7 @@ const HomeContent = () => {
     <div className="relative mt-16 h-fit">
       <Landing/>
       <section className='relative bg-cream border-t rounded-t-[60px] border-t-gray-500 w-screen z-10 shadow-[-5px_-20px_30px_-10px_rgba(0,0,0,0.3)]'>   
-        <div className='red p-8 flex flex-col gap-12 sm:gap-10'>
+        <div className='p-8 flex flex-col gap-12 sm:gap-10'>
           <h1 className="font-crimson self-center text-2xl">Who we are:</h1>
           <motion.h2
             ref={textRef}
@@ -121,15 +121,26 @@ const HomeContent = () => {
           animate={showBody ? "visible" : "hidden"}
           transition={{ delay: 0.3 }}
         >
-          <Image 
-            src="/mem_spr_2026.JPG"
-            alt="Membership Team"
-            fill
-            className="object-cover object-[30%_42%] blur-[1px] opacity-30"
-          />
-          <div className="absolute inset-0 bottom-32 flex flex-col items-center justify-center gap-4">
-            <h2 className="text-stone-200 font-crimson text-4xl">Interested in becoming a part of our brotherhood?</h2>
-            <p className="text-stone-200 font-crimson text-xl px-24 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl text-center">We're glad you want to become a part of one of the largest and most active communities on campus. To learn more about our recruitment process and how you can get involved, visit our recruitment page! We typically host events near the start of each semester.</p>
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src="/mem_spr_2026.JPG"
+              alt="Membership Team"
+              fill
+              className="object-cover object-[30%_42%] blur-[1px] opacity-30"
+            />
+          </div>
+          
+          <div className='relative h-full flex flex-col gap-4 sm:gap-6 items-center justify-center mx-auto px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl'>
+            <h2 className="text-stone-200 font-crimson text-2xl sm:text-3xl md:text-4xl text-center">
+              Interested in becoming a part of our brotherhood?
+            </h2>
+            <p className="text-stone-200 font-crimson text-md sm:text-lg md:text-xl text-center">
+              We're glad you want to become a part of one of the largest and most active communities on campus. To learn more about our recruitment process and how you can get involved, visit our recruitment page! Look our for our rush events near the start of each semester, and follow our instagram to see what we're up to.
+            </p>
+            <div className='flex gap-8'>
+              <AnimatedNavLink bg={true} buttonName='Recruitment' popOut={true}/>
+              <AnimatedNavLink bg={true} onlyLink='https://instagram.com/ufakpsi' buttonName='Instagram' popOut={true}/>
+            </div>
           </div>
         </motion.div>
       </section>

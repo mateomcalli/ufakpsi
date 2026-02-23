@@ -41,11 +41,11 @@ const MobileNavbar = () => {
               mass: 0.1
             }}
           >
-            <AnimatedNavLink bg={false} buttonName='Recruitment'/>
-            <AnimatedNavLink bg={false} buttonName='Brotherhood'/>
-            <AnimatedNavLink bg={false} buttonName='Events'/>
-            <AnimatedNavLink bg={false} buttonName='Service'/>
-            <AnimatedNavLink bg={false} buttonName='All Brothers'/>
+            <AnimatedNavLink bg={false} buttonName='Recruitment' popOut={true}/>
+            <AnimatedNavLink bg={false} buttonName='Brotherhood' popOut={false}/>
+            <AnimatedNavLink bg={false} buttonName='Events' popOut={false}/>
+            <AnimatedNavLink bg={false} buttonName='Service' popOut={false}/>
+            <AnimatedNavLink bg={false} buttonName='All Brothers' popOut={false}/>
           </motion.div>
         </motion.div>
       </nav>
