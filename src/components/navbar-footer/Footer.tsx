@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link";
 import { FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
@@ -16,20 +17,35 @@ const Footer = () => {
           />
           <p className="font-crimson">© {today.getFullYear()} Alpha Kappa Psi Fraternity</p>
         </div>
-        <div className="relative opacity-60 flex flex-col pt-4 text-right">
+        <div className="relative flex flex-col pt-4 text-right">
           <div className="flex gap-4 relative pb-2">
-            <div className='border border-dblue h-fit p-2 rounded-lg'>
+            <Link 
+              className='border text-gray-600 hover:text-dblue hover:opacity-100 transition-colors border-dblue h-fit p-2 rounded-lg'
+              href="https://instagram.com/ufakpsi"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <FaInstagram size={32}/>
-            </div>
-            <div className='border border-dblue h-fit p-2 rounded-lg'>
+            </Link>
+            <Link 
+              className='border text-gray-600 hover:text-dblue hover:opacity-100 transition-colors border-dblue h-fit p-2 rounded-lg'
+              href="https://instagram.com/ufakpsi"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <FaLinkedinIn size={32}/>
-            </div>
-            <div className='border border-dblue h-fit p-2 rounded-lg'>
+            </Link>
+            <Link
+              className='border text-gray-600 hover:text-dblue hover:opacity-100 transition-colors border-dblue h-fit p-2 rounded-lg'
+              href="https://www.tiktok.com/@uf.akpsi"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <FaTiktok size={32}/>
-            </div>
+            </Link>
           </div>
-          <a target="_blank"rel="noopener noreferrer" href="https://github.com/mateomcalli/ufakpsi" className="underline font-crimson">Source Code</a>
-          <a target="_blank"rel="noopener noreferrer" href="https://github.com/mateomcalli/ufakpsi" className="underline font-crimson">Admins</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/mateomcalli/ufakpsi" className="underline font-crimson">Source Code</a>
+          <a rel="noopener noreferrer" href="/admin" className="underline font-crimson">Admins</a>
         </div>
       </div>
     </section>

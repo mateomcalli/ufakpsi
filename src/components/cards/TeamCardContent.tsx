@@ -101,10 +101,10 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
       </AnimatePresence>
 
       {execBrother && (
-        <motion.div 
+        <motion.a 
           className="bg-cream hover:bg-[#dddddd] transition-colors ease-in-out duration-100 rounded-lg flex items-center gap-4 p-2 w-fit mt-auto"
           initial={{ x: 0, y: 0 }}
-          whileHover={{ x: 10, y: -10 }}
+          whileHover={{ x: 4, y: -4 }}
           transition={{ duration: 0.1 }}
         >
           <div className="relative shrink-0 rounded-full border border-black w-24 h-24">
@@ -121,7 +121,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
             </p>
             <p className="font-crimson text-lg">{execBrother.positions[0]}</p>
           </div>
-        </motion.div>
+        </motion.a>
       )}
     </div>
   )
