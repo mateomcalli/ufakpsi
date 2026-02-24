@@ -6,7 +6,7 @@ const TeamPage = async ({ params }: { params: Promise<{ teamId: string }> }) => 
 
   const supabase = await createClient()
   const { data, error } = await supabase
-    .from('brothers_teams')
+    .from('brother_team_position')
     .select('brothers(first_name, last_name, major, college)')
     .eq('team_id', teamIdInt)
     
