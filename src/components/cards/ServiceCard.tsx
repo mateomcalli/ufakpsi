@@ -1,9 +1,9 @@
-type Event = {
+type ServiceEvent = {
   title: string;
   pics: string;
 }
 
-const ServiceCard = ({ title, pics } : Event) => {
+const ServiceCard = ({ title, pics } : ServiceEvent) => {
   return (
     <div className="flex flex-col gap-1 p-4 rounded-lg h-64 border border-gray-400">
       <p className="font-libre text-xl">{title}</p>

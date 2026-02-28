@@ -89,8 +89,8 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
 
           <div className='relative w-96 h-96 flex items-center justify-center overflow-visible'>
             <AnimatePresence initial={false} custom={direction}>
-              {events.map((event) => {
-                const relativePosition = getRelativePosition(event.id)
+              {events.map((event, index) => {
+                const relativePosition = getRelativePosition(index)
                 
                 if (Math.abs(relativePosition) > 1) return null
 

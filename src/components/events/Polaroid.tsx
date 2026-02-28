@@ -21,10 +21,12 @@ useEffect(() => {
         src={props.src}
         alt='Pictures of members'
         fill
-        className='object-cover p-4 pb-24 bg-white shadow-lg'
+        priority
+        draggable='false'
+        className='object-cover p-4 pb-24 bg-white shadow-lg select-none'
       />
       <div className="absolute bottom-12 z-2 h-8 px-4 w-full">
-        <p className="font-hand text-xl">{props.text}</p>
+        <p className="font-hand text-xl break-words">{props.text}</p>
       </div>
     </div>
   )
