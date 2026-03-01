@@ -17,7 +17,7 @@
       className={props.bg ? `px-3 py-1.5 bg-cream inset-shadow-sm/20 transition-shadow duration-300 hover:cursor-pointer hover:shadow-md hover:inset-shadow-sm/0 flex items-center border border-lblue rounded-lg w-fit` : `` + `w-fit mt-0.5`}
     >
       <Link 
-        className='font-libre' 
+        className='font-merry' 
         rel="noreferrer noopener"
         target={props.popOut ? `_blank` : `_self`}
         href={props.onlyLink ? props.onlyLink : `${props.buttonName === "Recruitment" ? "https://recruitment.ufakpsi.com" : '/' + props.buttonName.toLowerCase().replace(/ /g, "_")}`}

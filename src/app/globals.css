@@ -17,9 +17,11 @@
 }
 
 @theme {
-  --font-libre: 'Libre Baskerville', sans-serif;
-  --font-crimson: 'Crimson Pro', sans-serif;
-  --font-hand: 'Nothing You Could Do', sans-serif;
+  --font-libre: 'Libre Baskerville', serif;
+  --font-crimson: 'Crimson Pro', serif;
+  --font-hand: 'Nothing You Could Do', serif;
+  --font-sans: 'IBM Plex Sans', sans-serif;
+  --font-merry: 'Merriweather', serif;
   --color-cream: #FCF6EA;
   --color-dblue: #120374;
   --color-lblue: #5674A1;

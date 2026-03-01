@@ -6,10 +6,10 @@ import ServiceCard from "@/src/components/cards/ServiceCard"
 
 const ServiceContent = () => {
   const images : string[] = [
-    '/guac.jpg',
-    '/pcfall25.jpg',
-    '/bros.jpg',
-    '/recruitment-photo.jpg',
+    '/vests.jpg',
+    '/planting.jpg',
+    '/breadmighty.jpg',
+    '/dog.jpg',
   ]
 
   return (
@@ -19,7 +19,7 @@ const ServiceContent = () => {
         <div className="flex w-full px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl  m-auto gap-8">
           <div className="flex flex-col gap-4">
             <div className="px-0 sm:px-4">
-              <h1 className="font-libre text-2xl md:text-3xl">Service at Alpha Kappa Psi</h1>
+              <h1 className="font-merry text-2xl md:text-3xl">Service at Alpha Kappa Psi</h1>
               <h2 className="font-crimson text-2xl text-lblue italic">How we give back.</h2>
             </div>
 
@@ -28,7 +28,7 @@ const ServiceContent = () => {
               <div className="mt-auto flex relative">
                 <a href="https://gainesvillethrives.org" target="_blank">
                   <div className="inset-shadow-sm/20 transition-shadow duration-300 hover:cursor-pointer hover:shadow-lg hover:inset-shadow-sm/0 flex items-center border border-lblue rounded-lg w-36 h-12">
-                    <p className="m-auto text-lg">Learn more</p>
+                    <p className="m-auto font-merry">Learn more</p>
                   </div>
                 </a>
                 <Image
@@ -42,12 +42,14 @@ const ServiceContent = () => {
             </div>
           </div>
 
-          <div className="relative flex-1 rounded-lg hidden xl:block">
+          <div className="w-full relative flex-1 rounded-lg hidden xl:block">
             <Image 
-              className="rounded-lg object-cover"
-              src='/pickle.png'
+              className="rounded-lg object-cover object-[30%_20%]"
+              quality={100}
+              src='/pickle1.png'
               alt='Brothers playing pickleball'
               fill
+              
             />
           </div>
         </div>
@@ -57,7 +59,7 @@ const ServiceContent = () => {
 
       <div className="flex flex-col gap-6 m-auto w-full px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl">
         <div className="px-0 sm:px-4">
-          <h1 className="font-libre text-xl md:text-2xl">Check out our latest service events:</h1>
+          <h1 className="font-merry text-xl md:text-2xl">Check out our latest service events:</h1>
         </div>
         <div className="gap-4 flex flex-col w-full md:w-auto md:grid md:grid-cols-2 md:grid-rows-2">
           <ServiceCard title='Puppy Hill Farm Animal Rescue' pics=''/>

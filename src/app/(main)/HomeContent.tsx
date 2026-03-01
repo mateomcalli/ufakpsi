@@ -56,11 +56,11 @@ const HomeContent = () => {
     <div className="relative mt-16 h-fit">
       <Landing/>
       <section className='relative bg-cream border-t rounded-t-[60px] border-t-gray-500 w-screen z-10 shadow-[-5px_-20px_30px_-10px_rgba(0,0,0,0.3)]'>   
-        <div className='p-8 flex flex-col gap-12 sm:gap-10'>
-          <h1 className="font-crimson self-center text-2xl">Who we are:</h1>
+        <div className='pt-14 p-8 pr-12 flex flex-col gap-16 sm:gap-12'>
+          {/* <h1 className="font-crimson self-center text-2xl">Who we are:</h1> */}
           <motion.h2
             ref={textRef}
-            className="font-crimson self-center text-center text-3xl sm:text-4xl"
+            className="font-merry self-center text-center text-3xl sm:text-3xl"
             variants={containerVariants}
             initial="hidden"
             animate={isTextInView ? "visible" : "hidden"}
@@ -88,11 +88,11 @@ const HomeContent = () => {
             initial="hidden"
             animate={showBody ? "visible" : "hidden"}
           >
-            <div className="md:w-160 items-center flex my-4">
-              <h3 className='text-center md:text-left font-crimson text-xl'>Founded in 1904, Alpha Kappa Psi is the number one professional <b>co-ed</b> business fraternity in the nation. With over 298,000 members at 219 different universities, our mission is clear: to develop our members into principled business leaders. With an extensive alumni network and resources all around the Heavener School of Business and beyond, we foster growth, professional development, and lasting connections for members of <b>any major</b>.</h3>
+            <div className="md:w-240 items-center flex">
+              <h3 className='text-center font-crimson text-xl'>Founded in 1904, Alpha Kappa Psi is the number one professional <b>co-ed</b> business fraternity in the nation. With over 298,000 members at 219 different universities, our mission is clear: to develop our members into principled business leaders. With an extensive alumni network and resources all around the Heavener School of Business and beyond, we foster growth, professional development, and lasting connections for members of <b>any major</b>.</h3>
             </div>
 
-            <div className="flex flex-col my-4 items-center">
+            {/* <div className="flex flex-col my-4 items-center">
               <p className="text-dblue text-5xl font-crimson">50+</p>
               <h3 className="font-crimson text-xl text-nowrap pb-2">active members</h3>
 
@@ -101,7 +101,7 @@ const HomeContent = () => {
 
               <p className="text-dblue text-5xl font-crimson">1000+</p>
               <h3 className="font-crimson text-xl pb-2">alumni</h3>
-            </div>
+            </div> */}
           </motion.div>
           
           <motion.div
@@ -131,7 +131,7 @@ const HomeContent = () => {
           </div>
           
           <div className='relative h-full flex flex-col gap-4 sm:gap-6 items-center justify-center mx-auto px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl'>
-            <h2 className="text-stone-200 font-crimson text-2xl sm:text-3xl md:text-4xl text-center">
+            <h2 className="text-stone-200 font-merry text-xl sm:text-2xl md:text-3xl text-center">
               Interested in becoming a part of our brotherhood?
             </h2>
             <p className="text-stone-200 font-crimson text-md sm:text-lg md:text-xl text-center">

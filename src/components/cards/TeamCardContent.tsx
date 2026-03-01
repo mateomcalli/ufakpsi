@@ -12,7 +12,8 @@ type Brother = {
   headshot: string;
   persona: boolean;
   exec: boolean;
-  positions: string[]
+  positions: string[];
+  linkedin: string;
 }
 
 type Position = {
@@ -43,7 +44,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
           id,
           name,
           brother_team_position (
-            brothers ( id, first_name, last_name, headshot, persona, exec, positions )
+            brothers ( id, first_name, last_name, headshot, persona, exec, positions, linkedin )
           )
         `)
         .eq("team_id", props.teamId)
@@ -73,7 +74,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
   return (
     <div className={`flex flex-col flex-1 px-4 ${props.border ? `border-r border-gray-400` : ``}`}>
       <p className="font-crimson text-xl font-semibold pl-2">{teamName}</p>
-      <p className="font-crimson xl:text-lg pl-2">{props.caption}</p>
+      <p className="font-crimson text-base sm:text-lg lg:text-base xl:text-lg pl-2">{props.caption}</p>
 
       <AnimatePresence>
         {props.isExpanded && (
@@ -84,12 +85,12 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
             transition={{ duration: 0.3 }}
             className="overflow-hidden font-crimson text-base mt-2 pl-2 pr-2"
           >
-            <div className="text-center flex flex-col gap-2 py-2">
+            <div className="flex flex-col gap-4 pt-2 pb-6">
               {positions.map(position => (
                 <div className='flex flex-col' key={position.id}>
-                  <p>{position.name}</p>
-                  {position.brothers.map(brother => (
-                    <p className='-mt-1 font-bold' key={brother.id}>
+                  <p className="text-neutral-600">{position.name}</p>
+                  {position.brothers.map((brother, index) => (
+                    <p className={`-mt-1 font-bold`} key={brother.id}>
                       {brother.persona ? "Brother" : brother.first_name} {brother.last_name}
                     </p>
                   ))}
@@ -103,6 +104,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
       {execBrother && (
         <motion.a 
           className="bg-cream hover:bg-[#dddddd] transition-colors ease-in-out duration-100 rounded-lg flex items-center gap-4 p-2 w-fit mt-auto"
+          href={execBrother.linkedin}
           initial={{ x: 0, y: 0 }}
           whileHover={{ x: 4, y: -4 }}
           transition={{ duration: 0.1 }}

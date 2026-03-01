@@ -123,7 +123,7 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
                       priority
                       className='w-full h-80 object-cover rounded-tl-lg rounded-tr-lg bg-white pointer-events-none select-none' 
                     />
-                    <p className='text-center my-auto font-crimson text-2xl'>{event.title}</p>
+                    <p className='text-center my-auto font-merry text-xl'>{event.title}</p>
                   </motion.div>
                 )
               })}

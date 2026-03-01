@@ -16,10 +16,10 @@ const Landing = () => {
   }, [])
 
   const images : Array<string> = [
-    '/good3316.JPG',
-    '/guac.jpg',
-    '/bros.jpg',
-    '/pcfall25.JPG'
+    '/pros.jpg',
+    '/pcfall25.JPG',
+    '/breadmighty.jpg',
+    '/morebros.jpg'
   ]
 
   const subtitles : Array<string> = [
@@ -30,7 +30,7 @@ const Landing = () => {
   ]
 
   return (
-    <section className='sticky top-16 flex flex-col gap-4 px-6 sm:px-8 w-screen h-screen'>
+    <section className='sticky top-16 flex flex-col gap-4 px-6 pr-11 sm:pr-12 lg:px-8 w-screen h-screen'>
 
       <div className='relative w-full shrink-0 h-[72vh] sm:h-[75vh]'>
         <AnimatePresence>
@@ -52,10 +52,10 @@ const Landing = () => {
       </div>
       
       <div className='relative px-2 sm:px-6 flex gap-1.5 sm:gap-2'>
-        <h1 className='font-libre text-nowrap text-lg sm:text-xl md:text-2xl lg:text-3xl'>
+        <h1 className='font-merry text-nowrap text-lg sm:text-xl md:text-2xl lg:text-3xl'>
           Alpha Kappa Psi is
         </h1>
-        <div className='relative font-libre italic text-dblue text-lg sm:text-xl md:text-2xl lg:text-3xl'>
+        <div className='relative font-merry italic text-dblue text-lg sm:text-xl md:text-2xl lg:text-3xl'>
           <AnimatePresence mode="wait">
             <motion.h2
               key={imageState}

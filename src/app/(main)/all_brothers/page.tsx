@@ -20,7 +20,7 @@ const AllBrothers = async () => {
 
   return (
     <div className="relative top-24 flex flex-col gap-8">
-      <h1 className="font-libre text-2xl md:text-3xl text-center">All Brothers</h1>
+      <h1 className="font-merry text-2xl md:text-3xl text-center">All Brothers</h1>
       <section className="flex flex-col w-full px-4 items-center min-[910px]:grid min-[910px]:grid-cols-2 min-[910px]:w-fit min-[910px]:px-0 min-[910px]:mx-auto min-[910px]:items-stretch min-[1350px]:grid-cols-3 min-[1780px]:grid-cols-4 gap-4">
         {data!.map((b, i) => {
           if (!b.persona) return (
