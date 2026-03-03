@@ -36,7 +36,7 @@ const EventsContent = () => {
       <section className="flex h-fit pt-24 relative">
         <div className="flex w-full sm:px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl m-auto gap-8">
           <div className="flex flex-col gap-4 w-screen sm:w-full">
-            <div className="px-4">
+            <div className="sm:px-4 px-6">
               <h1 className="font-merry text-2xl md:text-3xl">Events at Alpha Kappa Psi</h1>
               <h2 className="font-crimson text-2xl text-lblue italic">Here's what we've been up to</h2>
             </div>
