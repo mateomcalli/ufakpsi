@@ -28,7 +28,8 @@ const InfiniteCarousel = (props: { images : string[] }) => {
               src={image}
               alt="Brothers serving the community"
               fill
-              className="rounded-lg object-cover"
+              className="select-none rounded-lg object-cover"
+              draggable='false'
             />
           </div>
         ))}

@@ -30,7 +30,7 @@ const Landing = () => {
   ]
 
   return (
-    <section className='sticky top-16 flex flex-col gap-4 px-6 pr-11 sm:pr-12 lg:px-8 w-screen h-screen'>
+    <section className='sticky top-16 flex flex-col gap-4 sm:px-6 lg:px-8 w-screen h-screen'>
 
       <div className='relative w-full shrink-0 h-[72vh] sm:h-[75vh]'>
         <AnimatePresence>
@@ -51,11 +51,11 @@ const Landing = () => {
         </AnimatePresence>
       </div>
       
-      <div className='relative px-2 sm:px-6 flex gap-1.5 sm:gap-2'>
-        <h1 className='font-merry text-nowrap text-lg sm:text-xl md:text-2xl lg:text-3xl'>
-          Alpha Kappa Psi is
+      <div className='relative px-6 flex flex-col sm:flex-row gap-1.5 sm:gap-2'>
+        <h1 className='font-merry text-nowrap text-2xl lg:text-3xl'>
+          Alpha Kappa Psi is:
         </h1>
-        <div className='relative font-merry italic text-dblue text-lg sm:text-xl md:text-2xl lg:text-3xl'>
+        <div className='relative font-merry italic text-dblue text-2xl lg:text-3xl'>
           <AnimatePresence mode="wait">
             <motion.h2
               key={imageState}
@@ -68,7 +68,7 @@ const Landing = () => {
             </motion.h2>
           </AnimatePresence>
         </div>
-        <svg className="shrink-0 ms-auto w-8 h-8 -rotate-90" viewBox="0 0 100 100">
+        <svg className="hidden md:inline shrink-0 ms-auto w-8 h-8 -rotate-90" viewBox="0 0 100 100">
           <motion.circle
             key={imageState}
             cx="50"

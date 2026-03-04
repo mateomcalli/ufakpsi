@@ -17,13 +17,14 @@ const MobileNavbar = () => {
 
   return (
     <>
-      <nav className="bg-cream shadow-xl fixed z-20 left-0 right-0 top-0 h-[62px] flex justify-between pl-5 pr-6 sm:pl-[30px] sm:pr-8 items-center">
+      <nav className="bg-cream shadow-xl fixed z-20 left-0 right-0 top-0 h-[62px] flex justify-between px-6.5 items-center">
         <Link href='/'>
           <Image
             alt='AKPsi logo'
             src='/akp_letters.svg'
             width={100}
             height={100}
+            className=""
           />
         </Link>
         <motion.div 
@@ -33,7 +34,7 @@ const MobileNavbar = () => {
         >
           <AnimatedBurger isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen}/>
           <motion.div 
-            className="pl-4 pt-2 flex flex-col gap-4 hover:cursor-auto fixed z-10 h-screen top-16 right-0 border-l border-l-black bg-cream w-1/2"  // Changed: absolute -> fixed, -right-12 -> right-0
+            className="pl-4 pt-2 flex flex-col gap-4 hover:cursor-auto fixed z-10 h-fit pb-3 top-16 right-0 border-b rounded-bl-lg border-l border-l-neutral-300 border-b-neutral-300 bg-cream w-1/2"
             variants={variants}
             transition={{
               type: "spring",
@@ -41,11 +42,11 @@ const MobileNavbar = () => {
               mass: 0.1
             }}
           >
-            <AnimatedNavLink bg={false} buttonName='Recruitment' popOut={true}/>
-            <AnimatedNavLink bg={false} buttonName='Brotherhood' popOut={false}/>
-            <AnimatedNavLink bg={false} buttonName='Events' popOut={false}/>
-            <AnimatedNavLink bg={false} buttonName='Service' popOut={false}/>
-            <AnimatedNavLink bg={false} buttonName='All Brothers' popOut={false}/>
+            <AnimatedNavLink bg={false} buttonName='Recruitment' popOut={true} onClose={() => setMenuOpen(false)}/>
+            <AnimatedNavLink bg={false} buttonName='Brotherhood' popOut={false} onClose={() => setMenuOpen(false)}/>
+            <AnimatedNavLink bg={false} buttonName='Events' popOut={false} onClose={() => setMenuOpen(false)}/>
+            <AnimatedNavLink bg={false} buttonName='Service' popOut={false} onClose={() => setMenuOpen(false)}/>
+            <AnimatedNavLink bg={false} buttonName='All Brothers' popOut={false} onClose={() => setMenuOpen(false)}/>
           </motion.div>
         </motion.div>
       </nav>

@@ -14,7 +14,7 @@ useEffect(() => {
 
   return (
     <div 
-      className='relative w-64 h-88 flex flex-col items-center justify-center shrink-0'
+      className='relative w-54 h-75 sm:w-64 sm:h-88 flex flex-col items-center justify-center shrink-0'
       style={{ transform: `rotate(${angle}deg) translateY(${yPos}rem)` }}
     >
       <Image

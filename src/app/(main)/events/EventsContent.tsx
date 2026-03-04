@@ -45,17 +45,19 @@ const EventsContent = () => {
         </div>
       </section>
       <div className="w-screen relative left-1/2 -translate-x-1/2">
-        <div className="flex shrink-0 justify-center">
-          {events[selectedEvent]?.pics?.map((pic, i) => (
-            <motion.div
-              key={`${i}-${selectedEvent}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-            >
-              <Polaroid src={pic.url} text={pic.text}/>
-            </motion.div>
-          ))}
+        <div className="overflow-hidden">
+          <div className="flex shrink-0 justify-center py-8">
+            {events[selectedEvent]?.pics?.map((pic, i) => (
+              <motion.div
+                key={`${i}-${selectedEvent}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+              >
+                <Polaroid src={pic.url} text={pic.text}/>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

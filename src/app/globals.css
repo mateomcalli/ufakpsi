@@ -27,3 +27,15 @@
   --color-lblue: #5674A1;
   --color-clwhite: #C9D3E3;
 }
+
+@keyframes rainbow {
+  0% { background-position: -100% 50%; }
+  50% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.hover\:animate-rainbow:hover {
+  background-image: linear-gradient(90deg, #b83636, #db6f10, #dbdb26, #1fb11f, #2a2abd, #822cc9, #b83636);
+  animation: rainbow 4s linear infinite;
+  background-size: 200%;
+}

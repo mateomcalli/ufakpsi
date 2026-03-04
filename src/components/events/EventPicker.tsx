@@ -73,21 +73,21 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
   }
 
   return (
-    <>
-      <div className='m-auto max-[475px]:overflow-x-hidden max-[475px]:w-screen sm:w-fit relative z-2'>
+    <div style={{ overflowX: undefined }} className='w-full overflow-x-clip sm:overflow-x-visible'>
+      <div className='w-full flex justify-center relative pt-8 sm:pt-0 z-2'>
         <div className='flex items-center'>
           <motion.button
             whileTap={{
               scale: 1.2,
               transition: { duration: 0.3 }
             }}
-            className='h-fit z-1 w-fit cursor-pointer'
+            className='pr-4 sm:pr-0 h-fit z-1 w-fit cursor-pointer'
             onClick={() => handleLeft()}
           >
             <RiArrowLeftWideFill size='40'/>
           </motion.button>
 
-          <div className='relative w-96 h-96 flex items-center justify-center overflow-visible'>
+          <div className='relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center overflow-visible'>
             <AnimatePresence initial={false} custom={direction}>
               {events.map((event, index) => {
                 const relativePosition = getRelativePosition(index)
@@ -109,7 +109,7 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
                       opacity: { duration: 0.2 },
                       scale: { duration: 0.2 }
                     }}
-                    className={`absolute flex flex-col w-88 h-96 bg-white rounded-lg shadow-lg ${relativePosition === 0 ? 'cursor-default' : 'cursor-pointer'}`}
+                    className={`absolute flex flex-col w-72 h-80 sm:w-88 sm:h-96 bg-white rounded-lg shadow-lg ${relativePosition === 0 ? 'cursor-default' : 'cursor-pointer'}`}
                     onClick={() => {
                       if (relativePosition === -1) handleLeft()
                       if (relativePosition === 1) handleRight()
@@ -121,9 +121,9 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
                       width={2000}
                       height={2000}
                       priority
-                      className='w-full h-80 object-cover rounded-tl-lg rounded-tr-lg bg-white pointer-events-none select-none' 
+                      className='w-full h-64 sm:h-80 object-cover rounded-tl-lg rounded-tr-lg bg-white pointer-events-none select-none' 
                     />
-                    <p className='text-center my-auto font-merry text-xl'>{event.title}</p>
+                    <p className='text-center my-auto font-merry text-lg sm:text-xl'>{event.title}</p>
                   </motion.div>
                 )
               })}
@@ -135,15 +135,14 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
               scale: 1.2,
               transition: { duration: 0.3 }
             }}
-            className='h-fit z-1 cursor-pointer'
+            className='pl-4 sm:pl-0 h-fit z-1 cursor-pointer'
             onClick={() => handleRight()}
           >
             <RiArrowRightWideFill size='40'/>
           </motion.button>
         </div>
-
       </div>
-    </>
+    </div>
   )
 }
 

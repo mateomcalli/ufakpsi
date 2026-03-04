@@ -8,7 +8,7 @@ import { LuScale } from "react-icons/lu";
 
 const CoreValues = () => {
   return (
-    <div className="relative border border-dblue/50 rounded-lg m-auto px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl h-fit pt-8 pb-8">
+    <div className="relative border border-neutral-300 rounded-lg m-auto px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl h-fit pt-8 pb-8">
       <p className="absolute -top-4 left-[49.8%] -translate-x-1/2 bg-cream px-2 font-crimson text-2xl whitespace-nowrap">
         Our core values
       </p>

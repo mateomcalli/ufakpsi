@@ -27,7 +27,7 @@ const ServiceContent = () => {
               <p className="text-lg/6 sm:text-xl/6">As a partner of GNV Thrives, we support community revitalization and educational incentives in Gainesville. With their support, we are empowered to help those around us and promote a brighter future for our neighbors.</p>
               <div className="mt-auto flex relative">
                 <a href="https://gainesvillethrives.org" target="_blank">
-                  <div className="inset-shadow-sm/20 transition-shadow duration-300 hover:cursor-pointer hover:shadow-lg hover:inset-shadow-sm/0 flex items-center border border-lblue rounded-lg w-36 h-12">
+                  <div className="inset-shadow-sm/20 transition-shadow duration-300 hover:cursor-pointer hover:shadow-lg hover:inset-shadow-sm/0 flex items-center border border-neutral-300 rounded-lg w-36 h-12">
                     <p className="m-auto font-merry">Learn more</p>
                   </div>
                 </a>
@@ -37,6 +37,7 @@ const ServiceContent = () => {
                   width={80}
                   height={80}
                   className="absolute right-0.5 bottom-0"
+                  draggable='false'
                 />
               </div>
             </div>
@@ -48,8 +49,8 @@ const ServiceContent = () => {
               quality={100}
               src='/pickle1.png'
               alt='Brothers playing pickleball'
+              draggable='false'
               fill
-              
             />
           </div>
         </div>

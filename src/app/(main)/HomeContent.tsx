@@ -55,7 +55,7 @@ const HomeContent = () => {
   return (
     <div className="relative mt-16 h-fit">
       <Landing/>
-      <section className='relative bg-cream border-t rounded-t-[60px] border-t-gray-500 w-screen z-10 shadow-[-5px_-20px_30px_-10px_rgba(0,0,0,0.3)]'>   
+      <section className='relative bg-cream border-t rounded-t-[40px] sm:rounded-t-[50px] border-t-gray-500 w-screen z-10 shadow-[-5px_-20px_30px_-10px_rgba(0,0,0,0.3)]'>   
         <div className='pt-14 p-8 pr-12 flex flex-col gap-16 sm:gap-12'>
           {/* <h1 className="font-crimson self-center text-2xl">Who we are:</h1> */}
           <motion.h2

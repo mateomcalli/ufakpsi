@@ -29,7 +29,7 @@ const BrotherCard = (props: {
   
   return (
     <a className="hover:cursor-pointer w-fit h-fit block rounded-lg" href={props.linkedin} target="_blank">
-      <div className="flex gap-4 p-3 w-104 h-64 border border-neutral-300 rounded-lg hover:border-dblue hover:shadow-[0_15px_25px_-5px_rgba(18,3,116,0.3)] transition-all duration-300 ease-in-out">
+      <div className="flex gap-4 p-3 w-104 h-64 border border-neutral-300 rounded-lg hover:border-dblue/70 hover:shadow-[0_15px_25px_-5px_rgba(18,3,116,0.3)] transition-all duration-300 ease-in-out">
         <div className="relative shrink-0 rounded-lg w-36 h-full">
           <Image
             alt="Executive Board Member Headshot"
