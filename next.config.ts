@@ -14,41 +14,7 @@ const nextConfig: NextConfig = {
         hostname: "placehold.co"
       }
     ],
-  },
-
-  async redirects() {
-    if (!isProd) {
-      return [];
-    }
-
-    return [
-      {
-        source: "/",
-        destination: "https://recruitment.ufakpsi.com",
-        permanent: false,
-      },
-      {
-        source: "/service",
-        destination: "https://recruitment.ufakpsi.com",
-        permanent: false,
-      },
-      {
-        source: "/brotherhood",
-        destination: "https://recruitment.ufakpsi.com",
-        permanent: false,
-      },
-      {
-        source: "/admin/teams",
-        destination: "https://recruitment.ufakpsi.com",
-        permanent: false,
-      },
-      {
-        source: "/events",
-        destination: "https://recruitment.ufakpsi.com",
-        permanent: false,
-      },
-    ];
-  },
+  }
 };
 
 export default nextConfig;
