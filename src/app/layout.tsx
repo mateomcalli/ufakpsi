@@ -1,4 +1,6 @@
 import "./globals.css"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Libre_Baskerville, Merriweather, Crimson_Pro, Nothing_You_Could_Do, IBM_Plex_Sans } from 'next/font/google'
 import Navbar from "../components/navbar-footer/Navbar";
 import BreakpointIndicator from "../components/dev/BreakpointIndicator";
@@ -40,6 +42,8 @@ const Layout = ({children}: Readonly<{children: React.ReactNode}>) => {
     <html className={`${libreBaskerville.variable} ${crimsonPro.variable} ${nothingYouCouldDo.variable} ${ibmPlexSans.variable} ${merriweather.variable}`} lang='en'>
       <body className="bg-cream overflow-x-hidden">
         {/* <BreakpointIndicator/> */}
+        <Analytics />
+        <SpeedInsights />
         <Navbar/>
         <main>{children}</main>
         <Footer/>
