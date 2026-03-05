@@ -63,10 +63,10 @@ const ServiceContent = () => {
           <h1 className="font-merry text-xl md:text-2xl">Check out our latest service events:</h1>
         </div>
         <div className="gap-4 flex flex-col w-full md:w-auto md:grid md:grid-cols-2 md:grid-rows-2">
-          <ServiceCard title='Puppy Hill Farm Animal Rescue' pics=''/>
-          <ServiceCard title='The Giving Garden' pics=''/>
-          <ServiceCard title='Pickleball Tournament' pics=''/>
-          <ServiceCard title='Bread of the Mighty' pics=''/>
+          <ServiceCard title='Puppy Hill Farm Animal Rescue' pics='' caption='At Puppy Hill Farm Animal Rescue, we volunteered by spending time with the dogs and cats as well as helping with tasks around the shelter. It was super fun to give back by caring for animals in Gainesville and helping to find them homes!'/>
+          <ServiceCard title='Monthly Initiatives' pics='' caption='Each semester, we host drop-in opportunities for the brotherhood to give back to the community. In the past, we have  designed cards and bracelets for patients at Shands Children’s Hospital and made dog toys to send to Project Canis! '/>
+          <ServiceCard title='Pickleball Tournament' pics='' caption='We host a semesterly pickleball tournament to fundraise for our philanthropy, GNV Thrives. The event brings us together for a day of friendly competition while supporting education in Gainesville.'/>
+          <ServiceCard title='Bread of the Mighty' pics='' caption='We volunteered with Bread of the Mighty Food Bank, helping sort and package food for distribution to families across the Gainesville community. This event allowed us to give back while supporting the organization’s mission to fight hunger in North Central Florida. '/>
         </div>
       </div>
     </div>

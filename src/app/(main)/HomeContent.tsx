@@ -126,7 +126,7 @@ const HomeContent = () => {
               src="/mem_spr_2026.JPG"
               alt="Membership Team"
               fill
-              className="object-cover object-[30%_42%] blur-[1px] opacity-30"
+              className="object-cover object-[30%_42%] opacity-20 sm:opacity-30"
             />
           </div>
           

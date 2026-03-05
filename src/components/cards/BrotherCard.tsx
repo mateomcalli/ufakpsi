@@ -29,7 +29,7 @@ const BrotherCard = (props: {
   
   return (
     <a className="hover:cursor-pointer w-fit h-fit block rounded-lg" href={props.linkedin} target="_blank">
-      <div className="flex gap-4 p-3 w-104 h-64 border border-neutral-300 rounded-lg hover:border-dblue/70 hover:shadow-[0_15px_25px_-5px_rgba(18,3,116,0.3)] transition-all duration-300 ease-in-out">
+      <div className="flex gap-4 p-3 w-96 sm:w-104 h-64 border border-neutral-300 rounded-lg hover:border-dblue/70 hover:shadow-[0_15px_25px_-5px_rgba(18,3,116,0.3)] transition-all duration-300 ease-in-out">
         <div className="relative shrink-0 rounded-lg w-36 h-full">
           <Image
             alt="Executive Board Member Headshot"
@@ -39,8 +39,8 @@ const BrotherCard = (props: {
             />
         </div>
         <div className="font-crimson w-full">
-          <p className="text-2xl text-center">{props.first_name} {props.last_name}</p>
-          <p className="text-lg/6">
+          <p className="text-xl sm:text-2xl text-center">{props.first_name} {props.last_name}</p>
+          <p className="text-base sm:text-lg/6">
             <u>Major:</u> {props.major}<br/>
             <u>College:</u> {props.college}<br/>
             <u>Grad Year:</u> {props.grad_year}<br/>

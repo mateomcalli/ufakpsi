@@ -33,7 +33,7 @@ const Admin = () => {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) redirect("/login")
       
-      const { data: brothersData, error } = await supabase.from('brothers').select()
+      const { data: brothersData, error } = await supabase.from('brothers').select().order('last_name', { ascending: true })
       if (error) console.error(error)
       else setBrothers(brothersData)
     }

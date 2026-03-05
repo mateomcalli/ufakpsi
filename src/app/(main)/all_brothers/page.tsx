@@ -11,7 +11,7 @@ export const metadata = {
 
 const AllBrothers = async () => {
   const supabase = await createClient()
-  const { data, error } = await supabase.from('brothers').select()
+  const { data, error } = await supabase.from('brothers').select().order('first_name', { ascending: true })
 
   if (error) {
     console.error(error);
