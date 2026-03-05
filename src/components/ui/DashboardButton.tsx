@@ -9,7 +9,7 @@ const DashboardButton = ({ text, href }: { text: string; href: string }) => {
     <Link href={href}>
       <motion.div 
         whileHover="xTransl"
-        className='px-3 py-1.5 hover:bg-dblue/5 transition-colors  bg-cream hover:cursor-pointer flex items-center border border-lblue rounded-lg'
+        className='px-3 py-1.5 hover:bg-dblue/5 transition-colors bg-cream hover:cursor-pointer flex items-center border border-neutral-300 rounded-lg'
       >
         <div className="flex flex-col justify-between h-24 w-full">
           <p className="font-crimson text-xl">{text}</p>

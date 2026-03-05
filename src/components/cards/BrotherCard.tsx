@@ -41,10 +41,10 @@ const BrotherCard = (props: {
         <div className="font-crimson w-full">
           <p className="text-xl sm:text-2xl text-center">{props.first_name} {props.last_name}</p>
           <p className="text-base sm:text-lg/6">
-            <u>Major:</u> {props.major}<br/>
-            <u>College:</u> {props.college}<br/>
-            <u>Grad Year:</u> {props.grad_year}<br/>
-            {havePositions ? (<><u>Position(s):</u> {positionsString()}</>) : null}
+            <u className="text-neutral-500">Major:</u> {props.major}<br/>
+            <u className="text-neutral-500">College:</u> {props.college}<br/>
+            <u className="text-neutral-500">Grad Year:</u> {props.grad_year}<br/>
+            {havePositions ? (<><u className="text-neutral-500">Position(s):</u> {positionsString()}</>) : null}
           </p>
         </div>
       </div>

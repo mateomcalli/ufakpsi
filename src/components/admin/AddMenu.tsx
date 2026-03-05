@@ -143,7 +143,7 @@ const AddMenu = () => {
             transition={{ duration: 0.15 }}
           >
             <motion.div
-              className="relative flex flex-col w-19/20 sm:4/6 md:w-4/7 xl:w-1/3 2xl:w-[31%] h-170 border border-gray-500 rounded-lg bg-cream font-crimson p-4"
+              className="relative flex flex-col w-19/20 sm:4/6 md:w-4/7 xl:w-1/3 2xl:w-[31%] h-170 border border-neutral-300 rounded-lg bg-cream font-crimson p-4"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
@@ -169,7 +169,7 @@ const AddMenu = () => {
                         type='text' 
                         value={firstName} 
                         onChange={(e) => setFirstName(e.target.value)} 
-                        className="bg-white focus:outline-none border border-gray-500 w-full rounded-lg h-8 pl-2" 
+                        className="bg-white focus:outline-none border border-neutral-300 w-full rounded-lg h-8 pl-2" 
                         required
                       />
 
@@ -181,7 +181,7 @@ const AddMenu = () => {
                         type='text' 
                         value={lastName} 
                         onChange={(e) => setLastName(e.target.value)} 
-                        className="bg-white focus:outline-none border border-gray-500 w-full rounded-lg h-8 pl-2" 
+                        className="bg-white focus:outline-none border border-neutral-300 w-full rounded-lg h-8 pl-2" 
                         required
                       />
                     </div>
@@ -195,7 +195,7 @@ const AddMenu = () => {
                         type='text' 
                         value={major} 
                         onChange={(e) => setMajor(e.target.value)} 
-                        className="bg-white focus:outline-none border border-gray-500 w-full rounded-lg h-8 pl-2"
+                        className="bg-white focus:outline-none border border-neutral-300 w-full rounded-lg h-8 pl-2"
                       />
                     </div>
                     <div className="flex-[0.4] flex-col gap-0.5">
@@ -204,7 +204,7 @@ const AddMenu = () => {
                         placeholder='Finance' 
                         type='text' value={minor} 
                         onChange={(e) => setMinor(e.target.value)} 
-                        className="bg-white focus:outline-none border border-gray-500 w-full rounded-lg h-8 pl-2"
+                        className="bg-white focus:outline-none border border-neutral-300 w-full rounded-lg h-8 pl-2"
                       />
                     </div>
                   </div>
@@ -213,7 +213,7 @@ const AddMenu = () => {
                     <p className="text-lg">College</p>
                     <input placeholder='College of Liberal Arts and Sciences' 
                       type='text' value={college} onChange={(e) => setCollege(e.target.value)} 
-                      className="bg-white focus:outline-none border border-gray-500 w-full rounded-lg h-8 pl-2"
+                      className="bg-white focus:outline-none border border-neutral-300 w-full rounded-lg h-8 pl-2"
                       />
                   </div>
 
@@ -226,7 +226,7 @@ const AddMenu = () => {
                         min="2021" max="2030" 
                         value={startYear}
                         onChange={(e) => setStartYear(e.target.value)}
-                        className="bg-white focus:outline-none border border-gray-500 w-full rounded-lg h-8 pl-2"
+                        className="bg-white focus:outline-none border border-neutral-300 w-full rounded-lg h-8 pl-2"
                       />
                     </div>
                     <div className="w-1/4 flex-col gap-0.5">
@@ -237,7 +237,7 @@ const AddMenu = () => {
                         min="2021" max="2030"
                         value={gradYear}
                         onChange={(e) => setGradYear(e.target.value)}
-                        className="bg-white focus:outline-none border border-gray-500 w-full rounded-lg h-8 pl-2"
+                        className="bg-white focus:outline-none border border-neutral-300 w-full rounded-lg h-8 pl-2"
                       />
                     </div>
                     <div className="flex-[0.5] flex pl-2 gap-5">
@@ -258,7 +258,7 @@ const AddMenu = () => {
 
                   <div className="flex flex-col w-88 max-h-36 gap-2">
                     <p className="text-lg">Position(s)</p>
-                    <div className="flex flex-col gap-2 p-3 border rounded-lg max-h-48 overflow-y-auto">
+                    <div className="flex flex-col gap-2 p-3 border border-neutral-300 rounded-lg max-h-48 overflow-y-auto">
                       {allPositions.map(p => (
                         <label key={p.id} className="flex items-center gap-2 cursor-pointer p-1 rounded">
                           <input onChange={() => positionChange(p.id)} type="checkbox" value={p.id} className="w-4 h-4" />
@@ -275,7 +275,7 @@ const AddMenu = () => {
                       type='text' 
                       value={linkedin} 
                       onChange={(e) => setLinkedin(e.target.value)} 
-                      className="bg-white focus:outline-none border border-gray-500 w-full rounded-lg h-8 pl-2"
+                      className="bg-white focus:outline-none border border-neutral-300 w-full rounded-lg h-8 pl-2"
                     />
                   </div>
 
@@ -292,7 +292,7 @@ const AddMenu = () => {
                     <label 
                       htmlFor='image-upload'
                       className={`${imgRecieved ? 'bg-[#32c04c]' : 'bg-white'}
-                      border border-gray-500 rounded-lg h-8 px-3 flex w-1/3 items-center justify-center cursor-pointer hover:bg-gray-50 transition`}
+                      border border-neutral-300 rounded-lg h-8 px-3 flex w-1/3 items-center justify-center cursor-pointer hover:bg-gray-50 transition`}
                     >
                       {imgRecieved ? 'Image recieved!' : 'Submit image'}
                     </label>

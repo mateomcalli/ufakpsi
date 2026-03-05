@@ -8,7 +8,7 @@ const DesktopNavbar = () => {
   return (
     <nav className='bg-cream shadow-xl fixed z-20 w-screen top-0 h-[62px]'>
       <div className='w-full h-full flex justify-center'>
-        <div className='mr-3 lg:w-4xl xl:w-6xl 2xl:w-7xl flex justify-between items-center'>
+        <div className='lg:w-4xl xl:w-6xl 2xl:w-7xl flex justify-between items-center'>
           <div className="shrink-0 items-center flex gap-12">
             <Link href='/'>
               <Image

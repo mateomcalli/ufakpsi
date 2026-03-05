@@ -18,7 +18,7 @@ const Landing = () => {
   const images : Array<string> = [
     '/pcfall25.JPG',
     '/bros_recruitment.webp',
-    '/breadmighty.jpg',
+    '/smokerf252.JPG',
     '/morebros.jpg'
   ]
 
@@ -43,7 +43,7 @@ const Landing = () => {
           >
             <Image
               className="rounded-b-2xl object-cover"
-              alt='Executive Board'
+              alt='Image of members'
               src={images[imageState]}
               fill
             />
