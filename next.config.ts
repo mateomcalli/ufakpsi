@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
         hostname: "placehold.co"
       }
     ],
+    minimumCacheTTL: 1339200
   }
 };
 

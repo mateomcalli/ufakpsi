@@ -36,6 +36,7 @@ const BrotherCard = (props: {
             src={props.headshot}
             fill
             className="rounded-lg object-cover"
+            unoptimized={true}
             />
         </div>
         <div className="font-crimson w-full">
