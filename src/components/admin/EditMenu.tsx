@@ -1,22 +1,6 @@
 import { BsThreeDots } from "react-icons/bs"
 import { AnimatePresence, motion } from "framer-motion"
-
-type Brother = {
-  id: string;
-  first_name: string;
-  last_name: string;
-  major: string;
-  minor: string;
-  college: string;
-  start_year: number;
-  grad_year: number;
-  headshot: string;
-  exec: boolean;
-  persona: boolean;
-  active: boolean;
-  linkedin: string;
-  positions: string[];
-}
+import { Brother } from "@/src/types"
 
 const EditMenu = (props: { brother: Brother }) => {
   return (

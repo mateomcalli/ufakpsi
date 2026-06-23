@@ -5,23 +5,7 @@ import AddMenu from "@/src/components/admin/AddMenu"
 import EditMenu from "@/src/components/admin/EditMenu"
 import { redirect } from 'next/navigation'
 import { useState, useEffect } from "react"
-
-type Brother = {
-  id: string;
-  first_name: string;
-  last_name: string;
-  major: string;
-  minor: string;
-  college: string;
-  start_year: number;
-  grad_year: number;
-  headshot: string;
-  exec: boolean;
-  persona: boolean;
-  active: boolean;
-  linkedin: string;
-  positions: string[];
-}
+import Brother from "@/src/types"
 
 const Admin = () => {
   const supabase = createClient()
