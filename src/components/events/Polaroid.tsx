@@ -22,6 +22,7 @@ const Polaroid = (props: { src: string; text: string; priority?: boolean }) => {
         alt='Pictures of members'
         fill
         priority={props.priority}
+        fetchPriority={props.priority ? "high" : "auto"}
         sizes="(max-width: 640px) 216px, 256px"
         draggable='false'
         className='object-cover p-4 pb-24 bg-white shadow-lg select-none'

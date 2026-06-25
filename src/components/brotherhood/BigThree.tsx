@@ -9,19 +9,19 @@ const BigThree = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false)
 
   return (
-    <div className="relative flex border py-4 border-gray-400 rounded-2xl w-full overflow-hidden">
-      <ExpandArrow isExpanded={isExpanded} setIsExpanded={setIsExpanded}/>
+    <div className="relative flex border py-4 border-neutral-300 rounded-2xl w-full overflow-hidden">
+      <ExpandArrow isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
 
       <motion.div
         className="flex w-full"
         animate={{ height: isExpanded ? "auto" : "15rem" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
-        <TeamCardContent 
+        <TeamCardContent
           teamId={1}
           caption="The President's Team enforces internal and external standards, and it serves as the top organizational layer of the fraternity."
           border={true}
-          isExpanded={isExpanded} 
+          isExpanded={isExpanded}
         />
 
         <TeamCardContent

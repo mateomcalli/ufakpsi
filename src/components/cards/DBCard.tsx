@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 const DBCard = (props: {
-  DBName : string;
-  DBImage : string;
+  DBName: string;
+  DBImage: string;
 }) => {
   return (
     <a href={'/admin/' + props.DBName.toLowerCase().replace(/ /g, "_")} className="w-full h-full rounded-lg block">
-      <div className="flex flex-col gap-3 w-full h-full justify-between bg-white border border-gray-400 rounded-lg p-3">
+      <div className="flex flex-col gap-3 w-full h-full justify-between bg-white border border-neutral-300 rounded-lg p-3">
         <div className="relative rounded-lg h-full">
           <Image
             src={props.DBImage}

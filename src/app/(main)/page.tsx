@@ -1,8 +1,14 @@
 import HomeContent from "./HomeContent"
 
 export const metadata = {
-  title: 'Alpha Kappa Psi',
-  description: 'The official website for the Alpha Phi chapter of the oldest professional business fraternity in the nation, Alpha Kappa Psi. Established in 1926, our chapter has been at the University of Florida for over 100 years!',
+  title: 'UF Alpha Kappa Psi',
+  description: 'The official website for the Alpha Phi chapter of Alpha Kappa Psi at the University of Florida (UF AKPsi). Established in 1926, we are the oldest and largest professional co-ed business fraternity in Gainesville, FL, developing principled business leaders.',
+  openGraph: {
+    title: 'UF Alpha Kappa Psi - Alpha Phi',
+    description: 'Alpha Kappa Psi at the University of Florida is a professional business fraternity devoted to developing principled business leaders across all majors.',
+    images: ['/mem_spr_2026.JPG'],
+    type: 'website',
+  },
   icons: {
     icon: '/akp_emblem.png',
   },

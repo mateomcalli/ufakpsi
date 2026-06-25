@@ -4,14 +4,14 @@ import { useState } from "react";
 import Image from "next/image"
 
 const BrotherCard = (props: { 
-  first_name : string; 
-  last_name: string; 
-  major : string; 
-  headshot : string;
-  college : string; 
-  grad_year : number; 
-  positions : string[];
-  linkedin : string;
+  first_name: string
+  last_name: string
+  major: string
+  headshot: string
+  college: string
+  grad_year: number
+  positions: string[]
+  linkedin: string
 }) => {
   const [havePositions, setHavePositions] = useState<boolean>(true)
 
@@ -42,10 +42,10 @@ const BrotherCard = (props: {
         <div className="font-crimson w-full">
           <p className="text-xl sm:text-2xl text-center">{props.first_name} {props.last_name}</p>
           <p className="text-base sm:text-lg/6">
-            <u className="text-neutral-500">Major:</u> {props.major}<br/>
-            <u className="text-neutral-500">College:</u> {props.college}<br/>
-            <u className="text-neutral-500">Grad Year:</u> {props.grad_year}<br/>
-            {havePositions ? (<><u className="text-neutral-500">Position(s):</u> {positionsString()}</>) : null}
+            <span className="underline font-sans text-sm font-bold uppercase tracking-wider text-[#6e6d6d]">Major:</span> {props.major}<br/>
+            <span className="underline font-sans text-sm font-bold uppercase tracking-wider text-[#6e6d6d]">College:</span> {props.college}<br/>
+            <span className="underline font-sans text-sm font-bold uppercase tracking-wider text-[#6e6d6d]">Grad Year:</span> {props.grad_year}<br/>
+            {havePositions ? (<><span className="underline font-sans text-sm font-bold uppercase tracking-wider text-[#6e6d6d]">Position(s):</span> {positionsString()}</>) : null}
           </p>
         </div>
       </div>

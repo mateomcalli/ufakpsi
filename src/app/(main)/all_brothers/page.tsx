@@ -2,8 +2,13 @@ import BrotherCard from "@/src/components/cards/BrotherCard";
 import createClient from "@/lib/supabase/server";
 
 export const metadata = {
-  title: 'Alpha Kappa Psi',
-  description: 'List of all brothers in the fraternity.',
+  title: 'UF Alpha Kappa Psi',
+  description: 'All of our Alpha Phi brothers in one place. Check out our LinkedIn profiles and filter by major or year.',
+  openGraph: {
+    title: 'Brothers | UF Alpha Kappa Psi',
+    description: 'Meet the brothers of the Alpha Phi chapter of Alpha Kappa Psi at the University of Florida. Filter by major or graduation year, and connect with us on LinkedIn.',
+    type: 'website',
+  },
   icons: {
     icon: '/akp_emblem.png',
   },

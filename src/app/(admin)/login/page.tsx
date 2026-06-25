@@ -42,13 +42,13 @@ const Login = () => {
   return (
     <section className="relative top-16 w-full h-screen-minus-nav flex justify-center items-center">
       <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-4 justify-between font-crimson items-center border p-4 border-gray-400 rounded-lg w-90 h-56">
+        <div className="flex flex-col gap-4 justify-between font-crimson items-center border p-4 border-neutral-300 rounded-lg w-90 h-56">
           <div className="text-center flex flex-col gap-1">
             <p className="text-3xl">Login</p>
             <p>If you're not a website admin, <a className='underline' href='/'>click here</a> to return to the main site.</p>
           </div>
           <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col w-full gap-2">
-            <input onChange={handleChange} className='border border-gray-400 rounded-md h-8 pl-2 focus:outline-none' placeholder="Password" type="password"></input>
+            <input onChange={handleChange} className='border border-neutral-300 rounded-md h-8 pl-2 focus:outline-none' placeholder="Password" type="password"></input>
             <button type='submit' className="w-full h-8 rounded-md  bg-[#2e9a40] hover:bg-[#60d87a] transition-colors duration-200 border border-[#108a24] hover:cursor-pointer">Submit</button>
           </form>
         </div>

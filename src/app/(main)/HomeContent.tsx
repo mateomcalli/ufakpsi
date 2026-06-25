@@ -66,20 +66,18 @@ const HomeContent = () => {
             animate={isTextInView ? "visible" : "hidden"}
             transition={{ delay: 1 }}
           >
-            <i>
-              <motion.span variants={childVariants} className="inline-block mr-2">
-                "Shaping
-              </motion.span>
-              <motion.span variants={childVariants} className="inline-block mr-2">
-                people,
-              </motion.span>
-              <motion.span variants={childVariants} className="inline-block mr-2">
-                shaping
-              </motion.span>
-              <motion.span variants={childVariants} className="inline-block">
-                business."
-              </motion.span>
-            </i>
+            <motion.span variants={childVariants} className="inline-block mr-2">
+              "Shaping
+            </motion.span>
+            <motion.span variants={childVariants} className="inline-block mr-2">
+              people,
+            </motion.span>
+            <motion.span variants={childVariants} className="inline-block mr-2">
+              shaping
+            </motion.span>
+            <motion.span variants={childVariants} className="inline-block">
+              business."
+            </motion.span>
           </motion.h2>
 
           <motion.div
@@ -89,7 +87,7 @@ const HomeContent = () => {
             animate={showBody ? "visible" : "hidden"}
           >
             <div className="md:w-240 items-center flex">
-              <h3 className='text-center font-crimson text-xl'>Founded in 1904, Alpha Kappa Psi is the number one professional <b>co-ed</b> business fraternity in the nation. With over 298,000 members at 219 different universities, our mission is clear: to develop our members into principled business leaders. With an extensive alumni network and resources all around the Heavener School of Business and beyond, we foster growth, professional development, and lasting connections for members of <b>any major</b>.</h3>
+              <h3 className='text-center font-sans text-lg'>Founded in 1904, Alpha Kappa Psi is the number one professional <b>co-ed</b> business fraternity in the nation. With over 298,000 members at 219 different universities, our mission is clear: to develop our members into principled business leaders. With an extensive alumni network and resources all around the Heavener School of Business and beyond, we foster growth, professional development, and lasting connections for members of <b>any major</b>.</h3>
             </div>
 
             {/* <div className="flex flex-col my-4 items-center">
@@ -105,6 +103,7 @@ const HomeContent = () => {
           </motion.div>
           
           <motion.div
+            className='mt-6'
             variants={contentVariants}
             initial="hidden"
             animate={showBody ? "visible" : "hidden"}
@@ -134,7 +133,7 @@ const HomeContent = () => {
             <h2 className="text-stone-200 font-merry text-xl sm:text-2xl md:text-3xl text-center">
               Interested in becoming a part of our brotherhood?
             </h2>
-            <p className="text-stone-200 font-crimson text-md sm:text-lg md:text-xl text-center">
+            <p className="text-stone-200 font-sans text-md sm:text-lg md:text-xl text-center">
               We're glad you want to become a part of one of the largest and most active communities on campus. To learn more about our recruitment process and how you can get involved, visit our recruitment page! Look our for our rush events near the start of each semester, and follow our instagram to see what we're up to.
             </p>
             <div className='flex gap-8'>

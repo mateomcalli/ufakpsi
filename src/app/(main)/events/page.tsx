@@ -1,8 +1,13 @@
 import EventsContent from "./EventsContent"
 
 export const metadata = {
-  title: 'Alpha Kappa Psi',
-  description: "Our fraternity\'s events, from NYC trips to intramurals and everything in between!",
+  title: 'UF Alpha Kappa Psi',
+  description: "See what UF Alpha Kappa Psi (UF AKPsi) has been up to in and out of Gainesville: from professional networking trips abroad to intramural sports and brotherhood events.",
+  openGraph: {
+    title: 'Events | UF Alpha Kappa Psi',
+    description: "See what our chapter has been up to in and out of Gainesville: from professional networking trips abroad to intramural sports and brotherhood events.",
+    type: 'website',
+  },
   icons: {
     icon: '/akp_emblem.png',
   },

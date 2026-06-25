@@ -19,7 +19,6 @@ const Teams = async () => {
     {id: 9, name: 'Social Affairs Team', image: '/guac.jpg'},
     {id: 10, name: 'Community Service Team', image: '/guac.jpg'},
     {id: 11, name: 'DEI Team', image: '/guac.jpg'},
-    {id: 12, name: 'Rituals Team' , image: '/guac.jpg'}
   ]
 
   return (

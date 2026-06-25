@@ -73,8 +73,8 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
 
   return (
     <div className={`flex flex-col flex-1 px-4 ${props.border ? `border-r border-gray-400` : ``}`}>
-      <p className="font-crimson text-xl font-semibold pl-2">{teamName}</p>
-      <p className="font-crimson text-base sm:text-lg lg:text-base xl:text-lg pl-2">{props.caption}</p>
+      <p className="font-crimson text-xl font-semibold pl-2 pb-1">{teamName}</p>
+      <p className="font-sans sm:text-base/6.5 lg:text-sm xl:text-base/6.5 pl-2 pb-1">{props.caption}</p>
 
       <AnimatePresence>
         {props.isExpanded && (
@@ -83,19 +83,22 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden font-crimson text-base mt-2 pl-2 pr-2"
+            className="overflow-hidden font-crimson text-base pb-1 mt-2 pl-2 pr-2"
           >
             <div className="flex flex-col gap-4 pt-2 pb-6">
-              {positions.map(position => (
-                <div className='flex flex-col' key={position.id}>
-                  <p className="text-neutral-600">{position.name}</p>
-                  {position.brothers.map((brother, index) => (
-                    <p className={`-mt-1 font-bold`} key={brother.id}>
-                      {brother.persona ? "Brother" : brother.first_name} {brother.last_name}
-                    </p>
-                  ))}
-                </div>
-              ))}
+              {positions.map(position => {
+                if (position.brothers.find(brother => brother.exec)) return
+                return (
+                  <div className='flex flex-col' key={position.id}>
+                    <p className="font-sans text-xs font-bold uppercase tracking-wider text-[#6e6d6d] pb-1">{position.name}</p>
+                    {position.brothers.map((brother) => (
+                      <p className={`-mt-1 font-semibold`} key={brother.id}>
+                        {brother.persona ? "Brother" : brother.first_name} {brother.last_name}
+                      </p>
+                    ))}
+                  </div>
+                )
+              })}
             </div>
           </motion.div>
         )}
