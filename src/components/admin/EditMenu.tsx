@@ -1,6 +1,6 @@
 import { BsThreeDots } from "react-icons/bs"
 import { AnimatePresence, motion } from "framer-motion"
-import { Brother } from "@/src/types"
+import type { Brother } from "@/src/types"
 
 const EditMenu = (props: { brother: Brother }) => {
   return (

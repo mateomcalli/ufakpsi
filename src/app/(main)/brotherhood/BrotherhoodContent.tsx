@@ -5,7 +5,7 @@ import BigThree from "@/src/components/brotherhood/BigThree";
 import TeamSect from "@/src/components/brotherhood/TeamSect";
 import { createClient } from "@/lib/supabase/client";
 import { useState, useEffect } from "react";
-import { Team } from "@/src/types"
+import type { Team } from "@/src/types"
 
 const BrotherhoodContent = () => {
   const supabase = createClient()
@@ -17,19 +17,19 @@ const BrotherhoodContent = () => {
         .from("teams")
         .select()
         .eq("big_three", false)
-        .order("id", { ascending: true } )
+        .order("id", { ascending: true })
 
       if (teamIdsError) {
         console.error(teamIdsError)
         return
       }
-      
+
       setTeams(fetchedTeams)
     }
 
     getTeamIds()
   }, [])
-  
+
 
   return (
     <section className="flex flex-col gap-4 px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl m-auto mt-24 h-fit relative">
@@ -39,9 +39,9 @@ const BrotherhoodContent = () => {
       </div>
 
       <div className="relative w-full shrink-0 h-80">
-        <Image 
-          src="/eb_spr_2026.JPG" 
-          alt="Executive Board 25-26" 
+        <Image
+          src="/eb_spr_2026.JPG"
+          alt="Executive Board 25-26"
           fill
           className="rounded-2xl object-cover object-[30%_44%]"
         />
@@ -50,7 +50,7 @@ const BrotherhoodContent = () => {
       {/* big three is hardcoded, there won't be an option to remove them so ids won't change */}
       <div className="flex gap-4 flex-col">
         <div className="hidden lg:block">
-          <BigThree/>
+          <BigThree />
         </div>
       </div>
 
@@ -61,20 +61,20 @@ const BrotherhoodContent = () => {
 
         return (
           <div key={team.id} className="flex gap-4 flex-col lg:flex-row lg:items-start">
-            <TeamSect 
-              teamId={team.id} 
-              caption={team.caption} 
+            <TeamSect
+              teamId={team.id}
+              caption={team.caption}
             />
             {nextTeam && (
-              <TeamSect 
-                teamId={nextTeam.id} 
-                caption={nextTeam.caption} 
+              <TeamSect
+                teamId={nextTeam.id}
+                caption={nextTeam.caption}
               />
             )}
           </div>
         );
       })}
-    
+
     </section>
   )
 };

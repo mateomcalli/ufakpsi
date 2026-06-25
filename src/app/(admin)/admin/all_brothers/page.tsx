@@ -5,7 +5,7 @@ import AddMenu from "@/src/components/admin/AddMenu"
 import EditMenu from "@/src/components/admin/EditMenu"
 import { redirect } from 'next/navigation'
 import { useState, useEffect } from "react"
-import Brother from "@/src/types"
+import type { Brother } from "@/src/types"
 
 const Admin = () => {
   const supabase = createClient()
