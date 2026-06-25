@@ -35,8 +35,8 @@ const BrotherCard = (props: {
             alt="Executive Board Member Headshot"
             src={props.headshot}
             fill
+            sizes="144px"
             className="rounded-lg object-cover"
-            unoptimized={true}
             />
         </div>
         <div className="font-crimson w-full">

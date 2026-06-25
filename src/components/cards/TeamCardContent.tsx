@@ -114,6 +114,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
               alt="Executive Board Member Headshot"
               src={execBrother.headshot}
               fill
+              sizes="96px"
               className="rounded-full object-cover"
             />
           </div>

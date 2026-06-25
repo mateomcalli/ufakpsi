@@ -3,17 +3,17 @@
 import Image from "next/image"
 import { useState, useEffect } from "react";
 
-const Polaroid = (props: { src: string; text: string }) => {
+const Polaroid = (props: { src: string; text: string; priority?: boolean }) => {
   const [angle, setAngle] = useState<number>(0)
   const [yPos, setYPos] = useState<number>(0)
 
-useEffect(() => {
-  setAngle(Math.random() *  20 - 10)
-  setYPos(Math.random() * 2 - 1)
-}, [])
+  useEffect(() => {
+    setAngle(Math.random() * 20 - 10)
+    setYPos(Math.random() * 2 - 1)
+  }, [])
 
   return (
-    <div 
+    <div
       className='relative w-54 h-75 sm:w-64 sm:h-88 flex flex-col items-center justify-center shrink-0'
       style={{ transform: `rotate(${angle}deg) translateY(${yPos}rem)` }}
     >
@@ -21,7 +21,8 @@ useEffect(() => {
         src={props.src}
         alt='Pictures of members'
         fill
-        priority
+        priority={props.priority}
+        sizes="(max-width: 640px) 216px, 256px"
         draggable='false'
         className='object-cover p-4 pb-24 bg-white shadow-lg select-none'
       />

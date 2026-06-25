@@ -12,6 +12,7 @@ const DBCard = (props: {
             src={props.DBImage}
             alt='Database image'
             fill
+            sizes="(max-width: 768px) 100vw, 384px"
             className="object-cover rounded-lg"
           />
         </div>

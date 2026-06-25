@@ -10,6 +10,7 @@ const TeamCard = (props: { id: number; image: string; teamName: string; }) => {
             src={props.image}
             alt='Database image'
             fill
+            sizes="320px"
             className="object-cover rounded-lg"
           />
         </div>

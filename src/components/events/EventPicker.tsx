@@ -16,7 +16,7 @@ interface EventPickerParams {
   setSelectedEvent: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerParams) => {
+const EventPicker = ({ selectedEvent, setSelectedEvent, events }: EventPickerParams) => {
   const [direction, setDirection] = useState<number>(0)
 
   const handleRight = () => {
@@ -31,13 +31,13 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
 
   const getRelativePosition = (eventIndex: number) => {
     let diff = eventIndex - selectedEvent
-    
+
     if (diff > events.length / 2) {
       diff -= events.length
     } else if (diff < -events.length / 2) {
       diff += events.length
     }
-    
+
     return diff
   }
 
@@ -83,15 +83,16 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
             }}
             className='pr-4 sm:pr-0 h-fit z-1 w-fit cursor-pointer'
             onClick={() => handleLeft()}
+            aria-label="Left arrow button"
           >
-            <RiArrowLeftWideFill size='40'/>
+            <RiArrowLeftWideFill size='40' />
           </motion.button>
 
           <div className='relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center overflow-visible'>
             <AnimatePresence initial={false} custom={direction}>
               {events.map((event, index) => {
                 const relativePosition = getRelativePosition(index)
-                
+
                 if (Math.abs(relativePosition) > 1) return null
 
                 const state = relativePosition === 0 ? 'center' : relativePosition === -1 ? 'left' : 'right'
@@ -118,10 +119,11 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
                     <Image
                       src={event.cover}
                       alt={event.title}
-                      width={2000}
-                      height={2000}
-                      priority
-                      className='w-full h-64 sm:h-80 object-cover rounded-tl-lg rounded-tr-lg bg-white pointer-events-none select-none' 
+                      width={400}
+                      height={320}
+                      priority={relativePosition === 0}
+                      sizes="(max-width: 640px) 288px, 352px"
+                      className='w-full h-64 sm:h-80 object-cover rounded-tl-lg rounded-tr-lg bg-white pointer-events-none select-none'
                     />
                     <p className='text-center my-auto font-merry text-lg sm:text-xl'>{event.title}</p>
                   </motion.div>
@@ -137,8 +139,9 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events } : EventPickerPa
             }}
             className='pl-4 sm:pl-0 h-fit z-1 cursor-pointer'
             onClick={() => handleRight()}
+            aria-label="Right arrow button"
           >
-            <RiArrowRightWideFill size='40'/>
+            <RiArrowRightWideFill size='40' />
           </motion.button>
         </div>
       </div>

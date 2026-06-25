@@ -10,7 +10,7 @@ export const metadata = {
 
 const Events = () => {
   return (
-    <EventsContent/>
+    <EventsContent />
   )
 }
 

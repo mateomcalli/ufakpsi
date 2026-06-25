@@ -7,8 +7,8 @@ import Polaroid from "@/src/components/events/Polaroid"
 import EventPicker from "@/src/components/events/EventPicker"
 
 interface Event {
-  id : number;
-  title : string;
+  id: number;
+  title: string;
   cover: string;
   pics: { text: string; url: string; }[]
 }
@@ -17,9 +17,8 @@ const EventsContent = () => {
   const [selectedEvent, setSelectedEvent] = useState<number>(0)
   const [events, setEvents] = useState<Event[]>([])
 
-  const supabase = createClient()
-
   useEffect(() => {
+    const supabase = createClient()
     const getEvents = async () => {
       const { data, error } = await supabase.from("events").select()
       if (error) {
@@ -38,10 +37,10 @@ const EventsContent = () => {
           <div className="flex flex-col gap-4 w-screen sm:w-full">
             <div className="sm:px-4 px-6">
               <h1 className="font-merry text-2xl md:text-3xl">Events at Alpha Kappa Psi</h1>
-              <h2 className="font-crimson text-2xl text-lblue italic">Here's what we've been up to</h2>
+              <h2 className="font-crimson text-2xl text-lblue italic">{"Here's what we've been up to"}</h2>
             </div>
-            <EventPicker selectedEvent={selectedEvent} setSelectedEvent={setSelectedEvent} events={events}/>
-          </div>  
+            <EventPicker selectedEvent={selectedEvent} setSelectedEvent={setSelectedEvent} events={events} />
+          </div>
         </div>
       </section>
       <div className="w-screen relative left-1/2 -translate-x-1/2">
@@ -54,7 +53,7 @@ const EventsContent = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
               >
-                <Polaroid src={pic.url} text={pic.text}/>
+                <Polaroid src={pic.url} text={pic.text} priority={i < 2} />
               </motion.div>
             ))}
           </div>
