@@ -41,7 +41,7 @@ const Layout = ({children}: Readonly<{children: React.ReactNode}>) => {
   return (
     <html className={`${libreBaskerville.variable} ${crimsonPro.variable} ${nothingYouCouldDo.variable} ${ibmPlexSans.variable} ${merriweather.variable}`} lang='en'>
       <body className="bg-cream overflow-x-hidden">
-        <BreakpointIndicator/>
+        {/* <BreakpointIndicator/> */}
         <Analytics />
         <SpeedInsights />
         <Navbar/>
