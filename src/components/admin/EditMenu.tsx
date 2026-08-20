@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { BsThreeDots } from "react-icons/bs"
 import { AnimatePresence, motion } from "framer-motion"
 import { CgClose } from "react-icons/cg"
+import { FiTrash2 } from "react-icons/fi"
 import { createClient } from "@/lib/supabase/client"
 import type { Brother } from "@/src/types"
 
@@ -25,6 +26,7 @@ const EditMenu = ({ brother, onUpdate }: { brother: Brother; onUpdate?: () => vo
   const [positionsIds, setPositionsIds] = useState<string[]>([])
   const [positionSearch, setPositionSearch] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
+  const [isConfirmDelete, setIsConfirmDelete] = useState<boolean>(false)
 
   const filteredPositions = allPositions.filter(p =>
     p.name.toLowerCase().includes(positionSearch.toLowerCase().trim())
@@ -37,7 +39,11 @@ const EditMenu = ({ brother, onUpdate }: { brother: Brother; onUpdate?: () => vo
   }, [brother])
 
   useEffect(() => {
-    if (!menuOpen) return
+    if (!menuOpen) {
+      setPositionSearch('')
+      setIsConfirmDelete(false)
+      return
+    }
 
     const fetchData = async () => {
       const { data: positionsData, error: positionsErr } = await supabase
@@ -72,6 +78,7 @@ const EditMenu = ({ brother, onUpdate }: { brother: Brother; onUpdate?: () => vo
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setPositionSearch('')
+        setIsConfirmDelete(false)
         setMenuOpen(false)
       }
     }
@@ -90,6 +97,45 @@ const EditMenu = ({ brother, onUpdate }: { brother: Brother; onUpdate?: () => vo
     setPositionsIds(prev =>
       prev.includes(idStr) ? prev.filter(id => id !== idStr) : [...prev, idStr]
     )
+  }
+
+  const handleDelete = async () => {
+    setLoading(true)
+    try {
+      // 1. Delete join table entries
+      await supabase.from('brother_team_position').delete().eq('brother_id', brother.id)
+
+      // 2. Delete brother from brothers table
+      const { error: deleteError } = await supabase.from('brothers').delete().eq('id', brother.id)
+
+      if (deleteError) {
+        console.error(deleteError)
+        alert(`Error deleting brother: ${deleteError.message}`)
+        setLoading(false)
+        return
+      }
+
+      // 3. Delete headshot file from storage if present
+      if (brother.headshot) {
+        const fileName = decodeURIComponent(
+          brother.headshot.split('/headshots/').pop()?.split('?')[0] || ''
+        )
+        if (fileName) {
+          await supabase.storage.from('headshots').remove([fileName])
+        }
+      }
+
+      setMenuOpen(false)
+      setIsConfirmDelete(false)
+      if (onUpdate) {
+        onUpdate()
+      }
+    } catch (err) {
+      console.error(err)
+      alert('An unexpected error occurred while deleting.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -247,7 +293,7 @@ const EditMenu = ({ brother, onUpdate }: { brother: Brother; onUpdate?: () => vo
               <form className="flex flex-col h-full gap-3" onSubmit={handleSubmit}>
                 <button
                   type="button"
-                  onClick={() => { setPositionSearch(''); setMenuOpen(false) }}
+                  onClick={() => { setPositionSearch(''); setIsConfirmDelete(false); setMenuOpen(false) }}
                   className="hover:cursor-pointer w-fit h-fit block absolute top-5 right-5"
                 >
                   <CgClose
@@ -343,13 +389,52 @@ const EditMenu = ({ brother, onUpdate }: { brother: Brother; onUpdate?: () => vo
                     </label>
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="hover:cursor-pointer bg-[#248837] border border-[#145c21] w-full gap-2 h-10 rounded-lg flex items-center justify-center text-white hover:bg-[#1d6b2e] transition duration-200 mt-2 disabled:opacity-50"
-                  >
-                    {loading ? 'Saving...' : 'Save Changes'}
-                  </button>
+                  {isConfirmDelete ? (
+                    <div className="flex flex-col gap-2.5 p-3 border border-red-300 bg-red-50 rounded-lg text-center mt-2 font-sans text-sm">
+                      <p className="font-semibold text-red-800">
+                        Are you sure you want to delete {brother.first_name} {brother.last_name}?
+                      </p>
+                      <p className="text-xs text-red-600">This action cannot be undone.</p>
+                      <div className="flex gap-2 justify-center mt-1">
+                        <button
+                          type="button"
+                          disabled={loading}
+                          onClick={() => setIsConfirmDelete(false)}
+                          className="px-4 py-1.5 border border-neutral-300 bg-white rounded-lg hover:bg-neutral-100 transition cursor-pointer"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="button"
+                          disabled={loading}
+                          onClick={handleDelete}
+                          className="px-4 py-1.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition cursor-pointer font-semibold disabled:opacity-50"
+                        >
+                          {loading ? 'Deleting...' : 'Yes, Delete'}
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex gap-2 mt-2">
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="hover:cursor-pointer flex-1 bg-[#248837] border border-[#145c21] h-10 rounded-lg flex items-center justify-center text-white hover:bg-[#1d6b2e] transition duration-200 disabled:opacity-50 text-base font-semibold"
+                      >
+                        {loading ? 'Saving...' : 'Save Changes'}
+                      </button>
+                      <button
+                        type="button"
+                        disabled={loading}
+                        onClick={() => setIsConfirmDelete(true)}
+                        className="hover:cursor-pointer px-4 bg-red-600 border border-red-700 text-white rounded-lg flex items-center justify-center hover:bg-red-700 transition duration-200 gap-1.5 text-sm font-semibold cursor-pointer shrink-0"
+                        title="Delete Brother"
+                      >
+                        <FiTrash2 size={16} />
+                        <span>Delete</span>
+                      </button>
+                    </div>
+                  )}
                 </section>
               </form>
             </motion.div>

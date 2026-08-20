@@ -13,6 +13,7 @@ import { AnimatePresence, motion } from "framer-motion"
 type TeamItem = {
   id: number
   name: string
+  caption?: string
 }
 
 const fallbackTeams: TeamItem[] = [
@@ -40,6 +41,7 @@ const Teams = () => {
 
   const [editingTeam, setEditingTeam] = useState<TeamItem | null>(null)
   const [editTeamName, setEditTeamName] = useState<string>('')
+  const [editTeamCaption, setEditTeamCaption] = useState<string>('')
 
   const [deletingTeam, setDeletingTeam] = useState<TeamItem | null>(null)
 
@@ -48,7 +50,7 @@ const Teams = () => {
   const fetchTeams = async () => {
     const { data: teamsData, error } = await supabase
       .from('teams')
-      .select('id, name')
+      .select('id, name, caption')
       .order('id', { ascending: true })
 
     if (error) {
@@ -124,7 +126,7 @@ const Teams = () => {
     try {
       const { error } = await supabase
         .from('teams')
-        .update({ name: editTeamName.trim() })
+        .update({ name: editTeamName.trim(), caption: editTeamCaption.trim() })
         .eq('id', editingTeam.id)
 
       if (error) {
@@ -242,6 +244,7 @@ const Teams = () => {
                   onClick={() => {
                     setEditingTeam(team)
                     setEditTeamName(team.name)
+                    setEditTeamCaption(team.caption || '')
                   }}
                   className="p-1.5 text-neutral-500 hover:text-dblue hover:bg-neutral-100 rounded-lg transition duration-200 cursor-pointer"
                   title="Edit Team Name"
@@ -351,6 +354,17 @@ const Teams = () => {
                     value={editTeamName}
                     onChange={(e) => setEditTeamName(e.target.value)}
                     className="bg-white focus:outline-none border border-neutral-300 w-full rounded-lg h-9 px-3 text-base"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <label className="text-lg">Caption</label>
+                  <textarea
+                    value={editTeamCaption}
+                    onChange={(e) => setEditTeamCaption(e.target.value)}
+                    rows={3}
+                    placeholder="Describe what this team does..."
+                    className="bg-white focus:outline-none border border-neutral-300 w-full rounded-lg px-3 py-2 text-base resize-none"
                   />
                 </div>
 

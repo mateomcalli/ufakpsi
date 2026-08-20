@@ -68,10 +68,30 @@ const AddMenu = () => {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [menuOpen])
 
-  const positionChange = (positionId: string) => {
+  const positionChange = (positionId: string | number) => {
+    const idStr = String(positionId)
     setPositionsIds(prev =>
-      prev.includes(positionId) ? prev.filter(id => id !== positionId) : [...prev, positionId]
+      prev.includes(idStr) ? prev.filter(id => id !== idStr) : [...prev, idStr]
     )
+  }
+
+  const resetForm = () => {
+    setFirstName('')
+    setLastName('')
+    setMajor('')
+    setMinor('')
+    setCollege('')
+    setStartYear('')
+    setGradYear('')
+    setIsEBoard(false)
+    setIsPersona(false)
+    setIsActive(false)
+    setPositionsIds([])
+    setPositionSearch('')
+    setLinkedin('')
+    setHeadshot(null)
+    setImgRecieved(false)
+    formRef.current?.reset()
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -93,7 +113,8 @@ const AddMenu = () => {
     const { data: urlData } = supabase.storage.from('headshots').getPublicUrl(headshotPath)
     const headshotUrl = urlData.publicUrl
 
-    const selectedPositions = (allPositions || []).filter(p => positionsIds.includes(String(p.id)))
+    const posIdStrings = positionsIds.map(String)
+    const selectedPositions = (allPositions || []).filter(p => posIdStrings.includes(String(p.id)))
     const posNames: string[] = selectedPositions.map(p => p.name)
 
     /* POSTING BROTHER, SAVING ID FOR JOIN TABLE POSTS */
@@ -116,6 +137,7 @@ const AddMenu = () => {
 
     if (insertError) {
       console.error(insertError)
+      alert('Error saving brother.')
       return
     }
 
@@ -134,8 +156,8 @@ const AddMenu = () => {
       }
     }
 
-    formRef.current?.reset()
-    setMenuOpen(!menuOpen)
+    resetForm()
+    setMenuOpen(false)
   }
 
   return (
@@ -167,7 +189,7 @@ const AddMenu = () => {
               <form className="flex flex-col h-full" ref={formRef} onSubmit={handleSubmit}>
                 <button
                   type="button"
-                  onClick={() => { setPositionSearch(''); setMenuOpen(false) }}
+                  onClick={() => { resetForm(); setMenuOpen(false) }}
                   className="hover:cursor-pointer w-fit h-fit block absolute top-5 right-5"
                 >
                   <CgClose
@@ -291,7 +313,7 @@ const AddMenu = () => {
                                 onChange={() => positionChange(p.id)}
                                 type="checkbox"
                                 value={p.id}
-                                checked={positionsIds.includes(p.id)}
+                                checked={positionsIds.includes(String(p.id))}
                                 className="w-4 h-4"
                               />
                               <span>{p.name}</span>

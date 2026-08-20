@@ -57,7 +57,9 @@ const TeamPage = ({ params }: { params: Promise<{ teamId: string }> }) => {
       .single()
 
     if (teamErr) console.error(teamErr)
-    else setTeamName(teamData?.name || 'Team')
+    else {
+      setTeamName(teamData?.name || 'Team')
+    }
 
     const { data: positionsData, error: positionsErr } = await supabase
       .from('positions')

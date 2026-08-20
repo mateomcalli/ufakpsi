@@ -131,7 +131,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
             <p className="font-crimson text-xl font-semibold">
               {execBrother.persona ? "Brother" : execBrother.first_name} {execBrother.last_name}
             </p>
-            <p className="font-crimson text-lg">{execBrother.positions[0]}</p>
+            <p className="font-crimson text-lg">{execPositionName}</p>
           </div>
         </motion.a>
       )}

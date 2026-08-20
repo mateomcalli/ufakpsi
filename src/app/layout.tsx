@@ -37,6 +37,45 @@ const nothingYouCouldDo = Nothing_You_Could_Do({
   variable: '--font-hand',
 })
 
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://ufakpsi.com'),
+  title: {
+    default: 'UF Alpha Kappa Psi | Professional Business Fraternity',
+    template: '%s | UF Alpha Kappa Psi',
+  },
+  description: 'The official website for the Alpha Phi chapter of Alpha Kappa Psi at the University of Florida. Established in 1926, we are the oldest professional co-ed business fraternity at UF, dedicated to developing principled business leaders.',
+  keywords: ['Alpha Kappa Psi', 'UF', 'University of Florida', 'AKPsi', 'business fraternity', 'professional fraternity', 'Gainesville', 'Alpha Phi chapter', 'co-ed fraternity', 'UF AKPsi'],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: '/akp_emblem.png',
+  },
+  openGraph: {
+    title: 'UF Alpha Kappa Psi - Alpha Phi',
+    description: 'Alpha Kappa Psi at the University of Florida is a professional business fraternity devoted to developing principled business leaders across all majors.',
+    url: 'https://ufakpsi.com',
+    siteName: 'UF Alpha Kappa Psi',
+    images: [{ url: '/mem_spr_2026.JPG', width: 1200, height: 630, alt: 'UF Alpha Kappa Psi Brothers' }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'UF Alpha Kappa Psi | Professional Business Fraternity',
+    description: 'Alpha Kappa Psi at the University of Florida is a professional business fraternity devoted to developing principled business leaders across all majors.',
+    images: ['/mem_spr_2026.JPG'],
+  },
+}
+
 const Layout = ({children}: Readonly<{children: React.ReactNode}>) => {
   return (
     <html className={`${libreBaskerville.variable} ${crimsonPro.variable} ${nothingYouCouldDo.variable} ${ibmPlexSans.variable} ${merriweather.variable}`} lang='en'>
