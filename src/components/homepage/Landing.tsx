@@ -16,10 +16,10 @@ const Landing = () => {
   }, [])
 
   const images : Array<string> = [
-    '/pcfall25.JPG',
+    '/heavener_bros.jpg',
+    '/cute_satt.jpg',
     '/bros_recruitment.webp',
-    '/smokerf252.JPG',
-    '/morebros.jpg'
+    '/banquet_group.jpg'
   ]
 
   const subtitles : Array<string> = [

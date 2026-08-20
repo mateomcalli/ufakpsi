@@ -41,7 +41,7 @@ const BrotherhoodContent = () => {
 
       <div className="relative w-full shrink-0 h-80">
         <Image
-          src="/eb_spr_2026.JPG"
+          src="/eb_spr_2026_lol.jpg"
           alt="Executive Board 25-26"
           fill
           className="rounded-2xl object-cover object-[30%_44%]"

@@ -19,6 +19,7 @@ type Brother = {
 type Position = {
   id: number
   name: string
+  lead: boolean
   brothers: Brother[]
 }
 
@@ -43,6 +44,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
         .select(`
           id,
           name,
+          lead,
           brother_team_position (
             brothers ( id, first_name, last_name, headshot, persona, exec, positions, linkedin )
           )
@@ -57,6 +59,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
       const flattened: Position[] = positionsData.map(position => ({
         id: position.id,
         name: position.name,
+        lead: position.lead,
         brothers: position.brother_team_position.flatMap(item => {
           if (!item.brothers) return []
           return Array.isArray(item.brothers) ? item.brothers : [item.brothers]
@@ -87,7 +90,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
           >
             <div className="flex flex-col gap-4 pt-2 pb-6">
               {positions.map(position => {
-                if (position.brothers.find(brother => brother.exec)) return
+                if (position.lead) return
                 return (
                   <div className='flex flex-col' key={position.id}>
                     <p className="font-sans text-xs font-bold uppercase tracking-wider text-[#6e6d6d] pb-1">{position.name}</p>

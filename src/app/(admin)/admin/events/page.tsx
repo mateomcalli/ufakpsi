@@ -109,31 +109,32 @@ const Events = () => {
     <div className="relative top-24 flex flex-col gap-4 mx-auto w-full px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl min-h-112">
       <button 
         onClick={() => setMenuOpen(!menuOpen)} 
-        className="bg-[#248837] border border-[#65c476] w-38 gap-2 h-8 rounded-lg flex items-center justify-center text-white hover:bg-[#1d6b2e] transition duration-200"
+        className="bg-[#248837] border border-[#65c476] w-full sm:w-44 gap-2 h-9 rounded-lg flex items-center justify-center text-white hover:bg-[#1d6b2e] transition duration-200"
       >
         <BiBookBookmark size={16}/>
-        <p className="font-crimson">Add a new event</p>
+        <p className="font-crimson text-lg">Add a new event</p>
       </button>
 
       <AnimatePresence initial={false} mode="wait">
         {menuOpen &&
           <motion.div 
-            className="fixed inset-0 flex items-center justify-center bg-black/36 z-20"
+            className="fixed inset-0 flex items-center justify-center bg-black/36 z-20 p-2 sm:p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
           >
             <motion.div
-              className="relative flex flex-col w-[95%] sm:w-[80%] md:w-[70%] lg:w-[55%] xl:w-[45%] 2xl:w-[35%] border border-gray-500 rounded-lg bg-cream font-crimson p-4"
+              className="relative flex flex-col w-[95%] sm:w-[80%] md:w-[70%] lg:w-[55%] xl:w-[45%] 2xl:w-[35%] max-h-[92vh] border border-gray-500 rounded-lg bg-cream font-crimson p-4 overflow-y-auto"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.15 }}
             >
-              <h1 className="font-crimson text-2xl pb-2">Add a new event</h1>
-              <form className="flex flex-col gap-2 h-full" ref={formRef} onSubmit={handleSubmit}>
+              <h1 className="font-crimson text-2xl pb-2 font-semibold">Add a new event</h1>
+              <form className="flex flex-col gap-3 h-full" ref={formRef} onSubmit={handleSubmit}>
                 <button 
+                  type="button"
                   onClick={() => setMenuOpen(!menuOpen)} 
                   className="hover:cursor-pointer w-fit h-fit block absolute top-5 right-5"
                 >
@@ -171,10 +172,10 @@ const Events = () => {
                   </label>
                 </div>
 
-                <div className="flex gap-2 w-full">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
                   {picIndex.map(i => (
-                    <div className="flex flex-col w-1/4" key={i}>
-                      <p className="text-lg">{`Image ${i+1} (no .heic)`}<span className="text-red-600 pl-0.5">*</span></p>
+                    <div className="flex flex-col w-full" key={i}>
+                      <p className="text-base sm:text-lg">{`Image ${i+1}`}<span className="text-red-600 pl-0.5">*</span></p>
                       <input 
                         type='file' 
                         accept='image/jpeg,image/png,image/webp'
@@ -194,7 +195,7 @@ const Events = () => {
                       </label>
                       <input
                         onChange={(e) => {onCaptionChange(i, e.target.value)}}
-                        className="mt-2 bg-white focus:outline-none border border-gray-500 w-full rounded-lg h-8 pl-2"
+                        className="mt-2 bg-white focus:outline-none border border-gray-500 w-full rounded-lg h-8 pl-2 text-sm"
                         type="text"
                         placeholder="Caption (<35 char)"
                         maxLength={35}
@@ -203,7 +204,7 @@ const Events = () => {
                   ))}
                 </div>
                 <button
-                  className="mt-4 bg-[#248837] border border-[#65c476] w-full gap-2 h-8 rounded-lg flex items-center justify-center text-white hover:bg-[#1d6b2e] transition duration-200"
+                  className="mt-4 bg-[#248837] border border-[#65c476] w-full gap-2 h-9 rounded-lg flex items-center justify-center text-white hover:bg-[#1d6b2e] transition duration-200"
                   type='submit'
                 >
                   Submit

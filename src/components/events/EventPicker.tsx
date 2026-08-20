@@ -119,10 +119,11 @@ const EventPicker = ({ selectedEvent, setSelectedEvent, events }: EventPickerPar
                     <Image
                       src={event.cover}
                       alt={event.title}
-                      width={400}
-                      height={320}
+                      width={550}
+                      height={440}
+                      quality={80}
                       priority={relativePosition === 0}
-                      sizes="(max-width: 640px) 288px, 352px"
+                      sizes="(max-width: 640px) 400px, 480px"
                       className='w-full h-64 sm:h-80 object-cover rounded-tl-lg rounded-tr-lg bg-white pointer-events-none select-none'
                     />
                     <p className='text-center my-auto font-merry text-lg sm:text-xl'>{event.title}</p>

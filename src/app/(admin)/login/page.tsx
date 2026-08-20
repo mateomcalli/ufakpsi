@@ -40,19 +40,19 @@ const Login = () => {
   }
 
   return (
-    <section className="relative top-16 w-full h-screen-minus-nav flex justify-center items-center">
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-4 justify-between font-crimson items-center border p-4 border-neutral-300 rounded-lg w-90 h-56">
+    <section className="relative top-16 mx-auto w-full px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl min-h-[calc(100vh-4rem)] flex justify-center items-center py-8">
+      <div className="flex flex-col gap-4 items-center w-full max-w-sm">
+        <div className="flex flex-col gap-4 justify-between font-crimson items-center border p-4 border-neutral-300 rounded-lg w-full h-auto min-h-56 bg-white">
           <div className="text-center flex flex-col gap-1">
-            <p className="text-3xl">Login</p>
-            <p>If you're not a website admin, <a className='underline' href='/'>click here</a> to return to the main site.</p>
+            <p className="text-3xl font-semibold">Login</p>
+            <p className="text-base">If you&apos;re not a website admin, <a className='underline' href='/'>click here</a> to return to the main site.</p>
           </div>
           <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col w-full gap-2">
-            <input onChange={handleChange} className='border border-neutral-300 rounded-md h-8 pl-2 focus:outline-none' placeholder="Password" type="password"></input>
-            <button type='submit' className="w-full h-8 rounded-md  bg-[#2e9a40] hover:bg-[#60d87a] transition-colors duration-200 border border-[#108a24] hover:cursor-pointer">Submit</button>
+            <input onChange={handleChange} className='border border-neutral-300 rounded-md h-9 pl-2 focus:outline-none text-base' placeholder="Password" type="password"></input>
+            <button type='submit' className="w-full h-9 rounded-md bg-[#2e9a40] hover:bg-[#60d87a] transition-colors duration-200 border border-[#108a24] hover:cursor-pointer text-white font-sans text-sm font-semibold">Submit</button>
           </form>
         </div>
-        <p className="font-crimson w-90 text-center">If there are any issues with this login, please <a className='underline' href='mailto:mateo.mcallister@ufl.edu'>send me an email</a> or text me.</p>
+        <p className="font-crimson w-full text-center text-sm sm:text-base px-2">If there are any issues with this login, please <a className='underline' href='mailto:mateo.mcallister@ufl.edu'>send me an email</a> or text me.</p>
       </div>
     </section>
   )
