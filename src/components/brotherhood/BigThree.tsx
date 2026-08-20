@@ -1,12 +1,39 @@
 'use client'
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ExpandArrow from "@/src/components/ui/ExpandArrow";
 import TeamCardContent from "@/src/components/cards/TeamCardContent";
+import { createClient } from "@/lib/supabase/client";
+
+type BigThreeTeam = {
+  id: number;
+  caption: string;
+}
 
 const BigThree = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false)
+  const [teams, setTeams] = useState<BigThreeTeam[]>([])
+
+  useEffect(() => {
+    const supabase = createClient()
+    const fetchCaptions = async () => {
+      const { data, error } = await supabase
+        .from('teams')
+        .select('id, caption')
+        .in('id', [1, 2, 3])
+        .order('id', { ascending: true })
+
+      if (error) {
+        console.error(error)
+        return
+      }
+      setTeams(data)
+    }
+    fetchCaptions()
+  }, [])
+
+  const getCaption = (teamId: number) => teams.find(t => t.id === teamId)?.caption || ''
 
   return (
     <div className="relative flex border py-4 border-neutral-300 rounded-2xl w-full overflow-hidden">
@@ -19,21 +46,21 @@ const BigThree = () => {
       >
         <TeamCardContent
           teamId={1}
-          caption="The President's Team enforces internal and external standards, and it serves as the top organizational layer of the fraternity."
+          caption={getCaption(1)}
           border={true}
           isExpanded={isExpanded}
         />
 
         <TeamCardContent
           teamId={2}
-          caption="From internal communication to development with AI, the EVP's Team handles the technical necessities that keep AKPsi moving."
+          caption={getCaption(2)}
           border={true}
           isExpanded={isExpanded}
         />
 
         <TeamCardContent
           teamId={3}
-          caption="The Finance Team is responsible for the chapter's spend and budget, among other critical financial processes for the fraternity."
+          caption={getCaption(3)}
           border={false}
           isExpanded={isExpanded}
         />

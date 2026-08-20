@@ -27,6 +27,7 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
   const [teamName, setTeamName] = useState<string>('')
   const [positions, setPositions] = useState<Position[]>([])
   const [execBrother, setExecBrother] = useState<Brother | null>(null)
+  const [execPositionName, setExecPositionName] = useState<string>('')
   const supabase = createClient()
 
   useEffect(() => {
@@ -67,8 +68,10 @@ const TeamCardContent = (props: { teamId: number; border: boolean; caption: stri
       }))
       setPositions(flattened)
 
-      const exec = flattened.find(pos => pos.id === props.teamId)?.brothers[0] || null
+      const execPosition = flattened.find(pos => pos.id === props.teamId)
+      const exec = execPosition?.brothers[0] || null
       setExecBrother(exec)
+      if (execPosition) setExecPositionName(execPosition.name)
     }
 
     fetchTeamData()
