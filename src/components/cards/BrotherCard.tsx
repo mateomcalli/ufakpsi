@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from "react";
 import Image from "next/image"
 
 const BrotherCard = (props: { 
@@ -13,19 +12,14 @@ const BrotherCard = (props: {
   positions: string[]
   linkedin: string
 }) => {
-  const [havePositions, setHavePositions] = useState<boolean>(true)
 
-  const positionsString = () => {
-    if (props.positions.length != 0) {
-      let pString : string = "";
-      for (let i : number = 0; i < props.positions.length; i++) {
-        pString += props.positions[i];
-        if (i + 1 != props.positions.length) pString += ", ";
-      }
-      return pString;
-    }
-    setHavePositions(false)
-  }
+  const havePositions = props.positions && props.positions.length > 0;
+  const manyPositions = props.positions && props.positions.length >= 5;
+  const positionsString = props.positions && props.positions.length > 0
+    ? manyPositions
+      ? props.positions.slice(0, 3).join(", ") + ", and more..."
+      : props.positions.join(", ")
+    : "";
   
   return (
     <a className="hover:cursor-pointer w-fit h-fit block rounded-lg" href={props.linkedin} target="_blank">
@@ -45,7 +39,12 @@ const BrotherCard = (props: {
             <span className="underline font-sans text-sm font-bold uppercase tracking-wider text-[#6e6d6d]">Major:</span> {props.major}<br/>
             <span className="underline font-sans text-sm font-bold uppercase tracking-wider text-[#6e6d6d]">College:</span> {props.college}<br/>
             <span className="underline font-sans text-sm font-bold uppercase tracking-wider text-[#6e6d6d]">Grad Year:</span> {props.grad_year}<br/>
-            {havePositions ? (<><span className="underline font-sans text-sm font-bold uppercase tracking-wider text-[#6e6d6d]">Position(s):</span> {positionsString()}</>) : null}
+            {havePositions ? (
+              <span>
+                <span className="pr-1 underline font-sans text-sm font-bold uppercase tracking-wider text-[#6e6d6d]">Position(s):</span>
+                {positionsString}
+              </span>
+            ) : null}
           </p>
         </div>
       </div>

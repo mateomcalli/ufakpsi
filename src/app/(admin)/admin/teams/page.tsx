@@ -7,7 +7,7 @@ import { useState, useEffect } from "react"
 import { TiArrowRight } from "react-icons/ti"
 import { BiBookBookmark } from "react-icons/bi"
 import { CgClose } from "react-icons/cg"
-import { FiEdit2, FiTrash2 } from "react-icons/fi"
+import { FiEdit2, FiTrash2, FiArrowLeft } from "react-icons/fi"
 import { AnimatePresence, motion } from "framer-motion"
 
 type TeamItem = {
@@ -146,7 +146,7 @@ const Teams = () => {
 
   // 3. Delete Team
   const handleDeleteTeam = async () => {
-    if (!deletingTeam) return
+    if (!deletingTeam || [1, 2, 3].includes(deletingTeam.id)) return
 
     setActionLoading(true)
     try {
@@ -203,19 +203,30 @@ const Teams = () => {
 
   return (
     <div className="relative top-24 pb-16 mx-auto w-full px-6 sm:pl-[30px] sm:pr-8 lg:px-0 lg:w-4xl xl:w-6xl 2xl:w-7xl flex flex-col gap-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex flex-col gap-1">
-          <h1 className="font-crimson text-3xl font-semibold text-neutral-900">Manage Teams</h1>
-          <p className="font-sans text-sm text-neutral-500">Add, edit, or select a team to manage its position assignments.</p>
+      <div className="flex flex-col justify-between">
+        <div className="flex flex-col pb-1">
+          <Link
+            href="/admin"
+            className="flex items-center gap-1 text-sm font-sans text-neutral-500 hover:text-dblue transition duration-200 w-fit"
+          >
+            <FiArrowLeft size={16} />
+            <span>Back to Dashboard</span>
+          </Link>
         </div>
 
-        <button
-          onClick={() => setIsAddOpen(true)}
-          className="bg-[#248837] border border-[#65c476] px-4 gap-2 h-10 rounded-lg flex items-center justify-center text-white hover:bg-[#1d6b2e] transition duration-200 w-full sm:w-auto self-start sm:self-auto cursor-pointer"
-        >
-          <BiBookBookmark size={20} />
-          <span className="font-crimson text-lg font-semibold whitespace-nowrap">Add a new team</span>
-        </button>
+        <div className="flex flex-col gap-4 md:gap-0 md:flex-row sm:justify-between">
+          <div>
+            <h1 className="font-crimson text-3xl text-neutral-900">Manage Teams</h1>
+            <p className="font-sans text-sm text-neutral-500">Add, edit, or select a team to manage its position assignments.</p>
+          </div>
+          <button
+            onClick={() => setIsAddOpen(true)}
+            className="bg-[#248837] border border-[#65c476] px-4 gap-2 h-10 rounded-lg flex items-center justify-center text-white hover:bg-[#1d6b2e] transition duration-200 w-full sm:w-auto self-start sm:self-auto cursor-pointer"
+          >
+            <BiBookBookmark size={20} />
+            <span className="font-crimson text-lg whitespace-nowrap">Add a new team</span>
+          </button>
+        </div>
       </div>
 
       {loading ? (
@@ -251,14 +262,16 @@ const Teams = () => {
                 >
                   <FiEdit2 size={17} />
                 </button>
-                <button
-                  type="button"
-                  onClick={() => setDeletingTeam(team)}
-                  className="p-1.5 text-neutral-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition duration-200 cursor-pointer"
-                  title="Delete Team"
-                >
-                  <FiTrash2 size={17} />
-                </button>
+                {![1, 2, 3].includes(team.id) && (
+                  <button
+                    type="button"
+                    onClick={() => setDeletingTeam(team)}
+                    className="p-1.5 text-neutral-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition duration-200 cursor-pointer"
+                    title="Delete Team"
+                  >
+                    <FiTrash2 size={17} />
+                  </button>
+                )}
               </div>
             </div>
           ))}

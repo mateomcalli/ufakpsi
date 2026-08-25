@@ -18,7 +18,7 @@ const Landing = () => {
   const images : Array<string> = [
     '/heavener_bros.jpg',
     '/cute_satt.jpg',
-    '/bros_recruitment.webp',
+    '/bros_recruitment.jpg',
     '/banquet_group.jpg'
   ]
 
